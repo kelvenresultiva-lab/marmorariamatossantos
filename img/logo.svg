@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" role="img" aria-label="Marmoraria Matos Stone">
+  <circle cx="75" cy="75" r="75" fill="#FDC204"/>
+  <path d="M47 15 73 31 101 15V93L87 84V40L74 50 61 40V75L47 66Z" fill="#111"/>
+  <text x="12" y="110.5" textLength="127.5" lengthAdjust="spacingAndGlyphs" fill="#111" font-family="Montserrat, Arial, sans-serif" font-weight="700" font-size="19.5">MARMORARIA</text>
+  <text x="37" y="125.5" textLength="76" lengthAdjust="spacingAndGlyphs" fill="#111" font-family="Montserrat, Arial, sans-serif" font-weight="600" font-size="13.5">Matos Stone</text>
+</svg>

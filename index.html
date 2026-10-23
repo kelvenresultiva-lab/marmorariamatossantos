@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marmoraria Matos Stone | Mármores e Granitos em Contagem</title>
+<meta name="description" content="Marmoraria Matos Stone (Matrix Mármores & Granitos): quartzos, quartzitos, granitos, mármores, porcelanatos e lâminas sob medida. Projeto, produção e instalação em Contagem/MG e região.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-soft:#f4f1ec;
+    --beige:#ebe6df;
+    --ink:#1e1c1a;
+    --ink-2:#5c5751;
+    --ink-3:#8f8981;
+    --line:#e4dfd8;
+    --dark:#2a2724;
+    --footer:#8d8a86;
+    --radius:4px;
+    --wrap:1160px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Inter Tight",system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
+  .eyebrow{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;font-weight:500}
+  h1,h2,h3{font-weight:400;letter-spacing:-.035em;line-height:1.05}
+  h2{font-size:clamp(28px,3.4vw,42px)}
+  .lead{color:var(--ink-2);font-size:14px;max-width:420px}
+  .link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;padding-bottom:4px;border-bottom:1px solid currentColor;margin-top:18px}
+  .link::after{content:"↗";font-size:12px}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:500;padding:11px 18px;border-radius:var(--radius);border:1px solid var(--ink);transition:.2s}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn-dark:hover{background:#000}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+  .btn-light{background:#f5f2ee;color:var(--ink);border-color:#f5f2ee}
+  .btn-outline-light{border-color:rgba(255,255,255,.6);color:#fff}
+  .btn-outline-light:hover{background:#fff;color:var(--ink)}
+  .arrow::after{content:"↗"}
+  .img{position:relative;overflow:hidden;background:linear-gradient(135deg,#e9e4dc,#d8d0c4);background-size:cover;background-position:center}
+  .img>img,.img>iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+  .port .img img{transition:transform .8s ease}
+  .port:hover .img img{transform:scale(1.04)}
+
+  /* HEADER */
+  header{position:absolute;inset:0 0 auto 0;z-index:10;color:#fff}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:88px;max-width:1320px}
+  .logo{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;line-height:1.15}
+  .logo img{height:40px;width:40px}
+  .logo small{display:block;font-weight:400;opacity:.75;font-size:11px}
+  nav ul{display:flex;gap:30px;list-style:none;font-size:13px}
+  nav a{opacity:.9}
+  nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:5px}
+  header .btn{background:#fff;color:var(--ink);border-color:#fff;padding:8px 16px;border-radius:999px;font-size:12.5px}
+  .menu-btn{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
+
+  /* HERO */
+  .hero{position:relative;min-height:760px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;background-color:#7a6650;background-image:linear-gradient(180deg,rgba(25,18,12,.55),rgba(25,18,12,0) 30%),linear-gradient(90deg,rgba(25,18,12,.65),rgba(25,18,12,.15) 65%),url("img/cozinha-taj-mahal-bancada.webp");background-size:cover;background-position:center 70%}
+  .hero-content{padding-bottom:190px}
+  .hero h1{font-size:clamp(38px,5vw,62px);max-width:620px;margin-bottom:28px}
+  .hero .btn{background:rgba(255,255,255,.92);color:var(--ink);border-color:transparent}
+  .stats{position:absolute;left:50%;bottom:0;transform:translate(-50%,0);width:min(1000px,calc(100% - 64px));display:grid;grid-template-columns:repeat(3,1fr);background:rgba(55,48,42,.72);backdrop-filter:blur(8px);border-radius:6px 6px 0 0;text-align:center}
+  .stats div{padding:30px 20px}
+  .stats div+div{border-left:1px solid rgba(255,255,255,.15)}
+  .stats strong{display:block;font-weight:500;font-size:14.5px}
+  .stats span{font-size:12px;opacity:.75}
+
+  section{padding:110px 0}
+  .sec-head{display:flex;justify-content:space-between;gap:40px;align-items:flex-start;margin-bottom:54px}
+  .sec-head .right{max-width:420px}
+
+  /* MATERIAIS */
+  .materiais{border-radius:18px 18px 0 0;margin-top:-18px;position:relative;background:#fff}
+  .carousel-nav{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:12px;color:var(--ink-3);justify-content:flex-end}
+  .carousel-nav button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:14px;color:var(--ink)}
+  .carousel-nav button:hover{border-color:var(--ink)}
+  .track{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px}
+  .track::-webkit-scrollbar{display:none}
+  .mat{flex:0 0 calc((100% - 12px)/3.15);scroll-snap-align:start;background:#fff;border:1px solid var(--line)}
+  .mat .img{aspect-ratio:1/.92}
+  .mat .img img{transform:scale(1.7)}
+  .mat-body{padding:16px 16px 18px}
+  .mat h3{font-size:14px;font-weight:500;letter-spacing:-.01em}
+  .mat p{font-size:11.5px;color:var(--ink-3);margin:2px 0 16px}
+  .mat .btn{width:100%;justify-content:center;padding:8px;font-size:12px;border-color:var(--ink)}
+  .hint{font-size:11px;color:var(--ink-3);margin-top:22px}
+
+  /* CONTEXTO */
+  .split{display:grid;grid-template-columns:1fr 1fr;padding:0;background:var(--beige)}
+  .split .img{min-height:640px}
+  .split .text{padding:90px 70px;display:flex;flex-direction:column;justify-content:center}
+  .split h2{font-size:clamp(26px,2.6vw,34px);margin-bottom:14px}
+  .acc{margin-top:30px;display:flex;flex-direction:column;gap:8px;max-width:520px}
+  .acc-item{background:#f8f6f3;border-radius:3px}
+  .acc-item button{width:100%;display:flex;justify-content:space-between;align-items:center;background:none;border:0;padding:16px 18px;font:inherit;font-size:13px;font-weight:500;cursor:pointer;color:var(--ink);text-align:left}
+  .acc-item button::after{content:"+";font-size:16px;color:var(--ink-3);transition:.2s}
+  .acc-item.open{background:#fff}
+  .acc-item.open button::after{content:"−"}
+  .acc-panel{max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .acc-panel p{padding:0 18px 18px;font-size:12.5px;color:var(--ink-2)}
+  .acc-item.open .acc-panel{max-height:200px}
+
+  /* PORTFOLIO */
+  .grid-port{display:grid;grid-template-columns:1fr 1fr;column-gap:110px}
+  .port{margin-bottom:60px}
+  .port .img{aspect-ratio:1.25/1}
+  .port .tag{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:16px 0 4px}
+  .port h3{font-size:14px;font-weight:500;letter-spacing:-.01em}
+  .port p{font-size:12px;color:var(--ink-3)}
+  .port:nth-child(even){margin-top:50px}
+  .port.small{width:80%}
+  .port.small.right{justify-self:end}
+  .port.center{grid-column:1/-1;width:40%;margin-left:25%}
+  .port.center .img{aspect-ratio:.95/1}
+
+  /* REGIAO */
+  .regiao{grid-template-columns:2fr 1fr}
+  .regiao .img{min-height:560px}
+  .regiao .text{padding:60px 48px}
+  .regiao h2{font-size:clamp(26px,2.8vw,36px)}
+
+  /* PROCESSO */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  .step{padding:26px 24px 34px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:160px}
+  .step small{font-size:10px;color:var(--ink-3);letter-spacing:.1em}
+  .step h3{font-size:14px;font-weight:500;letter-spacing:-.01em;margin:16px 0 8px}
+  .step p{font-size:12.5px;color:var(--ink-2)}
+
+  /* COMPAT */
+  .compat .sec-head{align-items:flex-end;margin:0}
+  .compat h2{font-size:clamp(32px,4.2vw,54px);max-width:720px}
+
+  /* CTA */
+  .cta{color:#fff;text-align:center;padding:150px 0 120px;background-color:#8b8178;background-image:linear-gradient(rgba(70,62,55,.55),rgba(70,62,55,.55)),url("img/cozinha-taj-mahal-pia.webp");background-size:cover;background-position:center}
+  .cta .eyebrow{color:rgba(255,255,255,.75)}
+  .cta h2{font-size:clamp(32px,4vw,52px);max-width:720px;margin:0 auto 18px}
+  .cta p{font-size:13px;opacity:.85;margin-bottom:28px}
+  .cta .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+  /* CONTE */
+  .conte{background:var(--bg-soft);padding:60px 0}
+  .conte .wrap{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+  .conte h2{font-size:clamp(22px,2.2vw,28px);margin-bottom:6px}
+  .conte p{font-size:12.5px;color:var(--ink-3)}
+  .conte .btns{display:flex;gap:10px;flex-wrap:wrap}
+
+  /* FOOTER */
+  footer{background:var(--footer);color:#fff;padding:80px 0 30px}
+  .foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px}
+  .foot .logo img{height:96px;width:96px}
+  .foot p{font-size:12px;opacity:.85;margin-top:18px;max-width:280px}
+  .foot h4{font-size:12px;font-weight:500;margin-bottom:14px}
+  .foot ul{list-style:none;font-size:12px;opacity:.85;display:flex;flex-direction:column;gap:6px}
+  .foot ul a:hover{text-decoration:underline}
+  .foot .social{display:flex;gap:16px;margin-top:22px;font-size:12px}
+  .foot-bottom{display:flex;justify-content:space-between;font-size:11px;opacity:.75;margin-top:70px;padding-top:20px;border-top:1px solid rgba(255,255,255,.2);flex-wrap:wrap;gap:10px}
+
+  /* RESPONSIVO */
+  @media (max-width:960px){
+    nav,header .btn{display:none}
+    .menu-btn{display:block}
+    header.open nav{display:block;position:absolute;top:80px;left:16px;right:16px;background:#fff;color:var(--ink);border-radius:8px;padding:20px}
+    header.open nav ul{flex-direction:column;gap:14px;font-size:15px}
+    .sec-head{flex-direction:column;gap:20px}
+    .split,.regiao{grid-template-columns:1fr}
+    .split .img{min-height:380px}
+    .split .text{padding:60px 32px}
+    .grid-port{column-gap:30px}
+    .steps{grid-template-columns:1fr 1fr}
+    .foot{grid-template-columns:1fr 1fr}
+    .mat{flex-basis:70%}
+  }
+  @media (max-width:640px){
+    .wrap{padding:0 16px}
+    section{padding:72px 0}
+    .hero{min-height:680px}
+    .hero-content{padding-bottom:260px}
+    .stats{grid-template-columns:1fr;width:calc(100% - 32px)}
+    .stats div{padding:16px}
+    .stats div+div{border-left:0;border-top:1px solid rgba(255,255,255,.15)}
+    .split .text{padding:56px 16px}
+    .grid-port{grid-template-columns:1fr}
+    .port,.port.small,.port.center{width:100%;margin:0 0 44px}
+    .port:nth-child(even){margin-top:0}
+    .steps{grid-template-columns:1fr}
+    .foot{grid-template-columns:1fr}
+    .mat{flex-basis:84%}
+  }
+</style>
+</head>
+<body>
+
+<header id="topo">
+  <div class="wrap">
+    <a href="#" class="logo" aria-label="Marmoraria Matos Stone">
+      <img src="img/logo-simbolo.svg" alt="Logo Marmoraria Matos Stone">
+      <span>Matos Stone<small>Mármores e Granitos</small></span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#processo">Como trabalhamos</a></li>
+        <li><a href="#materiais">Materiais</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#compat">Para arquitetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <a href="https://wa.me/5531972661393" class="btn" target="_blank" rel="noopener">Solicitar orçamento</a>
+    <button class="menu-btn" aria-label="Abrir menu" onclick="this.closest('header').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-content">
+    <h1>Transformamos pedras em projetos que impressionam</h1>
+    <a href="https://wa.me/5531972661393" class="btn arrow" target="_blank" rel="noopener">Solicite seu orçamento pelo WhatsApp</a>
+  </div>
+  <div class="stats">
+    <div><strong>Contagem/MG e região</strong><span>Av. Nossa Senhora da Conceição, 486, Tijuca</span></div>
+    <div><strong>Uma equipe</strong><span>medição, produção e instalação</span></div>
+    <div><strong>Do convencional ao alto padrão</strong><span>quartzos, quartzitos, granitos e mármores</span></div>
+  </div>
+</section>
+
+<section class="materiais" id="materiais">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Nossos materiais</p>
+        <h2>Materiais perfeitos<br>para cada ambiente</h2>
+      </div>
+      <div class="right">
+        <p class="lead">Trabalhamos com quartzos, quartzitos, granitos, mármores, porcelanatos e lâminas: desde rochas convencionais até opções de alto padrão, para bancadas, ilhas, lavatórios e revestimentos sob medida.</p>
+        <a href="https://www.instagram.com/matrix_marmores/" class="link" target="_blank" rel="noopener">Veja mais no Instagram</a>
+        <div class="carousel-nav">
+          <span id="mat-count">01 / 04</span>
+          <button id="prev" aria-label="Anterior">←</button>
+          <button id="next" aria-label="Próximo">→</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="track" id="track">
+      <article class="mat"><div class="img"><img src="img/cozinha-taj-mahal-ilha.webp" alt="Textura do quartzito Taj Mahal" loading="lazy" style="transform-origin:35% 70%"></div><div class="mat-body"><h3>Taj Mahal</h3><p>Quartzito em tons claros e quentes</p><a href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Taj%20Mahal." class="btn btn-ghost" target="_blank" rel="noopener">Detalhar material</a></div></article>
+      <article class="mat"><div class="img"><img src="img/bancada-quartzito-vaticano.webp" alt="Textura do Quartzito Vaticano" loading="lazy" style="transform-origin:70% 15%"></div><div class="mat-body"><h3>Quartzito Vaticano</h3><p>Sofisticação, resistência e exclusividade</p><a href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Quartzito%20Vaticano." class="btn btn-ghost" target="_blank" rel="noopener">Detalhar material</a></div></article>
+      <article class="mat"><div class="img"><img src="img/lavabo-travertino-romano.webp" alt="Textura do Travertino Romano" loading="lazy" style="transform-origin:45% 75%"></div><div class="mat-body"><h3>Travertino Romano</h3><p>Rocha natural de textura única</p><a href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Travertino%20Romano." class="btn btn-ghost" target="_blank" rel="noopener">Detalhar material</a></div></article>
+      <article class="mat"><div class="img"><img src="img/bancada-preto-sao-gabriel.webp" alt="Textura do granito Preto São Gabriel" loading="lazy" style="transform-origin:75% 35%"></div><div class="mat-body"><h3>Preto São Gabriel</h3><p>Granito preto, elegante e resistente</p><a href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Preto%20S%C3%A3o%20Gabriel." class="btn btn-ghost" target="_blank" rel="noopener">Detalhar material</a></div></article>
+    </div>
+    <p class="hint">Arraste para o lado e veja outros materiais</p>
+  </div>
+</section>
+
+<section class="split">
+  <div class="img"><img src="img/cozinha-granito-preto.webp" alt="Cozinha com ilha em granito preto" loading="lazy"></div>
+  <div class="text">
+    <p class="eyebrow">Escolha com confiança</p>
+    <h2>A pedra ideal vai além da estética</h2>
+    <p class="lead">Cada ambiente exige uma escolha técnica. Ajudamos você a considerar o uso diário, a exposição à água e ao calor, a resistência, a manutenção e o acabamento de cada material.</p>
+    <div class="acc" id="acc">
+      <div class="acc-item open"><button>Uso e resistência</button><div class="acc-panel"><p>Mármores, granitos, quartzos e quartzitos têm níveis diferentes de resistência. Indicamos o material certo para cozinha, banheiro, área gourmet ou área externa.</p></div></div>
+      <div class="acc-item"><button>Acabamento</button><div class="acc-panel"><p>Polido, levigado ou escovado: mostramos qual acabamento combina melhor com o uso e com o desenho do seu projeto.</p></div></div>
+      <div class="acc-item"><button>Cuba esculpida ou de louça</button><div class="acc-panel"><p>A cuba esculpida é feita sob medida na própria pedra: esconde o ralo, elimina emendas e traz um visual minimalista para lavabos e banheiros.</p></div></div>
+      <div class="acc-item"><button>Cuidados e manutenção</button><div class="acc-panel"><p>Cada pedra tem suas características e exige cuidados específicos. Orientamos você sobre a forma certa de cuidar da sua para ela durar muitos anos.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Projetos em destaque</p>
+        <h2>Superfícies que<br>participam da arquitetura.</h2>
+      </div>
+      <div class="right">
+        <p class="lead">Cada projeto merece uma pedra escolhida de acordo com o estilo, a funcionalidade e a proposta do ambiente. Confira algumas obras finalizadas pela nossa equipe.</p>
+        <a href="https://www.instagram.com/matrix_marmores/" class="link" target="_blank" rel="noopener">Conheça nosso trabalho</a>
+      </div>
+    </div>
+
+    <div class="grid-port">
+      <article class="port">
+        <div class="img"><img src="img/cozinha-taj-mahal-ambiente-m.webp" srcset="img/cozinha-taj-mahal-ambiente-m.webp 800w, img/cozinha-taj-mahal-ambiente.webp 1600w" sizes="(max-width:640px) 100vw, 50vw" alt="Cozinha com ilha em quartzito Taj Mahal" loading="lazy" style="object-position:center 60%"></div>
+        <p class="tag">Cozinha</p><h3>Ilha e bancada em Taj Mahal</h3><p>A elegância do quartzito Taj Mahal transformando cada detalhe da cozinha.</p>
+      </article>
+      <article class="port small right">
+        <div class="img"><img src="img/cozinha-taj-mahal-ilha-m.webp" srcset="img/cozinha-taj-mahal-ilha-m.webp 800w, img/cozinha-taj-mahal-ilha.webp 1600w" sizes="(max-width:640px) 100vw, 40vw" alt="Ilha revestida em Taj Mahal com acabamento em meia-esquadria" loading="lazy" style="object-position:center 55%"></div>
+        <p class="tag">Área gourmet</p><h3>Ilha revestida em Taj Mahal</h3><p>Volume em pedra contínua, com os veios acompanhando cada face da peça.</p>
+      </article>
+      <article class="port small">
+        <div class="img"><img src="img/lavabo-travertino-romano-m.webp" srcset="img/lavabo-travertino-romano-m.webp 800w, img/lavabo-travertino-romano.webp 1440w" sizes="(max-width:640px) 100vw, 40vw" alt="Lavabo com bancada em Travertino Romano" loading="lazy"></div>
+        <p class="tag">Lavabo</p><h3>Lavabo em Travertino Romano</h3><p>Um ambiente refinado, leve e cheio de personalidade.</p>
+      </article>
+      <article class="port small right">
+        <div class="img"><img src="img/bancada-quartzito-vaticano-m.webp" srcset="img/bancada-quartzito-vaticano-m.webp 800w, img/bancada-quartzito-vaticano.webp 1080w" sizes="(max-width:640px) 100vw, 40vw" alt="Bancada com cuba em Quartzito Vaticano" loading="lazy" style="object-position:center 25%"></div>
+        <p class="tag">Cozinha</p><h3>Bancada em Quartzito Vaticano</h3><p>Sofisticação, resistência e exclusividade em uma única peça.</p>
+      </article>
+      <article class="port center">
+        <div class="img"><img src="img/bancada-preto-sao-gabriel-m.webp" srcset="img/bancada-preto-sao-gabriel-m.webp 800w, img/bancada-preto-sao-gabriel.webp 1600w" sizes="(max-width:640px) 100vw, 40vw" alt="Bancada com cuba em granito Preto São Gabriel" loading="lazy"></div>
+        <p class="tag">Cozinha</p><h3>Bancada em Preto São Gabriel</h3><p>Elegância, resistência e personalidade em um acabamento feito para durar.</p>
+      </article>
+    </div>
+    <a href="https://www.instagram.com/matrix_marmores/" class="link" target="_blank" rel="noopener">Ver mais projetos no Instagram</a>
+  </div>
+</section>
+
+<section class="split regiao">
+  <div class="img mapa"><iframe src="https://www.google.com/maps?q=Av.+Nossa+Senhora+da+Concei%C3%A7%C3%A3o,+486,+Tijuca,+Contagem+-+MG&z=16&output=embed" title="Mapa: Marmoraria Matos Stone em Contagem" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  <div class="text">
+    <p class="eyebrow">Venha nos visitar</p>
+    <h2>Atendemos Contagem<br>e Região</h2>
+    <p class="lead" style="margin-top:12px">Av. Nossa Senhora da Conceição, 486, Tijuca, Contagem/MG. Venha conhecer de perto as pedras e escolher a ideal para o seu projeto.</p>
+    <a href="https://www.google.com/maps/search/?api=1&query=Av.+Nossa+Senhora+da+Concei%C3%A7%C3%A3o,+486,+Tijuca,+Contagem+MG" class="link" target="_blank" rel="noopener">Ver no mapa</a>
+  </div>
+</section>
+
+<section id="processo">
+  <div class="wrap">
+    <p class="eyebrow">Como trabalhamos</p>
+    <h2 style="margin-bottom:44px">Do projeto à instalação.</h2>
+    <div class="steps">
+      <div class="step"><small>01</small><h3>Entendimento do projeto</h3><p>Conversamos sobre o projeto, o ambiente, o desenho e o momento da obra para entender o que precisa ser feito.</p></div>
+      <div class="step"><small>02</small><h3>Orçamento e definição</h3><p>Apresentamos materiais, acabamentos, espessuras e detalhes, com um orçamento claro para cada etapa.</p></div>
+      <div class="step"><small>03</small><h3>Medição técnica</h3><p>Conferimos o ambiente pronto, com medidas precisas e compatibilização com marcenaria, louças e metais.</p></div>
+      <div class="step"><small>04</small><h3>Projeto executivo</h3><p>Detalhamos recortes, encaixes, emendas e acabamentos antes do corte, para aprovação do cliente ou do arquiteto.</p></div>
+      <div class="step"><small>05</small><h3>Produção</h3><p>Cortamos e acabamos cada peça em nossa produção, com conferência de qualidade em cada etapa.</p></div>
+      <div class="step"><small>06</small><h3>Instalação e conferência</h3><p>Instalamos as peças com cuidado e fazemos a conferência final junto com você, ambiente por ambiente.</p></div>
+    </div>
+    <a href="https://wa.me/5531972661393" class="link" target="_blank" rel="noopener">Começar meu projeto</a>
+  </div>
+</section>
+
+<section class="compat" id="compat">
+  <div class="wrap">
+    <p class="eyebrow">Para arquitetos e construtoras</p>
+    <div class="sec-head">
+      <h2>Compatibilização técnica para o projeto chegar bem à obra.</h2>
+      <div class="right">
+        <p class="lead">O segredo de um projeto bem executado não está só na pedra escolhida, mas em como ela é medida, detalhada e instalada. Seja nosso parceiro.</p>
+        <a href="https://wa.me/5531975373851?text=Ol%C3%A1!%20Sou%20arquiteto%2Fconstrutora%20e%20quero%20ser%20parceiro." class="link" target="_blank" rel="noopener">Quero ser parceiro</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contato">
+  <div class="wrap">
+    <p class="eyebrow">Vamos começar</p>
+    <h2>Vamos entender o ambiente, o desenho e o momento da obra.</h2>
+    <p>Conte sobre o seu projeto e receba a orientação da nossa equipe.</p>
+    <div class="btns">
+      <a href="https://wa.me/5531972661393" class="btn btn-dark arrow" target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+      <a href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20enviar%20meu%20projeto%20para%20or%C3%A7amento." class="btn btn-light" target="_blank" rel="noopener">Enviar projeto</a>
+    </div>
+  </div>
+</section>
+
+<section class="conte">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Fale conosco</p>
+      <h2>Conte o que você está planejando.</h2>
+      <p>Seu projeto, com a pedra certa e o acabamento certo.</p>
+    </div>
+    <div class="btns">
+      <a href="https://wa.me/5531972661393" class="btn btn-dark arrow" target="_blank" rel="noopener">Conversar por WhatsApp</a>
+      <a href="https://www.instagram.com/matrix_marmores/" class="btn btn-ghost" target="_blank" rel="noopener">Ver o Instagram</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="#" class="logo" aria-label="Marmoraria Matos Stone"><img src="img/logo.svg" alt="Logo Marmoraria Matos Stone"></a>
+        <p>Marmoraria Matos Stone | Matrix Mármores &amp; Granitos. Transformamos pedras em projetos que impressionam, em Contagem/MG e região.</p>
+        <div class="social"><a href="https://www.instagram.com/matrix_marmores/" target="_blank" rel="noopener">Instagram @matrix_marmores</a></div>
+      </div>
+      <div>
+        <h4>Navegue</h4>
+        <ul><li><a href="#">Início</a></li><li><a href="#materiais">Materiais</a></li><li><a href="#portfolio">Portfólio</a></li><li><a href="#processo">Como trabalhamos</a></li><li><a href="#contato">Contato</a></li></ul>
+      </div>
+      <div>
+        <h4>Serviços</h4>
+        <ul><li>Cozinhas e ilhas</li><li>Banheiros e lavabos</li><li>Cubas esculpidas</li><li>Áreas gourmet</li><li>Revestimentos</li></ul>
+      </div>
+      <div>
+        <h4>Atendimento</h4>
+        <ul><li>Av. Nossa Senhora da Conceição, 486</li><li>Tijuca, Contagem/MG</li><li><a href="https://wa.me/5531972661393" target="_blank" rel="noopener">Vendas online: (31) 97266-1393</a></li><li><a href="https://wa.me/5531975373851" target="_blank" rel="noopener">Escritório: (31) 97537-3851</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="ano">2026</span> Marmoraria Matos Stone. Todos os direitos reservados.</span>
+      <a href="#topo">Voltar ao topo ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('ano').textContent = new Date().getFullYear();
+
+  // carrossel de materiais
+  const track = document.getElementById('track');
+  const count = document.getElementById('mat-count');
+  const cards = track.children;
+  const step = () => cards[0].getBoundingClientRect().width + 6;
+  document.getElementById('next').onclick = () => track.scrollBy({left: step(), behavior: 'smooth'});
+  document.getElementById('prev').onclick = () => track.scrollBy({left: -step(), behavior: 'smooth'});
+  track.addEventListener('scroll', () => {
+    const i = Math.round(track.scrollLeft / step()) + 1;
+    count.textContent = String(Math.min(i, cards.length)).padStart(2, '0') + ' / ' + String(cards.length).padStart(2, '0');
+  });
+
+  // acordeão
+  document.querySelectorAll('#acc .acc-item button').forEach(btn => {
+    btn.onclick = () => {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('#acc .acc-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    };
+  });
+
+  // fecha o menu mobile ao clicar num link
+  document.querySelectorAll('nav a').forEach(a => a.onclick = () => document.getElementById('topo').classList.remove('open'));
+</script>
+</body>
+</html>
