@@ -1,11 +1,6 @@
 {
   "version": "0.0.1",
   "configurations": [
-    {
-      "name": "marmoraria",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["-y", "http-server", "-p", "8964", "-c-1"],
-      "port": 8964
-    }
+    { "name": "marmoraria", "url": "http://localhost:8964", "port": 8964 }
   ]
 }

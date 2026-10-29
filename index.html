@@ -11,14 +11,14 @@
 <style>
   :root{
     --bg:#ffffff;
-    --bg-soft:#f4f1ec;
-    --beige:#ebe6df;
+    --bg-soft:#f6f1ea;
+    --beige:#ece3d6;
     --ink:#1e1c1a;
-    --ink-2:#5c5751;
+    --ink-2:#5f574e;
     --ink-3:#8f8981;
-    --line:#e4dfd8;
+    --line:#e6ddd1;
     --dark:#2a2724;
-    --footer:#8d8a86;
+    --footer:#8f8579;
     --radius:4px;
     --wrap:1160px;
   }
@@ -44,6 +44,7 @@
   .arrow::after{content:"↗"}
   .img{position:relative;overflow:hidden;background:linear-gradient(135deg,#e9e4dc,#d8d0c4);background-size:cover;background-position:center}
   .img>img,.img>iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+  .mapa iframe{filter:grayscale(1) sepia(.35) contrast(.92) brightness(1.03)}
   .port .img img{transition:transform .8s ease}
   .port:hover .img img{transform:scale(1.04)}
 
@@ -60,7 +61,7 @@
   .menu-btn{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
 
   /* HERO */
-  .hero{position:relative;min-height:760px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;background-color:#7a6650;background-image:linear-gradient(180deg,rgba(25,18,12,.55),rgba(25,18,12,0) 30%),linear-gradient(90deg,rgba(25,18,12,.65),rgba(25,18,12,.15) 65%),url("img/cozinha-taj-mahal-bancada.webp");background-size:cover;background-position:center 70%}
+  .hero{position:relative;min-height:760px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;background-color:#7a6650;background-image:linear-gradient(180deg,rgba(25,18,12,.35),rgba(25,18,12,0) 25%),linear-gradient(90deg,rgba(40,26,14,.55),rgba(40,26,14,.05) 60%),url("img/hero-ilha-esculpida.webp");background-size:cover;background-position:right center}
   .hero-content{padding-bottom:190px}
   .hero h1{font-size:clamp(38px,5vw,62px);max-width:620px;margin-bottom:28px}
   .hero .btn{background:rgba(255,255,255,.92);color:var(--ink);border-color:transparent}
@@ -96,7 +97,7 @@
   .split .text{padding:90px 70px;display:flex;flex-direction:column;justify-content:center}
   .split h2{font-size:clamp(26px,2.6vw,34px);margin-bottom:14px}
   .acc{margin-top:30px;display:flex;flex-direction:column;gap:8px;max-width:520px}
-  .acc-item{background:#f8f6f3;border-radius:3px}
+  .acc-item{background:#f7f2eb;border-radius:3px}
   .acc-item button{width:100%;display:flex;justify-content:space-between;align-items:center;background:none;border:0;padding:16px 18px;font:inherit;font-size:13px;font-weight:500;cursor:pointer;color:var(--ink);text-align:left}
   .acc-item button::after{content:"+";font-size:16px;color:var(--ink-3);transition:.2s}
   .acc-item.open{background:#fff}
@@ -136,7 +137,7 @@
   .compat h2{font-size:clamp(32px,4.2vw,54px);max-width:720px}
 
   /* CTA */
-  .cta{color:#fff;text-align:center;padding:150px 0 120px;background-color:#8b8178;background-image:linear-gradient(rgba(70,62,55,.55),rgba(70,62,55,.55)),url("img/cozinha-taj-mahal-pia.webp");background-size:cover;background-position:center}
+  .cta{color:#fff;text-align:center;padding:150px 0 120px;background-color:#8b8178;background-image:linear-gradient(rgba(72,58,44,.5),rgba(72,58,44,.5)),url("img/textura-taj-mahal.webp");background-size:cover;background-position:center}
   .cta .eyebrow{color:rgba(255,255,255,.75)}
   .cta h2{font-size:clamp(32px,4vw,52px);max-width:720px;margin:0 auto 18px}
   .cta p{font-size:13px;opacity:.85;margin-bottom:28px}
@@ -178,7 +179,7 @@
   @media (max-width:640px){
     .wrap{padding:0 16px}
     section{padding:72px 0}
-    .hero{min-height:680px}
+    .hero{min-height:680px;background-image:linear-gradient(180deg,rgba(25,18,12,.5),rgba(25,18,12,.15) 40%,rgba(25,18,12,.55)),url("img/hero-ilha-esculpida-m.webp");background-position:62% center}
     .hero-content{padding-bottom:260px}
     .stats{grid-template-columns:1fr;width:calc(100% - 32px)}
     .stats div{padding:16px}
@@ -257,7 +258,7 @@
 </section>
 
 <section class="split">
-  <div class="img"><img src="img/cozinha-granito-preto.webp" alt="Cozinha com ilha em granito preto" loading="lazy"></div>
+  <div class="img"><img src="img/cozinha-taj-mahal-pia.webp" alt="Bancada e frontão em quartzito Taj Mahal" loading="lazy" style="object-position:center 40%"></div>
   <div class="text">
     <p class="eyebrow">Escolha com confiança</p>
     <h2>A pedra ideal vai além da estética</h2>
@@ -300,10 +301,6 @@
       <article class="port small right">
         <div class="img"><img src="img/bancada-quartzito-vaticano-m.webp" srcset="img/bancada-quartzito-vaticano-m.webp 800w, img/bancada-quartzito-vaticano.webp 1080w" sizes="(max-width:640px) 100vw, 40vw" alt="Bancada com cuba em Quartzito Vaticano" loading="lazy" style="object-position:center 25%"></div>
         <p class="tag">Cozinha</p><h3>Bancada em Quartzito Vaticano</h3><p>Sofisticação, resistência e exclusividade em uma única peça.</p>
-      </article>
-      <article class="port center">
-        <div class="img"><img src="img/bancada-preto-sao-gabriel-m.webp" srcset="img/bancada-preto-sao-gabriel-m.webp 800w, img/bancada-preto-sao-gabriel.webp 1600w" sizes="(max-width:640px) 100vw, 40vw" alt="Bancada com cuba em granito Preto São Gabriel" loading="lazy"></div>
-        <p class="tag">Cozinha</p><h3>Bancada em Preto São Gabriel</h3><p>Elegância, resistência e personalidade em um acabamento feito para durar.</p>
       </article>
     </div>
     <a href="https://www.instagram.com/matrix_marmores/" class="link" target="_blank" rel="noopener">Ver mais projetos no Instagram</a>
