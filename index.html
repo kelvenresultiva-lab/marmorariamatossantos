@@ -202,22 +202,22 @@
   @media (max-width:640px){
     .wrap{padding:0 16px}
     section{padding:72px 0}
-    .hero{min-height:156vw;justify-content:flex-start;background-image:linear-gradient(180deg,rgba(30,20,12,.3),rgba(30,20,12,.08) 45%,rgba(30,20,12,0) 60%),url("img/hero-mobile.webp");background-position:center top}
-    .hero-content{padding:24vw 22px 0;width:100%}
+    /* degradê só atrás do texto: mais forte à esquerda, some para a direita e antes da bancada */
+    .hero{min-height:156vw;justify-content:flex-start;background-image:radial-gradient(120% 52% at 0% 34%,rgba(18,12,7,.62) 0%,rgba(18,12,7,.42) 42%,rgba(18,12,7,.12) 72%,rgba(18,12,7,0) 100%),linear-gradient(180deg,rgba(18,12,7,.3),rgba(18,12,7,0) 22%),url("img/hero-mobile.webp");background-position:center top}
+    .hero-content{padding:24vw 20px 0;width:100%}
     .hero .m-only{display:revert}
     header .logo{gap:14px;font-size:14px}
     header .logo .logo-cor{display:none}
     header .logo .logo-branco{display:block;width:auto;height:30px}
     header .logo small{font-size:12px;opacity:.9}
-    .hero .eyebrow{color:#fff;font-size:10px;letter-spacing:.34em;margin-bottom:12px}
-    .hero h1{font-size:clamp(30px,9vw,42px);font-weight:500;letter-spacing:-.04em;line-height:1.02;max-width:none;margin-bottom:14px}
-    .hero-sub{font-size:15px;line-height:1.45;max-width:330px;margin-bottom:22px}
-    .hero .btn{width:max(58vw,214px);justify-content:space-between;padding:12px 16px;border-radius:6px;font-size:15px;background:#f8f5f0}
+    .hero .eyebrow{color:#fff;font-size:10px;font-weight:600;letter-spacing:.2em;line-height:1.6;margin-bottom:12px}
+    .hero h1{font-size:clamp(28px,8vw,32px);font-weight:500;letter-spacing:-.03em;line-height:1.12;max-width:11.5em;margin-bottom:16px;color:#fff}
+    .hero-sub{font-size:14px;line-height:1.5;color:#fff;max-width:calc(69vw - 34px);margin-bottom:24px}
+    .hero .btn{width:100%;min-height:48px;justify-content:space-between;padding:12px 16px;border-radius:4px;font-size:14px;background:#f8f5f0}
     .hero .btn::after{display:none}
     .hero .btn .l{display:none}
     .hero .btn .s{display:inline}
     .hero .btn svg{width:22px;height:22px}
-    .hero-note{font-size:12.5px;margin-top:12px}
     .stats{display:none}
     .split .text{padding:56px 16px}
     .escolha{padding:24px 0 64px}
@@ -290,12 +290,10 @@
 
 <section class="hero">
   <div class="wrap hero-content">
-    <p class="eyebrow m-only">Marmoraria em Contagem</p>
-    <h1>Transformamos pedras em projetos que impressionam<span class="m-only">.</span></h1>
+    <p class="eyebrow m-only">Marmoraria em Contagem e região</p>
+    <h1>Transformamos<br class="m-only"> pedras em projetos<br class="m-only"> que impressionam<span class="m-only">.</span></h1>
     <p class="hero-sub m-only">Bancadas, ilhas e revestimentos sob medida, da escolha à instalação.</p>
-    <a href="https://wa.me/5531972661393" class="btn arrow" target="_blank" rel="noopener"><span class="l">Solicite seu orçamento pelo WhatsApp</span><span class="s">Solicitar orçamento</span><svg class="m-only" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1 1 8 19.4z"/><path d="M9 8.3c.2-.5.6-.6.9-.6h.5c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .5-.1.6l-.5.6c-.1.2-.1.4 0 .6.6 1 1.4 1.8 2.4 2.4.2.1.4.1.6 0l.6-.5c.2-.1.4-.2.6-.1l1.7.7c.3.1.4.3.4.5v.5c0 .3-.1.7-.6.9-.6.3-1.6.5-3.1-.2a9.7 9.7 0 0 1-4.5-4.5c-.7-1.5-.5-2.5.2-3.1z"/></svg></a>
-    <p class="hero-note m-only">Atendimento em Contagem e região</p>
-  </div>
+    <a href="https://wa.me/5531972661393" class="btn arrow" target="_blank" rel="noopener"><span class="l">Solicite seu orçamento pelo WhatsApp</span><span class="s">Solicitar orçamento</span><svg class="m-only" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1 1 8 19.4z"/><path d="M9 8.3c.2-.5.6-.6.9-.6h.5c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .5-.1.6l-.5.6c-.1.2-.1.4 0 .6.6 1 1.4 1.8 2.4 2.4.2.1.4.1.6 0l.6-.5c.2-.1.4-.2.6-.1l1.7.7c.3.1.4.3.4.5v.5c0 .3-.1.7-.6.9-.6.3-1.6.5-3.1-.2a9.7 9.7 0 0 1-4.5-4.5c-.7-1.5-.5-2.5.2-3.1z"/></svg></a>  </div>
   <div class="stats">
     <div><strong>Contagem/MG e região</strong><span>Av. Nossa Senhora da Conceição, 486, Tijuca</span></div>
     <div><strong>Uma equipe</strong><span>medição, produção e instalação</span></div>
