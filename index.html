@@ -10,13 +10,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#ffffff;
-    --bg-soft:#f6f1ea;
-    --beige:#ece3d6;
+    --bg:#fdf9ee;
+    --bg-soft:#f8f0dc;
+    --beige:#f1e5c9;
     --ink:#1e1c1a;
     --ink-2:#5f574e;
     --ink-3:#8f8981;
-    --line:#e6ddd1;
+    --line:#ebdfc4;
     --dark:#2a2724;
     --footer:#262321;
     --brand:#F5C400;
@@ -39,7 +39,7 @@
   .btn-dark{background:var(--ink);color:#fff}
   .btn-dark:hover{background:#000}
   .btn-ghost:hover{background:var(--ink);color:#fff}
-  .btn-light{background:#f5f2ee;color:var(--ink);border-color:#f5f2ee}
+  .btn-light{background:#fbf5e6;color:var(--ink);border-color:#fbf5e6}
   .btn-outline-light{border-color:rgba(255,255,255,.6);color:#fff}
   .btn-outline-light:hover{background:#fff;color:var(--ink)}
   .arrow::after{content:"↗"}
@@ -77,13 +77,13 @@
   .sec-head .right{max-width:420px}
 
   /* MATERIAIS */
-  .materiais{border-radius:18px 18px 0 0;margin-top:-18px;position:relative;background:#fff}
+  .materiais{border-radius:18px 18px 0 0;margin-top:-18px;position:relative;background:var(--bg)}
   .carousel-nav{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:12px;color:var(--ink-3);justify-content:flex-end}
-  .carousel-nav button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:14px;color:var(--ink)}
+  .carousel-nav button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--bg);cursor:pointer;font-size:14px;color:var(--ink)}
   .carousel-nav button:hover{border-color:var(--ink)}
   .track{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px}
   .track::-webkit-scrollbar{display:none}
-  .mat{flex:0 0 calc((100% - 12px)/3.15);scroll-snap-align:start;background:#fff;border:1px solid var(--line)}
+  .mat{flex:0 0 calc((100% - 12px)/3.15);scroll-snap-align:start;background:#fffdf6;border:1px solid var(--line)}
   .mat .img{aspect-ratio:1/.92}
   .mat .img img{transition:transform .8s ease}
   .mat:hover .img img{transform:scale(1.05)}
@@ -100,7 +100,7 @@
   .split h2{font-size:clamp(26px,2.6vw,34px);margin-bottom:14px}
 
   /* ESCOLHA COM CONFIANÇA */
-  .escolha{background:#f7f6f3;padding:84px 0 100px}
+  .escolha{background:var(--bg-soft);padding:84px 0 100px}
   .escolha .wrap{max-width:1480px}
   .escolha .foto{display:block;aspect-ratio:1416/427}
   .escolha-grid{display:grid;grid-template-columns:1fr 1.35fr;gap:70px;padding:74px 44px 0;align-items:start}
@@ -108,8 +108,8 @@
   .escolha h2{font-size:clamp(38px,4.2vw,64px);font-weight:300;letter-spacing:-.045em;line-height:1.02;margin-bottom:22px}
   .escolha .lead{font-size:18.5px;color:#7a736b;max-width:430px;line-height:1.5}
   .escolha .btn{margin-top:28px;padding:15px 28px;border-radius:2px;font-size:15px;gap:16px}
-  .acc{border-top:1px solid #d9d4cc}
-  .acc-item{border-bottom:1px solid #d9d4cc}
+  .acc{border-top:1px solid #dfd2b4}
+  .acc-item{border-bottom:1px solid #dfd2b4}
   .acc-item button{width:100%;display:grid;grid-template-columns:64px 1fr auto;align-items:center;background:none;border:0;padding:26px 14px 26px 4px;font:inherit;font-size:20px;letter-spacing:-.01em;cursor:pointer;color:var(--ink);text-align:left}
   .acc-item .n{font-size:14px;color:#9a6b47;letter-spacing:.04em}
   .acc-item button::after{content:"+";font-size:26px;font-weight:300;line-height:1;color:var(--ink)}
@@ -214,8 +214,8 @@
     .escolha .eyebrow{font-size:10.5px;letter-spacing:.24em}
     .escolha h2{font-size:clamp(32px,9.4vw,40px);margin-bottom:16px}
     .escolha .lead{font-size:15px;line-height:1.55}
-    .acc{order:1;margin-top:26px;border-top-color:#e0d3c8}
-    .acc-item{border-bottom-color:#e0d3c8}
+    .acc{order:1;margin-top:26px;border-top-color:#e3d6b8}
+    .acc-item{border-bottom-color:#e3d6b8}
     .acc-item button{font-size:16px;grid-template-columns:44px 1fr auto;padding:22px 4px 22px 1px}
     .acc-item .n{font-size:12px}
     .acc-item button::after{font-size:24px}
@@ -226,7 +226,7 @@
     .port,.port.small,.port.center{flex:0 0 84%;width:auto;margin:0;scroll-snap-align:start}
     .port:nth-child(even){margin-top:0}
     .port-dots{display:flex;gap:8px;justify-content:center;margin:26px 0 8px}
-    .port-dots button{width:7px;height:7px;padding:0;border:0;border-radius:50%;background:#d6cec3;cursor:pointer;transition:.25s}
+    .port-dots button{width:7px;height:7px;padding:0;border:0;border-radius:50%;background:#dccfae;cursor:pointer;transition:.25s}
     .port-dots button.on{width:22px;border-radius:4px;background:var(--ink)}
     .steps{grid-template-columns:1fr}
     footer{padding:56px 0 30px}
