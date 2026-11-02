@@ -98,15 +98,25 @@
   .split .img{min-height:640px}
   .split .text{padding:90px 70px;display:flex;flex-direction:column;justify-content:center}
   .split h2{font-size:clamp(26px,2.6vw,34px);margin-bottom:14px}
-  .acc{margin-top:30px;display:flex;flex-direction:column;gap:8px;max-width:520px}
-  .acc-item{background:#f7f2eb;border-radius:3px}
-  .acc-item button{width:100%;display:flex;justify-content:space-between;align-items:center;background:none;border:0;padding:16px 18px;font:inherit;font-size:13px;font-weight:500;cursor:pointer;color:var(--ink);text-align:left}
-  .acc-item button::after{content:"+";font-size:16px;color:var(--ink-3);transition:.2s}
-  .acc-item.open{background:#fff}
+
+  /* ESCOLHA COM CONFIANÇA */
+  .escolha{background:#f7f6f3;padding:84px 0 100px}
+  .escolha .wrap{max-width:1480px}
+  .escolha .foto{aspect-ratio:1416/427}
+  .escolha-grid{display:grid;grid-template-columns:1fr 1.35fr;gap:70px;padding:74px 44px 0;align-items:start}
+  .escolha .eyebrow{color:#9a6b47;letter-spacing:.2em;font-size:11px}
+  .escolha h2{font-size:clamp(38px,4.2vw,64px);font-weight:300;letter-spacing:-.045em;line-height:1.02;margin-bottom:22px}
+  .escolha .lead{font-size:18.5px;color:#7a736b;max-width:430px;line-height:1.5}
+  .escolha .btn{margin-top:28px;padding:15px 28px;border-radius:2px;font-size:15px;gap:16px}
+  .acc{border-top:1px solid #d9d4cc}
+  .acc-item{border-bottom:1px solid #d9d4cc}
+  .acc-item button{width:100%;display:grid;grid-template-columns:64px 1fr auto;align-items:center;background:none;border:0;padding:26px 14px 26px 4px;font:inherit;font-size:20px;letter-spacing:-.01em;cursor:pointer;color:var(--ink);text-align:left}
+  .acc-item .n{font-size:14px;color:#9a6b47;letter-spacing:.04em}
+  .acc-item button::after{content:"+";font-size:26px;font-weight:300;line-height:1;color:var(--ink)}
   .acc-item.open button::after{content:"−"}
-  .acc-panel{max-height:0;overflow:hidden;transition:max-height .3s ease}
-  .acc-panel p{padding:0 18px 18px;font-size:12.5px;color:var(--ink-2)}
-  .acc-item.open .acc-panel{max-height:200px}
+  .acc-panel{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .acc-panel p{padding:0 60px 34px 68px;margin-top:-8px;font-size:16px;line-height:1.7;color:#8a837b}
+  .acc-item.open .acc-panel{max-height:220px}
 
   /* PORTFOLIO */
   .grid-port{display:grid;grid-template-columns:1fr 1fr;column-gap:110px}
@@ -184,6 +194,8 @@
     .split,.regiao{grid-template-columns:1fr}
     .split .img{min-height:380px}
     .split .text{padding:60px 32px}
+    .escolha-grid{grid-template-columns:1fr;gap:44px;padding:52px 0 0}
+    .escolha .foto{aspect-ratio:16/8}
     .grid-port{column-gap:30px}
     .steps{grid-template-columns:1fr 1fr}
     .foot{grid-template-columns:1fr 1fr;gap:40px 32px}
@@ -199,6 +211,11 @@
     .stats div{padding:16px}
     .stats div+div{border-left:0;border-top:1px solid rgba(255,255,255,.15)}
     .split .text{padding:56px 16px}
+    .escolha{padding:56px 0 72px}
+    .escolha .foto{aspect-ratio:4/3}
+    .escolha .lead{font-size:16px}
+    .acc-item button{font-size:17px;grid-template-columns:44px 1fr auto;padding:20px 4px}
+    .acc-panel p{padding:0 8px 24px 48px;font-size:14.5px}
     .grid-port{grid-template-columns:1fr}
     .port,.port.small,.port.center{width:100%;margin:0 0 44px}
     .port:nth-child(even){margin-top:0}
@@ -288,17 +305,22 @@
   </div>
 </section>
 
-<section class="split">
-  <div class="img"><img src="img/cozinha-taj-mahal-pia.webp" alt="Bancada e frontão em quartzito Taj Mahal" loading="lazy" style="object-position:center 40%"></div>
-  <div class="text">
-    <p class="eyebrow">Escolha com confiança</p>
-    <h2>A pedra ideal vai além da estética</h2>
-    <p class="lead">Cada ambiente exige uma escolha técnica. Ajudamos você a considerar o uso diário, a exposição à água e ao calor, a resistência, a manutenção e o acabamento de cada material.</p>
-    <div class="acc" id="acc">
-      <div class="acc-item open"><button>Uso e resistência</button><div class="acc-panel"><p>Mármores, granitos, quartzos e quartzitos têm níveis diferentes de resistência. Indicamos o material certo para cozinha, banheiro, área gourmet ou área externa.</p></div></div>
-      <div class="acc-item"><button>Acabamento</button><div class="acc-panel"><p>Polido, levigado ou escovado: mostramos qual acabamento combina melhor com o uso e com o desenho do seu projeto.</p></div></div>
-      <div class="acc-item"><button>Cuba esculpida ou de louça</button><div class="acc-panel"><p>A cuba esculpida é feita sob medida na própria pedra: esconde o ralo, elimina emendas e traz um visual minimalista para lavabos e banheiros.</p></div></div>
-      <div class="acc-item"><button>Cuidados e manutenção</button><div class="acc-panel"><p>Cada pedra tem suas características e exige cuidados específicos. Orientamos você sobre a forma certa de cuidar da sua para ela durar muitos anos.</p></div></div>
+<section class="escolha">
+  <div class="wrap">
+    <div class="img foto"><img src="img/cozinha-frontao.webp" srcset="img/cozinha-frontao-m.webp 900w, img/cozinha-frontao.webp 1800w" sizes="100vw" alt="Cozinha com bancada e frontão em pedra natural" loading="lazy"></div>
+    <div class="escolha-grid">
+      <div>
+        <p class="eyebrow">Escolha com confiança</p>
+        <h2>Beleza que se vê.<br>Qualidade que<br>se vive.</h2>
+        <p class="lead">A escolha da pedra começa pelo seu dia a dia. Encontre o equilíbrio entre estética, uso e manutenção.</p>
+        <a href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20ajuda%20para%20escolher%20o%20material%20ideal." class="btn btn-dark arrow" target="_blank" rel="noopener">Encontre o material ideal</a>
+      </div>
+      <div class="acc" id="acc">
+        <div class="acc-item open"><button><span class="n">01</span>Uso e resistência</button><div class="acc-panel"><p>Cada superfície tem características próprias. Consideramos a rotina do ambiente, o contato com água e calor e as necessidades do seu projeto.</p></div></div>
+        <div class="acc-item"><button><span class="n">02</span>Acabamentos e detalhes</button><div class="acc-panel"><p>Polido, levigado ou escovado, com bordas retas, meia-esquadria ou boleadas: mostramos o acabamento que combina com o uso e com o desenho do seu projeto.</p></div></div>
+        <div class="acc-item"><button><span class="n">03</span>Cubas e soluções sob medida</button><div class="acc-panel"><p>A cuba esculpida é feita na própria pedra: esconde o ralo, elimina emendas e traz um visual minimalista para lavabos, banheiros e cozinhas.</p></div></div>
+        <div class="acc-item"><button><span class="n">04</span>Cuidados e manutenção</button><div class="acc-panel"><p>Cada pedra pede cuidados específicos. Orientamos você sobre a forma certa de limpar e proteger a sua para ela durar muitos anos.</p></div></div>
+      </div>
     </div>
   </div>
 </section>
