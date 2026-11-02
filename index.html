@@ -19,7 +19,10 @@
     --line:#ebdfc4;
     --dark:#2a2724;
     --footer:#262321;
-    --brand:#F5C400;
+    --brand:#F4C928;
+    --amarelo:#F4C928;
+    --amarelo-hover:#E2B91F;
+    --grafite:#292824;
     --radius:4px;
     --wrap:1160px;
   }
@@ -62,16 +65,15 @@
   .menu-btn{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
 
   /* HERO */
-  .hero{position:relative;min-height:760px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;background-color:#7a6650;background-image:linear-gradient(180deg,rgba(25,18,12,.35),rgba(25,18,12,0) 25%),linear-gradient(90deg,rgba(40,26,14,.55),rgba(40,26,14,.05) 60%),url("img/hero-ilha-esculpida.webp");background-size:cover;background-position:right center}
+  .hero{position:relative;min-height:760px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;background-color:#7a6650;background-image:linear-gradient(180deg,rgba(25,18,12,.35),rgba(25,18,12,0) 25%),linear-gradient(90deg,rgba(40,26,14,.55),rgba(40,26,14,.05) 60%),url("img/hero-cozinha-ilha.webp");background-size:cover;background-position:right center}
   .hero-content{padding-bottom:190px}
   .hero h1{font-size:clamp(38px,5vw,62px);max-width:620px;margin-bottom:28px}
   .hero .btn{background:rgba(255,255,255,.92);color:var(--ink);border-color:transparent}
   .hero .m-only,.hero .btn .s,.logo .logo-branco{display:none}
-  .stats{position:absolute;left:50%;bottom:0;transform:translate(-50%,0);width:min(1000px,calc(100% - 64px));display:grid;grid-template-columns:repeat(3,1fr);background:rgba(55,48,42,.72);backdrop-filter:blur(8px);border-radius:6px 6px 0 0;text-align:center}
-  .stats div{padding:30px 20px}
-  .stats div+div{border-left:1px solid rgba(255,255,255,.15)}
-  .stats strong{display:block;font-weight:500;font-size:14.5px}
-  .stats span{font-size:12px;opacity:.75}
+  .stats{display:none}
+  /* versões que só aparecem a partir de 641px; no celular tudo continua como estava */
+  .logo .logo-escuro,.hero .link{display:none}
+  .hero-actions{display:contents}
 
   section{padding:110px 0}
   .sec-head{display:flex;justify-content:space-between;gap:40px;align-items:flex-start;margin-bottom:54px}
@@ -138,6 +140,9 @@
   .regiao .img{min-height:560px}
   .regiao .text{padding:60px 48px}
   .regiao h2{font-size:clamp(26px,2.8vw,36px)}
+  .regiao-rule{width:52px;height:1px;background:#b8ab98;margin:22px 0}
+  .regiao-end{display:flex;align-items:flex-start;gap:14px;margin:0 0 26px;font-size:14.5px;line-height:1.55;color:var(--ink)}
+  .regiao-end svg{flex:none;width:24px;height:24px;color:#918575}
 
   /* PROCESSO */
   .steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
@@ -145,6 +150,8 @@
   .step small{font-size:10px;color:var(--ink-3);letter-spacing:.1em}
   .step h3{font-size:14px;font-weight:500;letter-spacing:-.01em;margin:16px 0 8px}
   .step p{font-size:12.5px;color:var(--ink-2)}
+  #processo h2{margin-bottom:44px}
+  .proc-sub,.proc-cta{display:none}
 
   /* COMPAT */
   .compat .sec-head{align-items:flex-end;margin:0}
@@ -153,11 +160,6 @@
   /* CTA */
 
   /* CONTE */
-  .conte{background:var(--bg-soft);padding:60px 0}
-  .conte .wrap{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
-  .conte h2{font-size:clamp(22px,2.2vw,28px);margin-bottom:6px}
-  .conte p{font-size:12.5px;color:var(--ink-3)}
-  .conte .btns{display:flex;gap:10px;flex-wrap:wrap}
 
   /* FOOTER */
   footer{background:var(--footer);color:#fff;padding:80px 0 34px}
@@ -202,8 +204,12 @@
   @media (max-width:640px){
     .wrap{padding:0 16px}
     section{padding:72px 0}
-    /* degradê só atrás do texto: mais forte à esquerda, some para a direita e antes da bancada */
-    .hero{min-height:156vw;justify-content:flex-start;background-image:radial-gradient(120% 52% at 0% 34%,rgba(18,12,7,.62) 0%,rgba(18,12,7,.42) 42%,rgba(18,12,7,.12) 72%,rgba(18,12,7,0) 100%),linear-gradient(180deg,rgba(18,12,7,.3),rgba(18,12,7,0) 22%),url("img/hero-mobile.webp");background-position:center top}
+    /* degradê só atrás do texto: mais forte à esquerda, some para a direita e antes da bancada.
+       Altura: 80px a mais que os 156vw anteriores (a proporção da foto), ou 85svh quando a tela é alta;
+       o espaço extra fica abaixo do botão e mostra mais da bancada. A primeira linha é o plano B
+       para navegador sem svh. Os raios do degradê estão em vw (eram % de 156vw) para o sombreamento
+       continuar exatamente atrás do texto, que não mudou de lugar. */
+    .hero{min-height:calc(156vw + 80px);min-height:max(calc(156vw + 80px),85svh);justify-content:flex-start;background-image:radial-gradient(120% 81.12vw at 0% 53.04vw,rgba(18,12,7,.62) 0%,rgba(18,12,7,.42) 42%,rgba(18,12,7,.12) 72%,rgba(18,12,7,0) 100%),linear-gradient(180deg,rgba(18,12,7,.3),rgba(18,12,7,0) 34.32vw),url("img/hero-mobile-bancada.webp");background-position:center top}
     .hero-content{padding:24vw 20px 0;width:100%}
     .hero .m-only{display:revert}
     header .logo{gap:14px;font-size:14px}
@@ -213,11 +219,11 @@
     .hero .eyebrow{color:#fff;font-size:10px;font-weight:600;letter-spacing:.2em;line-height:1.6;margin-bottom:12px}
     .hero h1{font-size:clamp(28px,8vw,32px);font-weight:500;letter-spacing:-.03em;line-height:1.12;max-width:11.5em;margin-bottom:16px;color:#fff}
     .hero-sub{font-size:14px;line-height:1.5;color:#fff;max-width:calc(69vw - 34px);margin-bottom:24px}
-    .hero .btn{width:100%;min-height:48px;justify-content:space-between;padding:12px 16px;border-radius:4px;font-size:14px;background:#f8f5f0}
+    .hero .btn{width:auto;min-height:40px;gap:14px;justify-content:space-between;padding:9px 14px;border-radius:4px;font-size:13px;background:#f8f5f0;box-shadow:0 4px 14px rgba(18,12,7,.28)}
     .hero .btn::after{display:none}
     .hero .btn .l{display:none}
     .hero .btn .s{display:inline}
-    .hero .btn svg{width:22px;height:22px}
+    .hero .btn svg{width:18px;height:18px}
     .stats{display:none}
     .split .text{padding:56px 16px}
     .escolha{padding:24px 0 64px}
@@ -262,6 +268,162 @@
     .foot-top .s{display:inline}
     .mat{flex-basis:84%}
   }
+
+  /* DESKTOP E TABLET (641px+): cabeçalho claro acima da foto, texto à esquerda, faixa de números abaixo.
+     Fica no fim do arquivo para vencer as regras antigas; o celular (até 640px) não é tocado. */
+  @media (min-width:641px){
+    header{position:relative;inset:auto;background:var(--bg);color:var(--ink)}
+    header .wrap{max-width:1264px;height:80px}
+    .logo{gap:14px;font-size:clamp(15px,1.35vw,19px)}
+    .logo small{font-size:.7em;opacity:.6}
+    .logo .logo-cor{display:none}
+    .logo .logo-escuro{display:block;height:44px;width:auto}
+    nav ul{gap:clamp(24px,3vw,44px)}
+    header .btn{background:var(--dark);color:#fff;border-color:var(--dark);border-radius:2px;padding:12px 22px;font-size:13px}
+    .menu-btn{color:var(--ink)}
+
+    .hero{min-height:clamp(540px,43vw,680px);justify-content:center;background-image:linear-gradient(90deg,rgba(30,20,12,.7),rgba(30,20,12,.3) 48%,rgba(30,20,12,0) 76%),url("img/hero-cozinha-ilha.webp");background-position:center 55%}
+    .hero .hero-content{width:100%;max-width:none;margin:0;padding:0 clamp(24px,6.5vw,120px)}
+    .hero .m-only{display:revert}
+    .hero br.m-only{display:none}
+    .hero .eyebrow{display:block;color:rgba(255,255,255,.92);font-size:12px;letter-spacing:.2em;margin-bottom:22px}
+    .hero h1{font-size:clamp(36px,3.8vw,56px);line-height:1.04;max-width:10.4em;margin-bottom:26px}
+    .hero-sub{font-size:17px;line-height:1.5;max-width:335px;color:rgba(255,255,255,.88);margin-bottom:34px}
+    .hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:18px 28px}
+    .hero .btn{background:#fff;border-color:#fff;border-radius:0;padding:14px 26px 14px 22px;font-size:14px;gap:14px}
+    .hero .btn .l{display:none}
+    .hero .btn .s{display:inline}
+    .hero .btn svg{width:22px;height:22px;order:-1}
+    .hero .btn::after{display:none}
+    .hero .link{display:inline-flex;margin:0;color:#fff;font-size:14px;padding-bottom:3px}
+
+    /* três cards sobrepostos ao limite da hero: metade na foto, metade no fundo da seção seguinte.
+       O degradê duro a 56px pinta o fundo claro só da metade de baixo, sem empurrar a seção sobre a foto. */
+    .stats{display:grid;position:relative;z-index:2;margin-top:-56px;grid-template-columns:repeat(3,1fr);gap:20px;padding:0 max(32px,calc((100% - 1240px)/2)) 64px;background:linear-gradient(to bottom,transparent 56px,#F8F7F3 56px)}
+    .stat{display:flex;align-items:center;gap:20px;min-height:112px;padding:24px;background:#FAF9F6;border:1px solid #E3DED6;border-radius:6px;box-shadow:0 10px 30px rgba(48,47,43,.08)}
+    .stat-ico{flex:none;width:34px;height:34px;color:#918575}
+    .stat strong{display:block;font-size:16px;font-weight:500;line-height:1.3;color:#302F2B}
+    .stat span{display:block;margin-top:2px;font-size:14px;line-height:1.4;color:#77736D}
+
+    /* MATERIAIS: mesmo container de 1240px dos cards, setas junto ao cabeçalho */
+    .materiais{margin-top:0;border-radius:0;padding-top:0;background:#F8F7F3}
+    .materiais .wrap{max-width:1304px}
+    .materiais .sec-head{align-items:flex-end;margin-bottom:32px}
+    .materiais .sec-head .right{display:grid;grid-template-columns:minmax(0,420px) auto;column-gap:40px;align-items:end;max-width:none}
+    .materiais .right .lead{grid-column:1}
+    .materiais .right .link{grid-column:1;justify-self:start}
+    .materiais .right .carousel-nav{grid-column:2;grid-row:1/3;align-self:end;margin:0}
+  }
+
+  @media (min-width:641px) and (max-width:960px){
+    .stats{grid-template-columns:1fr;gap:14px}
+    .materiais .sec-head{align-items:flex-start}
+    .materiais .sec-head .right{display:block;max-width:420px}
+    .materiais .right .carousel-nav{margin-top:22px}
+  }
+
+  /* LOCALIZAÇÃO (641px+): bloco centralizado em 1240px, texto à esquerda e mapa em cartão à direita.
+     No celular continua a faixa antiga, com o mapa em cima e o painel bege embaixo. */
+  @media (min-width:641px){
+    .regiao{background:#F8F7F3;padding:110px max(32px,calc((100% - 1240px)/2));row-gap:36px}
+    .regiao .text{order:1;padding:0}
+    .regiao .img{order:2;border:1px solid #E3DED6;border-radius:6px}
+    .regiao .mapa iframe{filter:grayscale(1) contrast(.9) brightness(1.06)}
+    .regiao .eyebrow{color:#918575;letter-spacing:.22em;margin-bottom:22px}
+    .regiao h2{font-size:clamp(32px,3.3vw,48px);font-weight:300;line-height:1.08;margin-bottom:22px}
+    .regiao .lead{font-size:17px;line-height:1.7;color:#77736D;max-width:440px;margin:0}
+    .regiao-end{font-size:15.5px;color:#302F2B;margin-bottom:34px}
+    .regiao .btn{align-self:flex-start;background:#2f2f2f;border-color:#2f2f2f;border-radius:2px;padding:16px 34px;font-size:15px;gap:14px}
+  }
+  @media (min-width:961px){
+    .regiao{grid-template-columns:minmax(380px,430px) 1fr;column-gap:48px;align-items:center}
+    .regiao .img{min-height:500px}
+  }
+
+  /* COMO TRABALHAMOS no celular: números grandes, divisórias finas só entre os itens,
+     subtítulo logo abaixo do título e botão escuro. Só vale até 640px; o desktop não é tocado. */
+  @media (max-width:640px){
+    #processo .eyebrow{color:#918575;letter-spacing:.22em}
+    #processo h2{font-size:clamp(32px,9.6vw,40px);margin-bottom:14px}
+    .proc-sub{display:block;font-size:16px;line-height:1.55;color:#77736D;margin:0 0 34px;max-width:30em}
+    #processo .steps{grid-template-columns:1fr;border:0}
+    #processo .step{padding:26px 0 28px;min-height:0;border:0}
+    #processo .step+.step{border-top:1px solid #E3DED6}
+    #processo .step:first-child{padding-top:6px}
+    #processo .step small{display:block;font-size:38px;font-weight:300;line-height:1;letter-spacing:-.02em;color:#85796a}
+    #processo .step h3{font-size:21px;font-weight:400;letter-spacing:-.02em;margin:16px 0 8px;color:var(--ink)}
+    #processo .step p{font-size:16px;line-height:1.6;color:#77736D}
+    #processo .link{display:none}
+    .proc-cta{display:inline-flex;margin-top:34px;padding:16px 26px;font-size:15px;gap:14px;border-radius:2px;background:#2f2f2f;border-color:#2f2f2f}
+  }
+
+  /* CABEÇALHO no celular: barra clara e sólida acima da hero, como no desktop (antes era logo branco por cima da foto).
+     A hero não muda: ela só começa abaixo da barra. */
+  @media (max-width:640px){
+    header{position:relative;inset:auto;background:var(--bg);color:var(--ink)}
+    header .wrap{height:64px}
+    header .logo{gap:12px;font-size:15px}
+    header .logo .logo-branco{display:none}
+    header .logo .logo-escuro{display:block;height:34px;width:auto}
+    header .logo small{font-size:11.5px;opacity:.6}
+    .menu-btn{color:var(--ink)}
+    header.open nav{top:68px}
+  }
+
+  /* RODAPÉ amarelo (--amarelo): fundo na cor nova, e texto, ícones e botão passam para o escuro.
+     --brand e --footer só eram usados aqui, então redefinir dentro do rodapé não afeta o resto do site. */
+  footer{--footer:var(--amarelo);--brand:#1d1b19;background:var(--amarelo);color:#1d1b19}
+  .foot-brand p,.foot ul,.foot-bottom{color:rgba(29,27,25,.88)}
+  .foot-brand,.foot-atend,.foot-bottom{border-color:rgba(29,27,25,.2)}
+  .foot ul a:hover,.foot-ig:hover{color:#1d1b19;text-decoration:underline;text-underline-offset:4px}
+  .foot-cta{background:#1d1b19;color:var(--amarelo)}
+  .foot-cta:hover{background:#000}
+  @media (max-width:640px){
+    .foot-contact .pin svg{color:#1d1b19}
+  }
+
+
+  /* ESCOLHA COM CONFIANÇA: fundo branco */
+  .escolha{background:#fff}
+
+  /* CABEÇALHO: logo e nome em preto */
+  header .logo{color:#000}
+
+  /* RODAPÉ: mesma logo do cabeçalho (M e nome em preto), no lugar do selo redondo amarelo */
+  .foot .logo{gap:16px;font-size:26px;color:#000}
+  .foot .logo .logo-escuro{display:block;height:64px;width:auto}
+  .foot .logo small{font-size:15px;opacity:.7}
+
+  /* AMARELO DA MARCA distribuído pela página (só cores): botões principais, ícones dos cards,
+     números das etapas, indicador do carrossel e sublinhado da navegação. Texto sempre em grafite. */
+  header .btn,.hero .btn,.escolha .btn,.regiao .btn{background:var(--amarelo);color:var(--grafite);border-color:var(--amarelo)}
+  header .btn:hover,.hero .btn:hover,.escolha .btn:hover,.regiao .btn:hover,
+  header .btn:focus-visible,.hero .btn:focus-visible,.escolha .btn:focus-visible,.regiao .btn:focus-visible{background:var(--amarelo-hover);color:var(--grafite);border-color:var(--amarelo-hover)}
+  .stat-ico{color:var(--amarelo)}
+  .step small,#processo .step small{color:var(--amarelo)}
+  .port-dots button.on{background:var(--amarelo)}
+  nav a:hover,nav a:focus-visible,nav a.active,nav a[aria-current]{text-decoration-color:var(--amarelo)}
+
+  /* COMO TRABALHAMOS no celular: linha do tempo. Bolinha amarela com o número, linha fina ligando as etapas,
+     título e frase curta ao lado, botão amarelo em largura total. O desktop não é tocado. */
+  .p-m{display:none}
+  @media (max-width:640px){
+    #processo{background:#F8F7F3}
+    #processo .eyebrow{color:var(--amarelo);font-weight:600}
+    #processo h2{max-width:8.2em;font-weight:400}
+    .p-d{display:none}
+    .p-m{display:inline}
+    #processo .steps{display:block}
+    #processo .step,#processo .step+.step,#processo .step:first-child{position:relative;display:grid;grid-template-columns:34px 1fr;column-gap:20px;align-content:start;padding:0 0 30px;border:0}
+    #processo .step:last-child{padding-bottom:0}
+    #processo .step:not(:last-child)::before{content:"";position:absolute;left:16px;top:34px;bottom:0;width:1px;background:#E3DED6}
+    #processo .step small{grid-row:1/3;display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--amarelo);color:var(--grafite);font-size:13px;font-weight:600;letter-spacing:0;line-height:1}
+    #processo .step h3{grid-column:2;margin:6px 0 6px;font-size:19px;font-weight:500;line-height:1.2;color:var(--grafite)}
+    #processo .step p{grid-column:2;font-size:15.5px;line-height:1.5;color:#68645D}
+    .proc-cta{display:flex;width:100%;justify-content:center;margin-top:40px;padding:17px 20px;border-radius:4px;font-size:16px;font-weight:500;gap:14px;background:var(--amarelo);color:var(--grafite);border-color:var(--amarelo)}
+    .proc-cta::after{content:"→";font-size:18px}
+    .proc-cta:hover,.proc-cta:focus-visible{background:var(--amarelo-hover);color:var(--grafite);border-color:var(--amarelo-hover)}
+  }
 </style>
 </head>
 <body>
@@ -271,6 +433,7 @@
     <a href="#" class="logo" aria-label="Marmoraria Matos Stone">
       <img src="img/logo-simbolo.svg" alt="Logo Marmoraria Matos Stone" class="logo-cor">
       <img src="img/logo-m-branco.svg" alt="" class="logo-branco">
+      <img src="img/logo-m-escuro.svg" alt="" class="logo-escuro">
       <span>Matos Stone<small>Mármores e Granitos</small></span>
     </a>
     <nav>
@@ -283,7 +446,7 @@
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
-    <a href="https://wa.me/5531972661393" class="btn" target="_blank" rel="noopener">Solicitar orçamento</a>
+    <a href="https://wa.me/5531972661393" class="btn arrow" target="_blank" rel="noopener">Solicitar orçamento</a>
     <button class="menu-btn" aria-label="Abrir menu" onclick="this.closest('header').classList.toggle('open')">☰</button>
   </div>
 </header>
@@ -293,13 +456,27 @@
     <p class="eyebrow m-only">Marmoraria em Contagem e região</p>
     <h1>Transformamos<br class="m-only"> pedras em projetos<br class="m-only"> que impressionam<span class="m-only">.</span></h1>
     <p class="hero-sub m-only">Bancadas, ilhas e revestimentos sob medida, da escolha à instalação.</p>
-    <a href="https://wa.me/5531972661393" class="btn arrow" target="_blank" rel="noopener"><span class="l">Solicite seu orçamento pelo WhatsApp</span><span class="s">Solicitar orçamento</span><svg class="m-only" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1 1 8 19.4z"/><path d="M9 8.3c.2-.5.6-.6.9-.6h.5c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .5-.1.6l-.5.6c-.1.2-.1.4 0 .6.6 1 1.4 1.8 2.4 2.4.2.1.4.1.6 0l.6-.5c.2-.1.4-.2.6-.1l1.7.7c.3.1.4.3.4.5v.5c0 .3-.1.7-.6.9-.6.3-1.6.5-3.1-.2a9.7 9.7 0 0 1-4.5-4.5c-.7-1.5-.5-2.5.2-3.1z"/></svg></a>  </div>
-  <div class="stats">
-    <div><strong>Contagem/MG e região</strong><span>Av. Nossa Senhora da Conceição, 486, Tijuca</span></div>
-    <div><strong>Uma equipe</strong><span>medição, produção e instalação</span></div>
-    <div><strong>Do convencional ao alto padrão</strong><span>quartzos, quartzitos, granitos e mármores</span></div>
+    <div class="hero-actions">
+    <a href="https://wa.me/5531972661393" class="btn arrow" target="_blank" rel="noopener"><span class="l">Solicite seu orçamento pelo WhatsApp</span><span class="s">Solicitar orçamento</span><svg class="m-only" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1 1 8 19.4z"/><path d="M9 8.3c.2-.5.6-.6.9-.6h.5c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .5-.1.6l-.5.6c-.1.2-.1.4 0 .6.6 1 1.4 1.8 2.4 2.4.2.1.4.1.6 0l.6-.5c.2-.1.4-.2.6-.1l1.7.7c.3.1.4.3.4.5v.5c0 .3-.1.7-.6.9-.6.3-1.6.5-3.1-.2a9.7 9.7 0 0 1-4.5-4.5c-.7-1.5-.5-2.5.2-3.1z"/></svg></a>
+    <a href="#portfolio" class="link">Conheça nossos projetos</a>
+    </div>
   </div>
 </section>
+
+<div class="stats">
+  <div class="stat">
+    <svg class="stat-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 1 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+    <div class="stat-txt"><strong>Contagem/MG e região</strong><span>Atendimento local</span></div>
+  </div>
+  <div class="stat">
+    <svg class="stat-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 17.5 17.5 3.5l3 3-14 14z"/><path d="M7.7 13.3l1.6 1.6M10.5 10.5l1.6 1.6M13.3 7.7l1.6 1.6"/></svg>
+    <div class="stat-txt"><strong>Da medição à instalação</strong><span>Uma equipe para o seu projeto</span></div>
+  </div>
+  <div class="stat">
+    <svg class="stat-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3 7.5 12 12l9-4.5z"/><path d="M3 12l9 4.5 9-4.5"/><path d="M3 16.5 12 21l9-4.5"/></svg>
+    <div class="stat-txt"><strong>Do convencional ao alto padrão</strong><span>Pedras e superfícies sob medida</span></div>
+  </div>
+</div>
 
 <section class="materiais" id="materiais">
   <div class="wrap">
@@ -385,29 +562,36 @@
   </div>
 </section>
 
-<section class="split regiao">
+<section class="split regiao" id="contato">
   <div class="img mapa"><iframe src="https://www.google.com/maps?q=Av.+Nossa+Senhora+da+Concei%C3%A7%C3%A3o,+486,+Tijuca,+Contagem+-+MG&z=16&output=embed" title="Mapa: Marmoraria Matos Stone em Contagem" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
   <div class="text">
-    <p class="eyebrow">Venha nos visitar</p>
-    <h2>Atendemos Contagem<br>e Região</h2>
-    <p class="lead" style="margin-top:12px">Av. Nossa Senhora da Conceição, 486, Tijuca, Contagem/MG. Venha conhecer de perto as pedras e escolher a ideal para o seu projeto.</p>
-    <a href="https://www.google.com/maps/search/?api=1&query=Av.+Nossa+Senhora+da+Concei%C3%A7%C3%A3o,+486,+Tijuca,+Contagem+MG" class="link" target="_blank" rel="noopener">Ver no mapa</a>
+    <p class="eyebrow">Conheça nosso espaço</p>
+    <h2>Seu projeto começa<br>com uma<br>boa escolha.</h2>
+    <p class="lead">Visite a Matos Stone em Contagem e conheça as opções de pedras e acabamentos para o seu projeto.</p>
+    <div class="regiao-rule"></div>
+    <p class="regiao-end">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 1 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+      <span>Av. Nossa Senhora da Conceição, 486<br>Tijuca · Contagem/MG</span>
+    </p>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=Av.+Nossa+Senhora+da+Concei%C3%A7%C3%A3o,+486,+Tijuca,+Contagem+MG" class="btn btn-dark arrow" target="_blank" rel="noopener">Como chegar</a>
   </div>
 </section>
 
 <section id="processo">
   <div class="wrap">
     <p class="eyebrow">Como trabalhamos</p>
-    <h2 style="margin-bottom:44px">Do projeto à instalação.</h2>
+    <h2>Do projeto à instalação.</h2>
+    <p class="proc-sub">Um processo claro, do primeiro contato ao acabamento.</p>
     <div class="steps">
-      <div class="step"><small>01</small><h3>Entendimento do projeto</h3><p>Conversamos sobre o projeto, o ambiente, o desenho e o momento da obra para entender o que precisa ser feito.</p></div>
-      <div class="step"><small>02</small><h3>Orçamento e definição</h3><p>Apresentamos materiais, acabamentos, espessuras e detalhes, com um orçamento claro para cada etapa.</p></div>
-      <div class="step"><small>03</small><h3>Medição técnica</h3><p>Conferimos o ambiente pronto, com medidas precisas e compatibilização com marcenaria, louças e metais.</p></div>
-      <div class="step"><small>04</small><h3>Projeto executivo</h3><p>Detalhamos recortes, encaixes, emendas e acabamentos antes do corte, para aprovação do cliente ou do arquiteto.</p></div>
-      <div class="step"><small>05</small><h3>Produção</h3><p>Cortamos e acabamos cada peça em nossa produção, com conferência de qualidade em cada etapa.</p></div>
-      <div class="step"><small>06</small><h3>Instalação e conferência</h3><p>Instalamos as peças com cuidado e fazemos a conferência final junto com você, ambiente por ambiente.</p></div>
+      <div class="step"><small>01</small><h3>Entendimento do projeto</h3><p><span class="p-d">Conversamos sobre o projeto, o ambiente e o momento da obra para entender o que precisa ser feito.</span><span class="p-m">Entendemos seu ambiente e o momento da obra.</span></p></div>
+      <div class="step"><small>02</small><h3>Orçamento e definição</h3><p><span class="p-d">Apresentamos materiais, acabamentos e detalhes, com um orçamento claro para cada etapa.</span><span class="p-m">Definimos materiais e acabamentos, com orçamento claro.</span></p></div>
+      <div class="step"><small>03</small><h3>Medição técnica</h3><p><span class="p-d">Conferimos medidas e encontros com marcenaria, louças e metais no ambiente.</span><span class="p-m">Conferimos medidas, marcenaria, louças e metais.</span></p></div>
+      <div class="step"><small>04</small><h3>Projeto executivo</h3><p><span class="p-d">Detalhamos recortes, encaixes e acabamentos para aprovação antes do corte.</span><span class="p-m">Detalhamos recortes e encaixes antes do corte.</span></p></div>
+      <div class="step"><small>05</small><h3>Produção</h3><p><span class="p-d">Cortamos e acabamos cada peça, com conferência de qualidade em cada etapa.</span><span class="p-m">Produzimos cada peça com conferência de qualidade.</span></p></div>
+      <div class="step"><small>06</small><h3>Instalação e conferência</h3><p><span class="p-d">Instalamos as peças e fazemos a conferência final com você, ambiente por ambiente.</span><span class="p-m">Instalamos e conferimos tudo com você.</span></p></div>
     </div>
     <a href="https://wa.me/5531972661393" class="link" target="_blank" rel="noopener">Começar meu projeto</a>
+    <a href="https://wa.me/5531972661393" class="btn btn-dark arrow proc-cta" target="_blank" rel="noopener">Começar meu projeto</a>
   </div>
 </section>
 
@@ -424,61 +608,8 @@
   </div>
 </section>
 
-<section class="conte" id="contato">
-  <div class="wrap">
-    <div>
-      <p class="eyebrow">Fale conosco</p>
-      <h2>Conte o que você está planejando.</h2>
-      <p>Seu projeto, com a pedra certa e o acabamento certo.</p>
-    </div>
-    <div class="btns">
-      <a href="https://wa.me/5531972661393" class="btn btn-dark arrow" target="_blank" rel="noopener">Conversar por WhatsApp</a>
-      <a href="https://www.instagram.com/matrix_marmores/" class="btn btn-ghost" target="_blank" rel="noopener">Ver o Instagram</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="foot">
-      <div class="foot-brand">
-        <a href="#" class="logo" aria-label="Marmoraria Matos Stone"><img src="img/logo.svg" alt="Logo Marmoraria Matos Stone"></a>
-        <p>Marmoraria Matos Stone | Matrix Mármores &amp; Granitos. Transformamos pedras em projetos que impressionam, em Contagem/MG e região.</p>
-        <a class="foot-ig" href="https://www.instagram.com/matrix_marmores/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1" fill="currentColor" stroke="none"/></svg>
-          @matrix_marmores
-        </a>
-      </div>
-      <div>
-        <h4>Navegue</h4>
-        <ul><li><a href="#">Início</a></li><li><a href="#materiais">Materiais</a></li><li><a href="#portfolio">Portfólio</a></li><li><a href="#processo">Como trabalhamos</a></li><li><a href="#contato">Contato</a></li></ul>
-      </div>
-      <div>
-        <h4>Serviços</h4>
-        <ul><li>Cozinhas e ilhas</li><li>Banheiros e lavabos</li><li>Cubas esculpidas</li><li>Áreas gourmet</li><li>Revestimentos</li></ul>
-      </div>
-      <div class="foot-atend">
-        <h4>Atendimento</h4>
-        <ul class="foot-contact">
-          <li class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><a href="https://www.google.com/maps/search/?api=1&query=Av.+Nossa+Senhora+da+Concei%C3%A7%C3%A3o,+486,+Tijuca,+Contagem+MG" target="_blank" rel="noopener"><span style="white-space:nowrap">Av. Nossa Senhora da Conceição, 486</span><br>Tijuca, Contagem/MG</a></li>
-          <li class="tel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 3.5h3l1.6 4.2-2.1 1.4a11 11 0 0 0 7.4 7.4l1.4-2.1 4.2 1.6v3a2 2 0 0 1-2.2 2A17 17 0 0 1 3 5.7a2 2 0 0 1 2-2.2z"/></svg><a href="https://wa.me/5531972661393" target="_blank" rel="noopener">Vendas online: (31) 97266-1393</a></li>
-          <li class="tel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 3.5h3l1.6 4.2-2.1 1.4a11 11 0 0 0 7.4 7.4l1.4-2.1 4.2 1.6v3a2 2 0 0 1-2.2 2A17 17 0 0 1 3 5.7a2 2 0 0 1 2-2.2z"/></svg><a href="https://wa.me/5531975373851" target="_blank" rel="noopener">Escritório: (31) 97537-3851</a></li>
-        </ul>
-        <a class="foot-cta" href="https://wa.me/5531972661393" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1 1 8 19.4z"/><path d="M9 8.3c.2-.5.6-.6.9-.6h.5c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .5-.1.6l-.5.6c-.1.2-.1.4 0 .6.6 1 1.4 1.8 2.4 2.4.2.1.4.1.6 0l.6-.5c.2-.1.4-.2.6-.1l1.7.7c.3.1.4.3.4.5v.5c0 .3-.1.7-.6.9-.6.3-1.6.5-3.1-.2a9.7 9.7 0 0 1-4.5-4.5c-.7-1.5-.5-2.5-.1-3z" fill="currentColor" stroke="none"/></svg>
-          Solicitar orçamento
-        </a>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© <span id="ano">2026</span> Marmoraria Matos Stone. <span class="br">Todos os direitos reservados.</span></span>
-      <a href="#topo" class="foot-top"><span class="l">Voltar ao topo</span><span class="s">Topo</span> <b>↑</b></a>
-    </div>
-  </div>
-</footer>
 
 <script>
-  document.getElementById('ano').textContent = new Date().getFullYear();
 
   // carrossel de materiais
   const track = document.getElementById('track');
