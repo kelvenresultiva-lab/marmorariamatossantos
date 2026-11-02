@@ -18,7 +18,8 @@
     --ink-3:#8f8981;
     --line:#e6ddd1;
     --dark:#2a2724;
-    --footer:#8f8579;
+    --footer:#262321;
+    --brand:#F5C400;
     --radius:4px;
     --wrap:1160px;
   }
@@ -84,7 +85,8 @@
   .track::-webkit-scrollbar{display:none}
   .mat{flex:0 0 calc((100% - 12px)/3.15);scroll-snap-align:start;background:#fff;border:1px solid var(--line)}
   .mat .img{aspect-ratio:1/.92}
-  .mat .img img{transform:scale(1.7)}
+  .mat .img img{transition:transform .8s ease}
+  .mat:hover .img img{transform:scale(1.05)}
   .mat-body{padding:16px 16px 18px}
   .mat h3{font-size:14px;font-weight:500;letter-spacing:-.01em}
   .mat p{font-size:11.5px;color:var(--ink-3);margin:2px 0 16px}
@@ -151,15 +153,26 @@
   .conte .btns{display:flex;gap:10px;flex-wrap:wrap}
 
   /* FOOTER */
-  footer{background:var(--footer);color:#fff;padding:80px 0 30px}
-  .foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px}
-  .foot .logo img{height:96px;width:96px}
-  .foot p{font-size:12px;opacity:.85;margin-top:18px;max-width:280px}
-  .foot h4{font-size:12px;font-weight:500;margin-bottom:14px}
-  .foot ul{list-style:none;font-size:12px;opacity:.85;display:flex;flex-direction:column;gap:6px}
-  .foot ul a:hover{text-decoration:underline}
-  .foot .social{display:flex;gap:16px;margin-top:22px;font-size:12px}
-  .foot-bottom{display:flex;justify-content:space-between;font-size:11px;opacity:.75;margin-top:70px;padding-top:20px;border-top:1px solid rgba(255,255,255,.2);flex-wrap:wrap;gap:10px}
+  footer{background:var(--footer);color:#fff;padding:80px 0 34px}
+  .foot{display:grid;grid-template-columns:1.45fr .9fr 1fr 1.45fr;gap:48px}
+  .foot .logo img{height:120px;width:120px}
+  .foot-brand p{font-size:14px;line-height:1.6;color:rgba(255,255,255,.88);margin-top:18px;max-width:390px}
+  .foot-ig{display:inline-flex;align-items:center;gap:12px;margin-top:22px;font-size:15px;font-weight:500}
+  .foot-ig svg{width:26px;height:26px}
+  .foot h4{font-size:17px;font-weight:600;color:var(--brand);margin-bottom:18px;letter-spacing:-.01em}
+  .foot ul{list-style:none;font-size:14.5px;color:rgba(255,255,255,.9);display:flex;flex-direction:column;gap:10px}
+  .foot ul a:hover,.foot-ig:hover{color:var(--brand)}
+  .foot-contact li{display:flex;gap:10px;align-items:flex-start;line-height:1.45}
+  .foot-contact svg{width:20px;height:20px;flex:none;margin-top:1px}
+  .foot-contact .pin svg{color:var(--brand);fill:var(--brand)}
+  .foot-contact .pin circle{fill:var(--footer);stroke:var(--footer)}
+  .foot-contact .tel svg{display:none}
+  .foot-cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;margin-top:22px;padding:13px 22px;background:var(--brand);color:#1d1b19;border-radius:4px;font-size:15px;font-weight:600;white-space:nowrap;transition:.2s}
+  .foot-cta:hover{background:#ffd43a}
+  .foot-cta svg{width:26px;height:26px}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:rgba(255,255,255,.85);margin-top:64px;padding-top:30px;border-top:1px solid rgba(255,255,255,.16);flex-wrap:wrap;gap:12px}
+  .foot-top b{color:var(--brand);font-weight:500;margin-left:4px}
+  .foot-top .s{display:none}
 
   /* RESPONSIVO */
   @media (max-width:960px){
@@ -173,7 +186,8 @@
     .split .text{padding:60px 32px}
     .grid-port{column-gap:30px}
     .steps{grid-template-columns:1fr 1fr}
-    .foot{grid-template-columns:1fr 1fr}
+    .foot{grid-template-columns:1fr 1fr;gap:40px 32px}
+    .foot-brand,.foot-atend{grid-column:1/-1}
     .mat{flex-basis:70%}
   }
   @media (max-width:640px){
@@ -189,7 +203,24 @@
     .port,.port.small,.port.center{width:100%;margin:0 0 44px}
     .port:nth-child(even){margin-top:0}
     .steps{grid-template-columns:1fr}
-    .foot{grid-template-columns:1fr}
+    footer{padding:56px 0 30px}
+    .foot{gap:0 24px}
+    .foot .logo img{height:116px;width:116px}
+    .foot-brand{padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.16);margin-bottom:30px}
+    .foot-brand p{font-size:15px}
+    .foot h4{font-size:19px;margin-bottom:16px}
+    .foot ul{font-size:15px;gap:14px}
+    .foot-atend{padding-top:30px;border-top:1px solid rgba(255,255,255,.16);margin-top:30px}
+    .foot-contact{gap:16px}
+    .foot-contact .pin svg{color:#fff;fill:none}
+    .foot-contact .pin circle{fill:none;stroke:currentColor}
+    .foot-contact .tel svg{display:block}
+    .foot-cta{display:flex;width:100%;margin-top:26px;padding:15px}
+    .foot-bottom{margin-top:30px;padding-top:26px;font-size:13px;flex-wrap:nowrap}
+    .foot-bottom .br{display:block;opacity:.8}
+    .foot-top{color:var(--brand);font-size:15px;white-space:nowrap}
+    .foot-top .l{display:none}
+    .foot-top .s{display:inline}
     .mat{flex-basis:84%}
   }
 </style>
@@ -248,10 +279,10 @@
     </div>
 
     <div class="track" id="track">
-      <article class="mat"><div class="img"><img src="img/cozinha-taj-mahal-ilha.webp" alt="Textura do quartzito Taj Mahal" loading="lazy" style="transform-origin:35% 70%"></div><div class="mat-body"><h3>Taj Mahal</h3><p>Quartzito em tons claros e quentes</p><a href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Taj%20Mahal." class="btn btn-ghost" target="_blank" rel="noopener">Detalhar material</a></div></article>
-      <article class="mat"><div class="img"><img src="img/bancada-quartzito-vaticano.webp" alt="Textura do Quartzito Vaticano" loading="lazy" style="transform-origin:70% 15%"></div><div class="mat-body"><h3>Quartzito Vaticano</h3><p>Sofisticação, resistência e exclusividade</p><a href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Quartzito%20Vaticano." class="btn btn-ghost" target="_blank" rel="noopener">Detalhar material</a></div></article>
-      <article class="mat"><div class="img"><img src="img/lavabo-travertino-romano.webp" alt="Textura do Travertino Romano" loading="lazy" style="transform-origin:45% 75%"></div><div class="mat-body"><h3>Travertino Romano</h3><p>Rocha natural de textura única</p><a href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Travertino%20Romano." class="btn btn-ghost" target="_blank" rel="noopener">Detalhar material</a></div></article>
-      <article class="mat"><div class="img"><img src="img/bancada-preto-sao-gabriel.webp" alt="Textura do granito Preto São Gabriel" loading="lazy" style="transform-origin:75% 35%"></div><div class="mat-body"><h3>Preto São Gabriel</h3><p>Granito preto, elegante e resistente</p><a href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Preto%20S%C3%A3o%20Gabriel." class="btn btn-ghost" target="_blank" rel="noopener">Detalhar material</a></div></article>
+      <article class="mat"><div class="img"><img src="img/material-taj-mahal.webp" alt="Textura do quartzito Taj Mahal" loading="lazy"></div><div class="mat-body"><h3>Taj Mahal</h3><p>Quartzito em tons claros e quentes</p><a href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Taj%20Mahal." class="btn btn-ghost" target="_blank" rel="noopener">Detalhar material</a></div></article>
+      <article class="mat"><div class="img"><img src="img/material-quartzito-vaticano.webp" alt="Textura do Quartzito Vaticano" loading="lazy"></div><div class="mat-body"><h3>Quartzito Vaticano</h3><p>Sofisticação, resistência e exclusividade</p><a href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Quartzito%20Vaticano." class="btn btn-ghost" target="_blank" rel="noopener">Detalhar material</a></div></article>
+      <article class="mat"><div class="img"><img src="img/material-travertino-romano.webp" alt="Textura do Travertino Romano" loading="lazy"></div><div class="mat-body"><h3>Travertino Romano</h3><p>Rocha natural de textura única</p><a href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Travertino%20Romano." class="btn btn-ghost" target="_blank" rel="noopener">Detalhar material</a></div></article>
+      <article class="mat"><div class="img"><img src="img/material-preto-sao-gabriel.webp" alt="Textura do granito Preto São Gabriel" loading="lazy"></div><div class="mat-body"><h3>Preto São Gabriel</h3><p>Granito preto, elegante e resistente</p><a href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Preto%20S%C3%A3o%20Gabriel." class="btn btn-ghost" target="_blank" rel="noopener">Detalhar material</a></div></article>
     </div>
     <p class="hint">Arraste para o lado e veja outros materiais</p>
   </div>
@@ -375,10 +406,13 @@
 <footer>
   <div class="wrap">
     <div class="foot">
-      <div>
+      <div class="foot-brand">
         <a href="#" class="logo" aria-label="Marmoraria Matos Stone"><img src="img/logo.svg" alt="Logo Marmoraria Matos Stone"></a>
         <p>Marmoraria Matos Stone | Matrix Mármores &amp; Granitos. Transformamos pedras em projetos que impressionam, em Contagem/MG e região.</p>
-        <div class="social"><a href="https://www.instagram.com/matrix_marmores/" target="_blank" rel="noopener">Instagram @matrix_marmores</a></div>
+        <a class="foot-ig" href="https://www.instagram.com/matrix_marmores/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1" fill="currentColor" stroke="none"/></svg>
+          @matrix_marmores
+        </a>
       </div>
       <div>
         <h4>Navegue</h4>
@@ -388,14 +422,22 @@
         <h4>Serviços</h4>
         <ul><li>Cozinhas e ilhas</li><li>Banheiros e lavabos</li><li>Cubas esculpidas</li><li>Áreas gourmet</li><li>Revestimentos</li></ul>
       </div>
-      <div>
+      <div class="foot-atend">
         <h4>Atendimento</h4>
-        <ul><li>Av. Nossa Senhora da Conceição, 486</li><li>Tijuca, Contagem/MG</li><li><a href="https://wa.me/5531972661393" target="_blank" rel="noopener">Vendas online: (31) 97266-1393</a></li><li><a href="https://wa.me/5531975373851" target="_blank" rel="noopener">Escritório: (31) 97537-3851</a></li></ul>
+        <ul class="foot-contact">
+          <li class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><a href="https://www.google.com/maps/search/?api=1&query=Av.+Nossa+Senhora+da+Concei%C3%A7%C3%A3o,+486,+Tijuca,+Contagem+MG" target="_blank" rel="noopener"><span style="white-space:nowrap">Av. Nossa Senhora da Conceição, 486</span><br>Tijuca, Contagem/MG</a></li>
+          <li class="tel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 3.5h3l1.6 4.2-2.1 1.4a11 11 0 0 0 7.4 7.4l1.4-2.1 4.2 1.6v3a2 2 0 0 1-2.2 2A17 17 0 0 1 3 5.7a2 2 0 0 1 2-2.2z"/></svg><a href="https://wa.me/5531972661393" target="_blank" rel="noopener">Vendas online: (31) 97266-1393</a></li>
+          <li class="tel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 3.5h3l1.6 4.2-2.1 1.4a11 11 0 0 0 7.4 7.4l1.4-2.1 4.2 1.6v3a2 2 0 0 1-2.2 2A17 17 0 0 1 3 5.7a2 2 0 0 1 2-2.2z"/></svg><a href="https://wa.me/5531975373851" target="_blank" rel="noopener">Escritório: (31) 97537-3851</a></li>
+        </ul>
+        <a class="foot-cta" href="https://wa.me/5531972661393" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1 1 8 19.4z"/><path d="M9 8.3c.2-.5.6-.6.9-.6h.5c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .5-.1.6l-.5.6c-.1.2-.1.4 0 .6.6 1 1.4 1.8 2.4 2.4.2.1.4.1.6 0l.6-.5c.2-.1.4-.2.6-.1l1.7.7c.3.1.4.3.4.5v.5c0 .3-.1.7-.6.9-.6.3-1.6.5-3.1-.2a9.7 9.7 0 0 1-4.5-4.5c-.7-1.5-.5-2.5-.1-3z" fill="currentColor" stroke="none"/></svg>
+          Solicitar orçamento
+        </a>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© <span id="ano">2026</span> Marmoraria Matos Stone. Todos os direitos reservados.</span>
-      <a href="#topo">Voltar ao topo ↑</a>
+      <span>© <span id="ano">2026</span> Marmoraria Matos Stone. <span class="br">Todos os direitos reservados.</span></span>
+      <a href="#topo" class="foot-top"><span class="l">Voltar ao topo</span><span class="s">Topo</span> <b>↑</b></a>
     </div>
   </div>
 </footer>
