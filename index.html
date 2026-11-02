@@ -130,6 +130,7 @@
   .port.small.right{justify-self:end}
   .port.center{grid-column:1/-1;width:40%;margin-left:25%}
   .port.center .img{aspect-ratio:.95/1}
+  .port-dots{display:none}
 
   /* REGIAO */
   .regiao{grid-template-columns:2fr 1fr}
@@ -220,9 +221,13 @@
     .acc-item button::after{font-size:24px}
     .acc-panel p{padding:0 18px 24px 43px;margin-top:-6px;font-size:13.5px}
     .escolha .btn{order:2;width:100%;justify-content:center;margin-top:20px;padding:15px 20px}
-    .grid-port{grid-template-columns:1fr}
-    .port,.port.small,.port.center{width:100%;margin:0 0 44px}
+    .grid-port{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 16px;margin:0 -16px;padding:0 16px 4px;scrollbar-width:none}
+    .grid-port::-webkit-scrollbar{display:none}
+    .port,.port.small,.port.center{flex:0 0 84%;width:auto;margin:0;scroll-snap-align:start}
     .port:nth-child(even){margin-top:0}
+    .port-dots{display:flex;gap:8px;justify-content:center;margin:26px 0 8px}
+    .port-dots button{width:7px;height:7px;padding:0;border:0;border-radius:50%;background:#d6cec3;cursor:pointer;transition:.25s}
+    .port-dots button.on{width:22px;border-radius:4px;background:var(--ink)}
     .steps{grid-template-columns:1fr}
     footer{padding:56px 0 30px}
     .foot{gap:0 24px}
@@ -360,6 +365,7 @@
         <p class="tag">Cozinha</p><h3>Bancada em Quartzito Vaticano</h3><p>Sofisticação, resistência e exclusividade em uma única peça.</p>
       </article>
     </div>
+    <div class="port-dots" id="port-dots"></div>
     <a href="https://www.instagram.com/matrix_marmores/" class="link" target="_blank" rel="noopener">Ver mais projetos no Instagram</a>
   </div>
 </section>
@@ -470,6 +476,24 @@
     const i = Math.round(track.scrollLeft / step()) + 1;
     count.textContent = String(Math.min(i, cards.length)).padStart(2, '0') + ' / ' + String(cards.length).padStart(2, '0');
   });
+
+  // carrossel do portfólio (só no mobile; no desktop os pontos ficam ocultos)
+  const portGrid = document.querySelector('.grid-port');
+  const ports = [...portGrid.children];
+  const dots = ports.map((p, i) => {
+    const b = document.createElement('button');
+    b.setAttribute('aria-label', 'Ver projeto ' + (i + 1));
+    b.onclick = () => portGrid.scrollTo({left: p.offsetLeft - ports[0].offsetLeft, behavior: 'smooth'});
+    document.getElementById('port-dots').appendChild(b);
+    return b;
+  });
+  const marcaPonto = () => {
+    const passo = ports[1].offsetLeft - ports[0].offsetLeft;
+    const atual = Math.min(Math.round(portGrid.scrollLeft / passo), ports.length - 1);
+    dots.forEach((d, i) => d.classList.toggle('on', i === atual));
+  };
+  portGrid.addEventListener('scroll', marcaPonto);
+  marcaPonto();
 
   // acordeão
   document.querySelectorAll('#acc .acc-item button').forEach(btn => {
