@@ -102,7 +102,7 @@
   /* ESCOLHA COM CONFIANÇA */
   .escolha{background:#f7f6f3;padding:84px 0 100px}
   .escolha .wrap{max-width:1480px}
-  .escolha .foto{aspect-ratio:1416/427}
+  .escolha .foto{display:block;aspect-ratio:1416/427}
   .escolha-grid{display:grid;grid-template-columns:1fr 1.35fr;gap:70px;padding:74px 44px 0;align-items:start}
   .escolha .eyebrow{color:#9a6b47;letter-spacing:.2em;font-size:11px}
   .escolha h2{font-size:clamp(38px,4.2vw,64px);font-weight:300;letter-spacing:-.045em;line-height:1.02;margin-bottom:22px}
@@ -211,11 +211,20 @@
     .stats div{padding:16px}
     .stats div+div{border-left:0;border-top:1px solid rgba(255,255,255,.15)}
     .split .text{padding:56px 16px}
-    .escolha{padding:56px 0 72px}
-    .escolha .foto{aspect-ratio:4/3}
-    .escolha .lead{font-size:16px}
-    .acc-item button{font-size:17px;grid-template-columns:44px 1fr auto;padding:20px 4px}
-    .acc-panel p{padding:0 8px 24px 48px;font-size:14.5px}
+    .escolha{padding:24px 0 64px}
+    .escolha .foto{aspect-ratio:676/538}
+    .escolha-grid{display:flex;flex-direction:column;gap:0;padding-top:34px}
+    .escolha-grid>div:first-child{display:contents}
+    .escolha .eyebrow{font-size:10.5px;letter-spacing:.24em}
+    .escolha h2{font-size:clamp(32px,9.4vw,40px);margin-bottom:16px}
+    .escolha .lead{font-size:15px;line-height:1.55}
+    .acc{order:1;margin-top:26px;border-top-color:#e0d3c8}
+    .acc-item{border-bottom-color:#e0d3c8}
+    .acc-item button{font-size:16px;grid-template-columns:44px 1fr auto;padding:22px 4px 22px 1px}
+    .acc-item .n{font-size:12px}
+    .acc-item button::after{font-size:24px}
+    .acc-panel p{padding:0 18px 24px 43px;margin-top:-6px;font-size:13.5px}
+    .escolha .btn{order:2;width:100%;justify-content:center;margin-top:20px;padding:15px 20px}
     .grid-port{grid-template-columns:1fr}
     .port,.port.small,.port.center{width:100%;margin:0 0 44px}
     .port:nth-child(even){margin-top:0}
@@ -307,7 +316,7 @@
 
 <section class="escolha">
   <div class="wrap">
-    <div class="img foto"><img src="img/cozinha-frontao.webp" srcset="img/cozinha-frontao-m.webp 900w, img/cozinha-frontao.webp 1800w" sizes="100vw" alt="Cozinha com bancada e frontão em pedra natural" loading="lazy"></div>
+    <picture class="img foto"><source media="(max-width:640px)" srcset="img/cozinha-frontao-mobile.webp"><img src="img/cozinha-frontao.webp" srcset="img/cozinha-frontao-m.webp 900w, img/cozinha-frontao.webp 1800w" sizes="100vw" alt="Cozinha com bancada e frontão em pedra natural" loading="lazy"></picture>
     <div class="escolha-grid">
       <div>
         <p class="eyebrow">Escolha com confiança</p>
