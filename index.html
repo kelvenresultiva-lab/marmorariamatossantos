@@ -136,7 +136,7 @@
   .port-dots{display:none}
 
   /* REGIAO */
-  .regiao{grid-template-columns:2fr 1fr}
+  .regiao{grid-template-columns:2fr 1fr;background:#FDF9EE}
   .regiao .img{min-height:560px}
   .regiao .text{padding:60px 48px}
   .regiao h2{font-size:clamp(26px,2.8vw,36px)}
@@ -326,7 +326,7 @@
   /* LOCALIZAÇÃO (641px+): bloco centralizado em 1240px, texto à esquerda e mapa em cartão à direita.
      No celular continua a faixa antiga, com o mapa em cima e o painel bege embaixo. */
   @media (min-width:641px){
-    .regiao{background:#F8F7F3;padding:110px max(32px,calc((100% - 1240px)/2));row-gap:36px}
+    .regiao{background:#FDF9EE;padding:110px max(32px,calc((100% - 1240px)/2));row-gap:36px}
     .regiao .text{order:1;padding:0}
     .regiao .img{order:2;border:1px solid #E3DED6;border-radius:6px}
     .regiao .mapa iframe{filter:grayscale(1) contrast(.9) brightness(1.06)}
