@@ -118,6 +118,7 @@
 
   /* DESTAQUES sobre a borda da hero */
   .creds{position:relative;z-index:2;margin-top:-72px}
+  .hero-eyebrow,.hero-link,.hero-foto-m{display:none}
   .creds-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
   .cred{background:#fff;padding:24px 26px;border-radius:3px;border-top:3px solid var(--amarelo);box-shadow:0 24px 50px -30px rgba(20,19,16,.5);display:flex;gap:16px;align-items:flex-start}
   .cred svg{width:30px;height:30px;color:var(--amarelo);flex:none}
@@ -326,7 +327,21 @@
     .hero-paineis figure:nth-child(1){margin-top:24px}
     .hero-paineis figure:nth-child(2){margin-bottom:24px}
     .hero-paineis figure:nth-child(3){margin-top:48px;margin-bottom:0}
-    .creds{margin-top:-64px}
+    .creds{margin-top:-40px}
+    /* HERO MOBILE: texto centralizado em cima, foto da cozinha embaixo */
+    .hero{padding-bottom:0}
+    .hero-grid{gap:0}
+    .hero-paineis,.hero-sign{display:none}
+    .hero-eyebrow{display:block;font-size:11px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#e9e6df;animation:sobe .9s ease both}
+    .hero-eyebrow::after{content:"";display:block;width:56px;height:3px;margin:18px auto 22px;background:var(--amarelo)}
+    .hero h1{font-size:clamp(29px,8vw,36px);font-weight:400}
+    .hero-hint{margin-top:18px;font-size:16px;color:#d3cfc6}
+    .hero-copy .btn{display:flex;width:100%;max-width:420px;min-height:54px;margin-top:28px;font-size:16px;text-transform:none;letter-spacing:0;border-radius:6px}
+    .hero-copy .btn svg{width:22px;height:22px}
+    .hero-link{display:inline-flex;gap:6px;margin-top:20px;padding-bottom:4px;border-bottom:1px solid #fff;color:#fff;font-size:16px;animation:sobe .9s 1s ease both}
+    .hero-foto-m{display:block;position:relative;margin:28px calc(var(--gutter)*-1) 0;height:clamp(300px,84vw,400px)}
+    .hero-foto-m img{width:100%;height:100%;object-fit:cover;object-position:62% center;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 22%);mask-image:linear-gradient(180deg,transparent 0,#000 22%)}
+    .hero-foto-m figcaption{position:absolute;left:var(--gutter);bottom:56px;font-size:13px;font-style:italic;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
     .creds-grid{grid-template-columns:1fr;gap:12px}
     .creds-grid .cred:last-child{grid-column:auto}
     .cred{padding:18px 18px}
@@ -404,9 +419,11 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
+      <p class="hero-eyebrow">Marmoraria em Contagem e região</p>
       <h1>Transformamos <em>pedras</em><br class="m-br"> em projetos<br> que impressionam.</h1>
       <p class="hero-hint">Bancadas, ilhas e revestimentos em quartzo, quartzito, granito e mármore, sob medida, da escolha à instalação.</p>
       <a class="btn btn--pulso" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1 1 8 19.4z"/><path d="M9 8.3c.2-.5.6-.6.9-.6h.5c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .5-.1.6l-.5.6c-.1.2-.1.4 0 .6.6 1 1.4 1.8 2.4 2.4.2.1.4.1.6 0l.6-.5c.2-.1.4-.2.6-.1l1.7.7c.3.1.4.3.4.5v.5c0 .3-.1.7-.6.9-.6.3-1.6.5-3.1-.2a9.7 9.7 0 0 1-4.5-4.5c-.7-1.5-.5-2.5.2-3.1z"/></svg>Solicite um orçamento</a>
+      <a class="hero-link" href="#projetos">Conheça nossos projetos <span aria-hidden="true">↗</span></a>
       <p class="hero-sign">Marmoraria em Contagem<br class="m-br"> e região</p>
     </div>
     <div class="hero-paineis" aria-hidden="true">
@@ -414,6 +431,7 @@
       <figure data-par="-0.06"><div><img src="img/bancada-quartzito-vaticano-m.webp" alt="" fetchpriority="high" style="object-position:center 30%"></div></figure>
       <figure data-par="0.04"><div><img src="img/cozinha-taj-mahal-ilha-m.webp" alt="" fetchpriority="high"></div></figure>
     </div>
+    <figure class="hero-foto-m"><img src="img/hero-cozinha-ilha.webp" alt="Cozinha integrada com ilha em cascata em quartzito claro"><figcaption>Quartzito claro • Cozinha integrada</figcaption></figure>
   </div>
 </section>
 
