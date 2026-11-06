@@ -149,28 +149,8 @@
   .faixa-linha span::after{content:"";width:9px;height:9px;background:var(--amarelo);transform:rotate(45deg);flex:none}
   .faixa--escura{background:var(--grafite);border-color:rgba(244,201,40,.2)}
   .faixa--escura .faixa-linha span{color:#ece8df}
+  .faixa--rev{background:#fff}
 
-  /* SOB MEDIDA */
-  .sob{background:var(--grafite);color:var(--claro);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:640px}
-  .sob-copy{position:relative;padding:96px clamp(24px,5vw,80px);display:flex;flex-direction:column;justify-content:center}
-  .sob-copy::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 0 100%,rgba(64,61,54,.8),transparent 70%);pointer-events:none}
-  .sob-copy>*{position:relative}
-  .sob h2{font-size:clamp(30px,3.4vw,46px);color:#f4f1ea;margin-top:16px;max-width:15ch}
-  .sob-lead{margin-top:16px;color:#cdc9bf;font-weight:300;max-width:46ch}
-  .etapas{margin-top:30px;display:grid;max-width:520px}
-  .etapas li{display:grid;grid-template-columns:46px 1fr;gap:14px;align-items:start;padding:14px 0;border-top:1px solid rgba(255,255,255,.08);color:rgba(233,230,223,.38);transition:color .6s,border-color .6s}
-  .etapas li .tag-num{color:rgba(244,201,40,.4);padding-top:5px;transition:color .6s}
-  .etapas li.on{color:#f4f1ea;border-top-color:rgba(244,201,40,.6)}
-  .etapas li.on .tag-num{color:var(--amarelo)}
-  html:not(.js) .etapas li{color:#f4f1ea}
-  html:not(.js) .etapas li .tag-num{color:var(--amarelo)}
-  .etapas strong{display:block;font-weight:500;font-size:17px}
-  .etapas li span:last-child{font-size:15.5px;line-height:1.5}
-  .sob .btn{margin-top:32px;align-self:flex-start}
-  .sob-media{position:relative;min-height:100%;--cobre:var(--grafite)}
-  .sob-media.clip::before{transform-origin:0 50%}
-  .sob-media.clip.in::before{transform:scaleX(0)}
-  .sob-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 70%}
 
   /* SERVIÇOS */
   .servicos{background:var(--cinza);padding-block:96px}
@@ -326,7 +306,7 @@
     .hero{padding-top:72px}
     .m-br{display:inline}
     .d-br{display:none}
-    .sob .btn,.sobre-btns{width:fit-content;margin-inline:auto}
+    .sobre-btns{width:fit-content;margin-inline:auto}
     /* HERO MOBILE: texto centralizado, foto da ilha em largura total logo abaixo */
     .hero{padding-bottom:0;min-height:0}
     .hero::before{background:radial-gradient(120% 60% at 0 0,rgba(64,61,54,.85),transparent 60%)}
@@ -358,13 +338,6 @@
     .galeria{grid-template-columns:1fr 1fr;grid-auto-rows:180px;gap:10px}
     .galeria figcaption{font-size:13.5px;padding:30px 12px 10px}
     .galeria figcaption .tag-num{display:none}
-    .sob{grid-template-columns:minmax(0,1fr);min-height:0}
-    .sob-media{order:-1;min-height:300px}
-    .sob-media.clip::before{transform-origin:50% 100%}
-    .sob-media.clip.in::before{transform:scaleY(0)}
-    .sob-copy{padding:44px var(--gutter) 56px}
-    .sob h2{max-width:none}
-    .etapas li{grid-template-columns:34px 1fr}
     .servicos-grid,.proc-grid{grid-template-columns:minmax(0,1fr)}
     .pedra-lista{gap:72px}
     .pedra{grid-template-columns:minmax(0,1fr);gap:30px}
@@ -396,7 +369,6 @@
     [data-reveal]{opacity:1;transform:none}
     .clip::before{display:none}
     .clip img,.servico img{transform:none}
-    .etapas li{color:#f4f1ea}
     .frase .pal{opacity:1}
     .final h2{background:none;color:var(--amarelo)}
   }
@@ -491,22 +463,6 @@
     <span>Medição técnica no local</span><span>Acabamento sob medida</span><span>Equipe da medição à instalação</span><span>Do convencional ao alto padrão</span>
   </div>
 </div>
-
-<section class="sob escuro">
-  <div class="sob-copy">
-    <span class="eyebrow" data-reveal>Escolha com confiança</span>
-    <h2 data-reveal>Beleza que se vê. Qualidade que se vive.</h2>
-    <p class="sob-lead" data-reveal>A escolha da pedra começa pelo seu dia a dia. Ajudamos você a encontrar o equilíbrio entre estética, uso e manutenção.</p>
-    <ul class="etapas js-etapas">
-      <li><span class="tag-num">01</span><span><strong>Uso e resistência</strong>Consideramos a rotina do ambiente, o contato com água e calor e as necessidades do seu projeto.</span></li>
-      <li><span class="tag-num">02</span><span><strong>Acabamentos e detalhes</strong>Polido, levigado ou escovado, com bordas retas, meia-esquadria ou boleadas.</span></li>
-      <li><span class="tag-num">03</span><span><strong>Cubas e soluções sob medida</strong>A cuba esculpida é feita na própria pedra: esconde o ralo e elimina emendas.</span></li>
-      <li><span class="tag-num">04</span><span><strong>Cuidados e manutenção</strong>Orientamos a forma certa de limpar e proteger a sua pedra para ela durar muitos anos.</span></li>
-    </ul>
-    <a class="btn" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20ajuda%20para%20escolher%20o%20material%20ideal." target="_blank" rel="noopener">Encontre o material ideal</a>
-  </div>
-  <div class="sob-media clip" data-reveal><img src="img/hero-mobile.webp" loading="lazy" alt="Ilha em quartzito com torneira dourada"></div>
-</section>
 
 <section class="servicos" id="servicos">
   <div class="wrap">
@@ -698,7 +654,6 @@
   const frase = document.querySelector('.js-frase');
   frase.innerHTML = frase.textContent.trim().split(/\s+/).map(p => '<span class="pal">' + p + '</span>').join(' ');
   const palavras = [...frase.querySelectorAll('.pal')];
-  const etapas = [...document.querySelectorAll('.js-etapas li')];
   const preenche = document.querySelector('.js-preenche');
   const barra = document.querySelector('.progresso');
   const paineis = [...document.querySelectorAll('.hero-paineis figure')];
@@ -716,8 +671,6 @@
     paineis.forEach(f => f.style.setProperty('--py', (scrollY * parseFloat(f.dataset.par) * -1) + 'px'));
     const n = Math.round(avanco(frase) * palavras.length);
     palavras.forEach((p, i) => p.classList.toggle('on', i < n));
-    const k = Math.floor(avanco(etapas[0].parentElement, .8, .4) * etapas.length);
-    etapas.forEach((li, i) => li.classList.toggle('on', i <= Math.min(k, etapas.length - 1)));
     preenche.style.setProperty('--f', avanco(preenche, .9, .45).toFixed(3));
   };
   addEventListener('scroll', aoRolar, {passive: true});
