@@ -282,6 +282,15 @@
     .creds-grid{grid-template-columns:1fr 1fr}
     .creds-grid .cred:last-child{grid-column:1/-1}
   }
+  /* HERO DESKTOP: foto da cozinha em tela cheia (modelo antigo), escurecida em grafite */
+  @media (min-width:861px){
+    .hero{background:var(--grafite) url("img/hero-cozinha-ilha.webp") right 55%/cover no-repeat}
+    .hero::before{background:linear-gradient(90deg,rgba(31,30,27,.94) 0%,rgba(31,30,27,.8) 32%,rgba(31,30,27,.42) 62%,rgba(31,30,27,.22) 100%),linear-gradient(180deg,rgba(31,30,27,.7) 0,rgba(31,30,27,0) 22%,rgba(31,30,27,0) 70%,rgba(31,30,27,.85) 100%)}
+    .hero-grid{grid-template-columns:minmax(0,1fr);align-items:center;padding-top:0}
+    .hero-copy{align-self:center;padding-top:0;max-width:640px}
+    .hero h1{font-size:clamp(38px,4.4vw,62px)}
+    .hero-paineis{display:none}
+  }
   @media (max-width:860px){
     .hero{padding-bottom:100px}
     .topo{padding:12px 0}
