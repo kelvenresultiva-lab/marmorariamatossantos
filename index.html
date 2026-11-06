@@ -136,7 +136,7 @@
   .port-dots{display:none}
 
   /* REGIAO */
-  .regiao{grid-template-columns:2fr 1fr;background:#FDF9EE}
+  .regiao{grid-template-columns:2fr 1fr;background:#F4F4F2}
   .regiao .img{min-height:560px}
   .regiao .text{padding:60px 48px}
   .regiao h2{font-size:clamp(26px,2.8vw,36px)}
@@ -151,10 +151,12 @@
   .step h3{font-size:14px;font-weight:500;letter-spacing:-.01em;margin:16px 0 8px}
   .step p{font-size:12.5px;color:var(--ink-2)}
   #processo{background:#fff}
+  #processo .steps,#processo .step{border-color:#E6E6E3}
   #processo h2{margin-bottom:44px}
   .proc-sub,.proc-cta{display:none}
 
   /* COMPAT */
+  .compat{background:#F4F4F2}
   .compat .sec-head{align-items:flex-end;margin:0}
   .compat h2{font-size:clamp(32px,4.2vw,54px);max-width:720px}
 
@@ -326,7 +328,7 @@
   /* LOCALIZAÇÃO (641px+): bloco centralizado em 1240px, texto à esquerda e mapa em cartão à direita.
      No celular continua a faixa antiga, com o mapa em cima e o painel bege embaixo. */
   @media (min-width:641px){
-    .regiao{background:#FDF9EE;padding:110px max(32px,calc((100% - 1240px)/2));row-gap:36px}
+    .regiao{background:#F4F4F2;padding:110px max(32px,calc((100% - 1240px)/2));row-gap:36px}
     .regiao .text{order:1;padding:0}
     .regiao .img{order:2;border:1px solid #E3DED6;border-radius:6px}
     .regiao .mapa iframe{filter:grayscale(1) contrast(.9) brightness(1.06)}
