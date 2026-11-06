@@ -7,656 +7,596 @@
 <meta name="description" content="Marmoraria Matos Stone (Matrix Mármores & Granitos): quartzos, quartzitos, granitos, mármores, porcelanatos e lâminas sob medida. Projeto, produção e instalação em Contagem/MG e região.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  /* Paleta Matos Stone: grafite (fundos escuros), amarelo da marca (destaques e botões), branco e cinza claro */
   :root{
-    --bg:#fdf9ee;
-    --bg-soft:#f8f0dc;
-    --beige:#f1e5c9;
-    --ink:#1e1c1a;
-    --ink-2:#5f574e;
-    --ink-3:#8f8981;
-    --line:#ebdfc4;
-    --dark:#2a2724;
-    --footer:#262321;
-    --brand:#F4C928;
+    --grafite:#1f1e1b;
+    --grafite-2:#292824;
+    --grafite-3:#34322d;
     --amarelo:#F4C928;
     --amarelo-hover:#E2B91F;
-    --grafite:#292824;
-    --radius:4px;
-    --wrap:1160px;
+    --amarelo-claro:#F8DC6B;
+    --branco:#ffffff;
+    --cinza:#F4F4F2;
+    --cinza-2:#E9E9E6;
+    --ink:#1e1c1a;
+    --muted:#66625b;
+    --claro:#e9e6df;
+    --claro-2:#b7b3aa;
+    --line:rgba(244,201,40,.32);
+    --gutter:clamp(16px,4vw,40px);
+    --wrap:1240px;
+    --ease:cubic-bezier(.2,.7,.1,1);
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:"Inter Tight",system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:"Inter Tight",system-ui,sans-serif;color:var(--ink);background:var(--branco);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
   img{display:block;max-width:100%}
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
-  .eyebrow{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;font-weight:500}
-  h1,h2,h3{font-weight:400;letter-spacing:-.035em;line-height:1.05}
-  h2{font-size:clamp(28px,3.4vw,42px)}
-  .lead{color:var(--ink-2);font-size:14px;max-width:420px}
-  .link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;padding-bottom:4px;border-bottom:1px solid currentColor;margin-top:18px}
-  .link::after{content:"↗";font-size:12px}
-  .btn{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:500;padding:11px 18px;border-radius:var(--radius);border:1px solid var(--ink);transition:.2s}
-  .btn-dark{background:var(--ink);color:#fff}
-  .btn-dark:hover{background:#000}
-  .btn-ghost:hover{background:var(--ink);color:#fff}
-  .btn-light{background:#fbf5e6;color:var(--ink);border-color:#fbf5e6}
-  .btn-outline-light{border-color:rgba(255,255,255,.6);color:#fff}
-  .btn-outline-light:hover{background:#fff;color:var(--ink)}
-  .arrow::after{content:"↗"}
-  .img{position:relative;overflow:hidden;background:linear-gradient(135deg,#e9e4dc,#d8d0c4);background-size:cover;background-position:center}
-  .img>img,.img>iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
-  .mapa iframe{filter:grayscale(1) sepia(.35) contrast(.92) brightness(1.03)}
-  .port .img img{transition:transform .8s ease}
-  .port:hover .img img{transform:scale(1.04)}
+  ul{list-style:none}
+  h1,h2,h3{font-weight:300;line-height:1.1;letter-spacing:-.025em;text-wrap:balance}
+  .wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+  :focus-visible{outline:2px solid var(--amarelo);outline-offset:3px}
 
-  /* HEADER */
-  header{position:absolute;inset:0 0 auto 0;z-index:10;color:#fff}
-  header .wrap{display:flex;align-items:center;justify-content:space-between;height:88px;max-width:1320px}
-  .logo{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;line-height:1.15}
-  .logo img{height:40px;width:40px}
-  .logo small{display:block;font-weight:400;opacity:.75;font-size:11px}
-  nav ul{display:flex;gap:30px;list-style:none;font-size:13px}
-  nav a{opacity:.9}
-  nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:5px}
-  header .btn{background:#fff;color:var(--ink);border-color:#fff;padding:8px 16px;border-radius:999px;font-size:12.5px}
-  .menu-btn{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
+  .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--grafite-2)}
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--amarelo)}
+  .escuro .eyebrow{color:var(--amarelo)}
+  .tag-num{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--amarelo);font-variant-numeric:tabular-nums}
+
+  /* botão principal: amarelo com texto grafite, pulso e brilho passando */
+  .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 28px;border:1px solid var(--amarelo);border-radius:3px;background:var(--amarelo);color:var(--grafite);font:700 13px/1.3 "Inter Tight",sans-serif;letter-spacing:.14em;text-transform:uppercase;overflow:hidden;transition:background .3s,color .3s,transform .3s var(--ease)}
+  .btn svg{width:18px;height:18px;flex:none}
+  .btn:hover{background:var(--amarelo-hover);border-color:var(--amarelo-hover)}
+  .btn--pulso{animation:pulso 2.4s ease-out infinite}
+  .btn--pulso::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-20deg);animation:brilho 3.2s ease-in-out infinite;pointer-events:none}
+  @keyframes pulso{0%{box-shadow:0 0 0 0 rgba(244,201,40,.55)}70%{box-shadow:0 0 0 16px rgba(244,201,40,0)}100%{box-shadow:0 0 0 0 rgba(244,201,40,0)}}
+  @keyframes brilho{0%,55%{left:-60%}100%{left:130%}}
+  .cta-row{display:flex;justify-content:center;margin-top:48px}
+
+  /* barra de progresso da leitura */
+  .progresso{position:fixed;inset:0 0 auto 0;height:3px;z-index:90;background:var(--amarelo);transform-origin:0 50%;transform:scaleX(0);pointer-events:none}
+
+  /* entradas ao rolar */
+  [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+  [data-reveal].in{opacity:1;transform:none}
+  .clip{position:relative;overflow:hidden}
+  .clip::before{content:"";position:absolute;inset:-1px;z-index:2;background:var(--cobre,var(--branco));transform-origin:50% 100%;transition:transform 1.2s cubic-bezier(.7,0,.2,1);transition-delay:var(--d,0s);pointer-events:none}
+  .clip img{transform:scale(1.15);transition:transform 1.8s var(--ease);transition-delay:var(--d,0s)}
+  .clip.in::before{transform:scaleY(0)}
+  .clip.in img{transform:scale(1)}
+
+  /* MARCA */
+  .marca{display:inline-flex;align-items:center;gap:12px;color:#fff;line-height:1.15}
+  .marca img{width:44px;height:44px}
+  .marca strong{display:block;font-size:17px;font-weight:600;letter-spacing:-.01em}
+  .marca small{display:block;font-size:12.5px;opacity:.75}
 
   /* HERO */
-  .hero{position:relative;min-height:760px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;background-color:#7a6650;background-image:linear-gradient(180deg,rgba(25,18,12,.35),rgba(25,18,12,0) 25%),linear-gradient(90deg,rgba(40,26,14,.55),rgba(40,26,14,.05) 60%),url("img/hero-cozinha-ilha.webp");background-size:cover;background-position:right center}
-  .hero-content{padding-bottom:190px}
-  .hero h1{font-size:clamp(38px,5vw,62px);max-width:620px;margin-bottom:28px}
-  .hero .btn{background:rgba(255,255,255,.92);color:var(--ink);border-color:transparent}
-  .hero .m-only,.hero .btn .s,.logo .logo-branco{display:none}
-  .stats{display:none}
-  /* versões que só aparecem a partir de 641px; no celular tudo continua como estava */
-  .logo .logo-escuro,.hero .link{display:none}
-  .hero-actions{display:contents}
+  .hero{position:relative;min-height:100vh;min-height:100svh;background:var(--grafite);color:#f4f1ea;overflow:hidden;display:flex;flex-direction:column;padding-bottom:110px}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 0 0,rgba(64,61,54,.85),transparent 60%),radial-gradient(60% 60% at 100% 100%,rgba(244,201,40,.12),transparent 70%);pointer-events:none}
+  .hero>.wrap{position:relative;width:100%}
+  .hero-top{display:flex;align-items:center;justify-content:space-between;padding-top:30px}
+  .hero-top .btn{padding:11px 18px;font-size:11.5px}
+  .hero-grid{flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:56px;align-items:center;padding-top:40px}
+  .hero-copy{align-self:start;padding-top:clamp(8px,3vh,36px)}
+  .hero h1{font-size:clamp(32px,3.6vw,50px);animation:sobe 1s .1s var(--ease) both}
+  .hero h1 em{font-style:normal;font-weight:500;background:linear-gradient(100deg,var(--amarelo) 0,var(--amarelo) 40%,#fff4c4 50%,var(--amarelo) 60%,var(--amarelo) 100%);background-size:250% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-box-decoration-break:clone;animation:brilhoTexto 5s ease-in-out 1.4s infinite}
+  @keyframes brilhoTexto{0%{background-position:100% 0}45%,100%{background-position:0 0}}
+  .hero-hint{margin-top:22px;max-width:44ch;font-size:17px;font-weight:300;color:#d3cfc6;animation:sobe .9s .5s ease both}
+  .hero-copy .btn{margin-top:22px;animation:sobe .9s .8s ease both,pulso 2.4s 2s ease-out infinite}
+  .hero-sign{margin-top:26px;font-weight:700;font-size:clamp(14px,1.3vw,16px);line-height:1.4;letter-spacing:.14em;text-transform:uppercase;color:var(--amarelo);animation:sobe .9s 1.1s ease both}
+  @keyframes sobe{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  .m-br{display:none}
+  .hero-paineis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;height:min(540px,64vh)}
+  .hero-paineis figure{position:relative}
+  .hero-paineis figure>div{height:100%;overflow:hidden;border-radius:3px;animation:painel 1.3s var(--ease) both}
+  .hero-paineis figure:nth-child(1){margin-top:48px}
+  .hero-paineis figure:nth-child(2){margin-bottom:48px}
+  .hero-paineis figure:nth-child(2)>div{animation-delay:.15s}
+  .hero-paineis figure:nth-child(3){margin-top:96px;margin-bottom:-24px}
+  .hero-paineis figure:nth-child(3)>div{animation-delay:.3s}
+  .hero-paineis img{width:100%;height:100%;object-fit:cover;scale:1.12;translate:0 var(--py,0px);animation:zoomPainel 2s var(--ease) both}
+  @keyframes painel{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0)}}
+  @keyframes zoomPainel{from{scale:1.3}to{scale:1.12}}
 
-  section{padding:110px 0}
-  .sec-head{display:flex;justify-content:space-between;gap:40px;align-items:flex-start;margin-bottom:54px}
-  .sec-head .right{max-width:420px}
+  /* DESTAQUES sobre a borda da hero */
+  .creds{position:relative;z-index:2;margin-top:-72px}
+  .creds-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .cred{background:#fff;padding:24px 26px;border-radius:3px;border-top:3px solid var(--amarelo);box-shadow:0 24px 50px -30px rgba(20,19,16,.5);display:flex;gap:16px;align-items:flex-start}
+  .cred svg{width:30px;height:30px;color:var(--amarelo);flex:none}
+  .cred strong{display:block;font-size:17px;font-weight:600;color:var(--grafite-2);line-height:1.25}
+  .cred p{margin-top:4px;font-size:14.5px;line-height:1.45;color:var(--muted)}
 
-  /* MATERIAIS */
-  .materiais{border-radius:18px 18px 0 0;margin-top:-18px;position:relative;background:var(--bg)}
-  .carousel-nav{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:12px;color:var(--ink-3);justify-content:flex-end}
-  .carousel-nav button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--bg);cursor:pointer;font-size:14px;color:var(--ink)}
-  .carousel-nav button:hover{border-color:var(--ink)}
-  .track{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px}
-  .track::-webkit-scrollbar{display:none}
-  .mat{flex:0 0 calc((100% - 12px)/3.15);scroll-snap-align:start;background:#fffdf6;border:1px solid var(--line)}
-  .mat .img{aspect-ratio:1/.92}
-  .mat .img img{transition:transform .8s ease}
-  .mat:hover .img img{transform:scale(1.05)}
-  .mat-body{padding:16px 16px 18px}
-  .mat h3{font-size:14px;font-weight:500;letter-spacing:-.01em}
-  .mat p{font-size:11.5px;color:var(--ink-3);margin:2px 0 16px}
-  .mat .btn{width:100%;justify-content:center;padding:8px;font-size:12px;border-color:var(--ink)}
-  .hint{font-size:11px;color:var(--ink-3);margin-top:22px}
+  /* PROJETOS */
+  .projetos{padding-block:96px 90px}
+  .projetos-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:end;margin-bottom:44px}
+  .projetos h2,.sec-head h2,.sobre h2{font-size:clamp(30px,3.4vw,46px);color:var(--grafite-2);margin-top:16px}
+  .projetos-head p{color:var(--muted);max-width:54ch}
+  b{font-weight:600;color:var(--grafite-2)}
+  .galeria{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:290px;gap:14px}
+  .galeria figure{border-radius:3px}
+  .galeria figure:first-child{grid-row:span 2}
+  .galeria img{width:100%;height:100%;object-fit:cover}
+  .galeria figure:hover img{transform:scale(1.05);transition-duration:1.2s;transition-delay:0s}
+  .galeria figcaption{position:absolute;inset:auto 0 0 0;z-index:1;padding:44px 18px 16px;background:linear-gradient(transparent,rgba(20,19,16,.78));color:#f4f1ea;display:flex;justify-content:space-between;align-items:end;gap:12px;font-size:16px}
 
-  /* CONTEXTO */
-  .split{display:grid;grid-template-columns:1fr 1fr;padding:0;background:var(--beige)}
-  .split .img{min-height:640px}
-  .split .text{padding:90px 70px;display:flex;flex-direction:column;justify-content:center}
-  .split h2{font-size:clamp(26px,2.6vw,34px);margin-bottom:14px}
+  /* FAIXAS CORRENDO */
+  .faixa{overflow:hidden;padding-block:22px;border-block:1px solid var(--cinza-2);background:var(--cinza)}
+  .faixa-linha{display:flex;width:max-content;animation:corre 38s linear infinite}
+  .faixa--rev .faixa-linha{animation-direction:reverse;animation-duration:44s}
+  .faixa:hover .faixa-linha{animation-play-state:paused}
+  @keyframes corre{to{transform:translateX(-50%)}}
+  .faixa-linha span{display:inline-flex;align-items:center;gap:34px;padding-right:34px;font-size:clamp(20px,2.6vw,32px);font-weight:300;color:var(--grafite-2);white-space:nowrap}
+  .faixa-linha span b{font-weight:500}
+  .faixa-linha span::after{content:"";width:9px;height:9px;background:var(--amarelo);transform:rotate(45deg);flex:none}
+  .faixa--escura{background:var(--grafite);border-color:rgba(244,201,40,.2)}
+  .faixa--escura .faixa-linha span{color:#ece8df}
 
-  /* ESCOLHA COM CONFIANÇA */
-  .escolha{background:var(--bg-soft);padding:84px 0 100px}
-  .escolha .wrap{max-width:1480px}
-  .escolha .foto{display:block;aspect-ratio:1416/427}
-  .escolha-grid{display:grid;grid-template-columns:1fr 1.35fr;gap:70px;padding:74px 44px 0;align-items:start}
-  .escolha .eyebrow{color:#9a6b47;letter-spacing:.2em;font-size:11px}
-  .escolha h2{font-size:clamp(38px,4.2vw,64px);font-weight:300;letter-spacing:-.045em;line-height:1.02;margin-bottom:22px}
-  .escolha .lead{font-size:18.5px;color:#7a736b;max-width:430px;line-height:1.5}
-  .escolha .btn{margin-top:28px;padding:15px 28px;border-radius:2px;font-size:15px;gap:16px}
-  .acc{border-top:1px solid #dfd2b4}
-  .acc-item{border-bottom:1px solid #dfd2b4}
-  .acc-item button{width:100%;display:grid;grid-template-columns:64px 1fr auto;align-items:center;background:none;border:0;padding:26px 14px 26px 4px;font:inherit;font-size:20px;letter-spacing:-.01em;cursor:pointer;color:var(--ink);text-align:left}
-  .acc-item .n{font-size:14px;color:#9a6b47;letter-spacing:.04em}
-  .acc-item button::after{content:"+";font-size:26px;font-weight:300;line-height:1;color:var(--ink)}
-  .acc-item.open button::after{content:"−"}
-  .acc-panel{max-height:0;overflow:hidden;transition:max-height .35s ease}
-  .acc-panel p{padding:0 60px 34px 68px;margin-top:-8px;font-size:16px;line-height:1.7;color:#8a837b}
-  .acc-item.open .acc-panel{max-height:220px}
+  /* SOB MEDIDA */
+  .sob{background:var(--grafite);color:var(--claro);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:640px}
+  .sob-copy{position:relative;padding:96px clamp(24px,5vw,80px);display:flex;flex-direction:column;justify-content:center}
+  .sob-copy::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 0 100%,rgba(64,61,54,.8),transparent 70%);pointer-events:none}
+  .sob-copy>*{position:relative}
+  .sob h2{font-size:clamp(30px,3.4vw,46px);color:#f4f1ea;margin-top:16px;max-width:15ch}
+  .sob-lead{margin-top:16px;color:#cdc9bf;font-weight:300;max-width:46ch}
+  .etapas{margin-top:30px;display:grid;max-width:520px}
+  .etapas li{display:grid;grid-template-columns:46px 1fr;gap:14px;align-items:start;padding:14px 0;border-top:1px solid rgba(255,255,255,.08);color:rgba(233,230,223,.38);transition:color .6s,border-color .6s}
+  .etapas li .tag-num{color:rgba(244,201,40,.4);padding-top:5px;transition:color .6s}
+  .etapas li.on{color:#f4f1ea;border-top-color:rgba(244,201,40,.6)}
+  .etapas li.on .tag-num{color:var(--amarelo)}
+  .etapas strong{display:block;font-weight:500;font-size:17px}
+  .etapas li span:last-child{font-size:15.5px;line-height:1.5}
+  .sob .btn{margin-top:32px;align-self:flex-start}
+  .sob-media{position:relative;min-height:100%;--cobre:var(--grafite)}
+  .sob-media.clip::before{transform-origin:0 50%}
+  .sob-media.clip.in::before{transform:scaleX(0)}
+  .sob-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 70%}
 
-  /* PORTFOLIO */
-  .grid-port{display:grid;grid-template-columns:1fr 1fr;column-gap:110px}
-  .port{margin-bottom:60px}
-  .port .img{aspect-ratio:1.25/1}
-  .port .tag{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:16px 0 4px}
-  .port h3{font-size:14px;font-weight:500;letter-spacing:-.01em}
-  .port p{font-size:12px;color:var(--ink-3)}
-  .port:nth-child(even){margin-top:50px}
-  .port.small{width:80%}
-  .port.small.right{justify-self:end}
-  .port.center{grid-column:1/-1;width:40%;margin-left:25%}
-  .port.center .img{aspect-ratio:.95/1}
-  .port-dots{display:none}
-  #portfolio{background:#fff}
+  /* SERVIÇOS */
+  .servicos{background:var(--cinza);padding-block:96px}
+  .sec-head{text-align:center;max-width:680px;margin:0 auto 48px}
+  .sec-head .eyebrow::after{content:"";width:28px;height:2px;background:var(--amarelo)}
+  .sec-head p{margin-top:14px;color:var(--muted)}
+  .servicos-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+  .servicos-grid>div{display:flex}
+  .servico{flex:1;background:#fff;border-radius:3px;overflow:hidden;display:flex;flex-direction:column;transition:transform .6s var(--ease),box-shadow .6s}
+  .servico:hover{transform:translateY(-6px);box-shadow:0 30px 60px -36px rgba(20,19,16,.55)}
+  .servico figure{aspect-ratio:16/10;overflow:hidden}
+  .servico img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 1.8s var(--ease)}
+  .in .servico img{transform:scale(1)}
+  .servico:hover img{transform:scale(1.05)}
+  .servico-body{padding:26px 26px 28px;display:grid;gap:10px;align-content:start;flex:1;border-top:3px solid var(--amarelo)}
+  .servico h3{font-size:23px;font-weight:400;color:var(--grafite-2)}
+  .servico p{color:var(--muted);font-size:15px}
+  .tags{margin-top:6px;display:flex;flex-wrap:wrap;gap:8px}
+  .tags li{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--grafite-2);background:var(--cinza);padding:6px 10px;border-radius:2px}
 
-  /* REGIAO */
-  .regiao{grid-template-columns:2fr 1fr;background:#F4F4F2}
-  .regiao .img{min-height:560px}
-  .regiao .text{padding:60px 48px}
-  .regiao h2{font-size:clamp(26px,2.8vw,36px)}
-  .regiao-rule{width:52px;height:1px;background:#b8ab98;margin:22px 0}
-  .regiao-end{display:flex;align-items:flex-start;gap:14px;margin:0 0 26px;font-size:14.5px;line-height:1.55;color:var(--ink)}
-  .regiao-end svg{flex:none;width:24px;height:24px;color:#918575}
+  /* PEDRAS */
+  .pedras{background:var(--grafite);color:var(--claro);padding-block:96px;overflow:hidden}
+  .pedras .sec-head h2{color:#f4f1ea}
+  .pedras .sec-head p{color:var(--claro-2)}
+  .pedra-lista{display:grid;gap:96px}
+  .pedra{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:center}
+  .pedra:nth-child(2n) .pedra-media{order:-1}
+  .pedra h3{font-size:clamp(30px,3.2vw,44px);color:#f4f1ea;margin-top:12px}
+  .pedra p{margin-top:18px;color:var(--claro-2);max-width:48ch}
+  .chips{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px}
+  .chips li{border:1px solid var(--line);padding:8px 14px;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--claro);border-radius:2px}
+  .pedra-media{position:relative;width:100%;max-width:460px;justify-self:center}
+  .pedra-media::before{content:"";position:absolute;inset:-14px;border:1px solid rgba(244,201,40,.35);border-radius:3px;transform:translate(14px,14px);pointer-events:none}
+  .pedra-media .clip{aspect-ratio:1/1;border-radius:3px;--cobre:var(--grafite)}
+  .pedra-media img{width:100%;height:100%;object-fit:cover}
+  .pedra-media .clip::after{content:"";position:absolute;inset:0;z-index:3;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.45) 48%,rgba(255,255,255,.1) 54%,transparent 70%);transform:translateX(-130%);pointer-events:none}
+  .pedra-media .clip.in::after{animation:reflexo 1.8s cubic-bezier(.3,.6,.2,1) .9s forwards}
+  @keyframes reflexo{to{transform:translateX(130%)}}
+  .outras{margin-top:96px;padding:34px 36px;border:1px solid var(--line);border-radius:3px;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:36px;align-items:center}
+  .outras h3{font-size:clamp(24px,2.4vw,32px);color:#f4f1ea;margin-top:10px}
+  .outras .chips{margin-top:0}
 
-  /* PROCESSO */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
-  .step{padding:26px 24px 34px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:160px}
-  .step small{font-size:10px;color:var(--ink-3);letter-spacing:.1em}
-  .step h3{font-size:14px;font-weight:500;letter-spacing:-.01em;margin:16px 0 8px}
-  .step p{font-size:12.5px;color:var(--ink-2)}
-  #processo{background:#fff}
-  #processo .steps,#processo .step{border-color:#E6E6E3}
-  #processo h2{margin-bottom:44px}
-  .proc-sub,.proc-cta{display:none}
+  /* COMO TRABALHAMOS */
+  .processo{background:#fff;padding-block:96px}
+  .proc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+  .proc{background:#fff;border:1px solid var(--cinza-2);border-top:3px solid var(--amarelo);border-radius:3px;padding:28px 28px 30px;box-shadow:0 24px 50px -40px rgba(20,19,16,.45)}
+  .proc .num{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:var(--amarelo);color:var(--grafite);font-weight:700;font-size:14px}
+  .proc h3{margin-top:18px;font-size:21px;font-weight:500;color:var(--grafite-2);letter-spacing:-.015em}
+  .proc p{margin-top:8px;color:var(--muted);font-size:15px}
 
-  /* COMPAT */
-  .compat{background:#F4F4F2}
-  .compat .sec-head{align-items:flex-end;margin:0}
-  .compat h2{font-size:clamp(32px,4.2vw,54px);max-width:720px}
+  /* SOBRE */
+  .sobre{background:var(--cinza);padding-block:100px}
+  .frase{font-size:clamp(28px,3.6vw,50px);font-weight:300;line-height:1.22;color:var(--grafite-2);max-width:24ch;margin-top:22px}
+  .frase .pal{opacity:.15;transition:opacity .3s}
+  .frase .pal.on{opacity:1}
+  .sobre-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1fr);gap:64px;align-items:center;margin-top:64px}
+  .sobre-img{aspect-ratio:4/5;border-radius:3px;--cobre:var(--cinza)}
+  .sobre-img img{width:100%;height:100%;object-fit:cover}
+  .sobre-copy{display:grid;gap:18px;margin-top:26px;color:var(--muted);max-width:56ch}
+  .sobre-btns{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:34px}
+  .link{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;color:var(--grafite-2);padding-bottom:4px;border-bottom:2px solid var(--amarelo)}
+  .link::after{content:"↗"}
 
-  /* CTA */
+  /* CHAMADA FINAL */
+  .final{position:relative;background:var(--grafite);color:var(--claro);padding-block:120px;text-align:center;overflow:hidden}
+  .final::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 50% 120%,rgba(244,201,40,.2),transparent 70%);pointer-events:none}
+  .final .wrap{position:relative}
+  .final h2{font-size:clamp(36px,6vw,82px);max-width:15ch;margin:22px auto 0;background:linear-gradient(90deg,var(--amarelo) 0,var(--amarelo) calc(var(--f,0)*100%),rgba(244,241,234,.25) calc(var(--f,0)*100%),rgba(244,241,234,.25) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .final p{margin:22px auto 0;max-width:44ch;color:#cdc9bf;font-weight:300;font-size:18px}
+  .final .btn{margin-top:40px;padding:18px 36px;font-size:14px}
 
-  /* CONTE */
+  /* RODAPÉ */
+  .rodape{background:var(--grafite);color:#cdc9bf;padding-block:64px 28px;border-top:1px solid rgba(244,201,40,.25)}
+  .rodape-grid{display:grid;grid-template-columns:1fr 1.3fr .7fr 1.1fr;gap:44px;align-items:start}
+  .rodape-tag{margin-top:22px;font-weight:300;font-size:19px;line-height:1.45;color:var(--amarelo-claro);max-width:24ch}
+  .rodape h3{margin-bottom:16px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--amarelo);font-weight:700}
+  .rodape ul{display:grid;gap:12px}
+  .rodape li{display:flex;gap:12px;align-items:flex-start;font-size:15px}
+  .rodape li svg{width:18px;height:18px;color:var(--amarelo);flex:none;margin-top:3px}
+  .rodape a:hover{color:var(--amarelo)}
+  .rodape li.mapas{flex-wrap:wrap;gap:10px;padding-left:30px}
+  .mapa-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid rgba(244,201,40,.55);border-radius:2px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--claro)}
+  .rodape .mapa-btn:hover{background:var(--amarelo);color:var(--grafite)}
+  .rodape-mapa{height:200px;border-radius:3px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+  .rodape-mapa iframe{width:100%;height:100%;border:0;filter:grayscale(1) invert(.9) contrast(.85)}
+  .rodape-bottom{margin-top:44px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:#8f8b82}
 
-  /* FOOTER */
-  footer{background:var(--footer);color:#fff;padding:80px 0 34px}
-  .foot{display:grid;grid-template-columns:1.45fr .9fr 1fr 1.45fr;gap:48px}
-  .foot .logo img{height:120px;width:120px}
-  .foot-brand p{font-size:14px;line-height:1.6;color:rgba(255,255,255,.88);margin-top:18px;max-width:390px}
-  .foot-ig{display:inline-flex;align-items:center;gap:12px;margin-top:22px;font-size:15px;font-weight:500}
-  .foot-ig svg{width:26px;height:26px}
-  .foot h4{font-size:17px;font-weight:600;color:var(--brand);margin-bottom:18px;letter-spacing:-.01em}
-  .foot ul{list-style:none;font-size:14.5px;color:rgba(255,255,255,.9);display:flex;flex-direction:column;gap:10px}
-  .foot ul a:hover,.foot-ig:hover{color:var(--brand)}
-  .foot-contact li{display:flex;gap:10px;align-items:flex-start;line-height:1.45}
-  .foot-contact svg{width:20px;height:20px;flex:none;margin-top:1px}
-  .foot-contact .pin svg{color:var(--brand);fill:var(--brand)}
-  .foot-contact .pin circle{fill:var(--footer);stroke:var(--footer)}
-  .foot-contact .tel svg{display:none}
-  .foot-cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;margin-top:22px;padding:13px 22px;background:var(--brand);color:#1d1b19;border-radius:4px;font-size:15px;font-weight:600;white-space:nowrap;transition:.2s}
-  .foot-cta:hover{background:#ffd43a}
-  .foot-cta svg{width:26px;height:26px}
-  .foot-bottom{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:rgba(255,255,255,.85);margin-top:64px;padding-top:30px;border-top:1px solid rgba(255,255,255,.16);flex-wrap:wrap;gap:12px}
-  .foot-top b{color:var(--brand);font-weight:500;margin-left:4px}
-  .foot-top .s{display:none}
+  /* WHATSAPP FLUTUANTE */
+  .wa-float{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:70;width:58px;height:58px;border-radius:50%;background:var(--amarelo);color:var(--grafite);display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(20,19,16,.6);transition:transform .3s}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:28px;height:28px}
 
-  /* RESPONSIVO */
-  @media (max-width:960px){
-    nav,header .btn{display:none}
-    .menu-btn{display:block}
-    header.open nav{display:block;position:absolute;top:80px;left:16px;right:16px;background:#fff;color:var(--ink);border-radius:8px;padding:20px}
-    header.open nav ul{flex-direction:column;gap:14px;font-size:15px}
-    .sec-head{flex-direction:column;gap:20px}
-    .split,.regiao{grid-template-columns:1fr}
-    .split .img{min-height:380px}
-    .split .text{padding:60px 32px}
-    .escolha-grid{grid-template-columns:1fr;gap:44px;padding:52px 0 0}
-    .escolha .foto{aspect-ratio:16/8}
-    .grid-port{column-gap:30px}
-    .steps{grid-template-columns:1fr 1fr}
-    .foot{grid-template-columns:1fr 1fr;gap:40px 32px}
-    .foot-brand,.foot-atend{grid-column:1/-1}
-    .mat{flex-basis:70%}
+  @media (max-width:1024px){
+    .sobre-grid,.projetos-head{grid-template-columns:minmax(0,1fr);gap:24px}
+    .servicos-grid,.proc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .rodape-grid{grid-template-columns:1fr 1fr}
+    .creds-grid{grid-template-columns:1fr 1fr}
+    .creds-grid .cred:last-child{grid-column:1/-1}
   }
-  @media (max-width:640px){
-    .wrap{padding:0 16px}
-    section{padding:72px 0}
-    /* degradê só atrás do texto: mais forte à esquerda, some para a direita e antes da bancada.
-       Altura: 80px a mais que os 156vw anteriores (a proporção da foto), ou 85svh quando a tela é alta;
-       o espaço extra fica abaixo do botão e mostra mais da bancada. A primeira linha é o plano B
-       para navegador sem svh. Os raios do degradê estão em vw (eram % de 156vw) para o sombreamento
-       continuar exatamente atrás do texto, que não mudou de lugar. */
-    .hero{min-height:calc(156vw + 80px);min-height:max(calc(156vw + 80px),85svh);justify-content:flex-start;background-image:radial-gradient(120% 81.12vw at 0% 53.04vw,rgba(18,12,7,.62) 0%,rgba(18,12,7,.42) 42%,rgba(18,12,7,.12) 72%,rgba(18,12,7,0) 100%),linear-gradient(180deg,rgba(18,12,7,.3),rgba(18,12,7,0) 34.32vw),url("img/hero-mobile-bancada.webp");background-position:center top}
-    .hero-content{padding:24vw 20px 0;width:100%}
-    .hero .m-only{display:revert}
-    header .logo{gap:14px;font-size:14px}
-    header .logo .logo-cor{display:none}
-    header .logo .logo-branco{display:block;width:auto;height:30px}
-    header .logo small{font-size:12px;opacity:.9}
-    .hero .eyebrow{color:#fff;font-size:10px;font-weight:600;letter-spacing:.2em;line-height:1.6;margin-bottom:12px}
-    .hero h1{font-size:clamp(28px,8vw,32px);font-weight:500;letter-spacing:-.03em;line-height:1.12;max-width:11.5em;margin-bottom:16px;color:#fff}
-    .hero-sub{font-size:14px;line-height:1.5;color:#fff;max-width:calc(69vw - 34px);margin-bottom:24px}
-    .hero .btn{width:auto;min-height:40px;gap:14px;justify-content:space-between;padding:9px 14px;border-radius:4px;font-size:13px;background:#f8f5f0;box-shadow:0 4px 14px rgba(18,12,7,.28)}
-    .hero .btn::after{display:none}
-    .hero .btn .l{display:none}
-    .hero .btn .s{display:inline}
-    .hero .btn svg{width:18px;height:18px}
-    .stats{display:none}
-    .split .text{padding:56px 16px}
-    .escolha{padding:24px 0 64px}
-    .escolha .foto{aspect-ratio:676/538}
-    .escolha-grid{display:flex;flex-direction:column;gap:0;padding-top:34px}
-    .escolha-grid>div:first-child{display:contents}
-    .escolha .eyebrow{font-size:10.5px;letter-spacing:.24em}
-    .escolha h2{font-size:clamp(32px,9.4vw,40px);margin-bottom:16px}
-    .escolha .lead{font-size:15px;line-height:1.55}
-    .acc{order:1;margin-top:26px;border-top-color:#e3d6b8}
-    .acc-item{border-bottom-color:#e3d6b8}
-    .acc-item button{font-size:16px;grid-template-columns:44px 1fr auto;padding:22px 4px 22px 1px}
-    .acc-item .n{font-size:12px}
-    .acc-item button::after{font-size:24px}
-    .acc-panel p{padding:0 18px 24px 43px;margin-top:-6px;font-size:13.5px}
-    .escolha .btn{order:2;width:100%;justify-content:center;margin-top:20px;padding:15px 20px}
-    .grid-port{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 16px;margin:0 -16px;padding:0 16px 4px;scrollbar-width:none}
-    .grid-port::-webkit-scrollbar{display:none}
-    .port,.port.small,.port.center{flex:0 0 84%;width:auto;margin:0;scroll-snap-align:start}
-    .port:nth-child(even){margin-top:0}
-    .port-dots{display:flex;gap:8px;justify-content:center;margin:26px 0 8px}
-    .port-dots button{width:7px;height:7px;padding:0;border:0;border-radius:50%;background:#D6D6D2;cursor:pointer;transition:.25s}
-    .port-dots button.on{width:22px;border-radius:4px;background:var(--ink)}
-    .steps{grid-template-columns:1fr}
-    footer{padding:56px 0 30px}
-    .foot{gap:0 24px}
-    .foot .logo img{height:116px;width:116px}
-    .foot-brand{padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.16);margin-bottom:30px}
-    .foot-brand p{font-size:15px}
-    .foot h4{font-size:19px;margin-bottom:16px}
-    .foot ul{font-size:15px;gap:14px}
-    .foot-atend{padding-top:30px;border-top:1px solid rgba(255,255,255,.16);margin-top:30px}
-    .foot-contact{gap:16px}
-    .foot-contact .pin svg{color:#fff;fill:none}
-    .foot-contact .pin circle{fill:none;stroke:currentColor}
-    .foot-contact .tel svg{display:block}
-    .foot-cta{display:flex;width:100%;margin-top:26px;padding:15px}
-    .foot-bottom{margin-top:30px;padding-top:26px;font-size:13px;flex-wrap:nowrap}
-    .foot-bottom .br{display:block;opacity:.8}
-    .foot-top{color:var(--brand);font-size:15px;white-space:nowrap}
-    .foot-top .l{display:none}
-    .foot-top .s{display:inline}
-    .mat{flex-basis:84%}
+  @media (max-width:860px){
+    .hero{padding-bottom:100px}
+    .hero-top{justify-content:center;padding-top:26px}
+    .hero-top .btn{display:none}
+    .m-br{display:inline}
+    .d-br{display:none}
+    .hero-grid{grid-template-columns:minmax(0,1fr);gap:32px;padding-top:26px;align-items:start}
+    .hero-copy{text-align:center;padding-top:0}
+    .hero h1{font-size:clamp(29px,7.6vw,36px)}
+    .hero-hint{font-size:15.5px;margin-inline:auto}
+    .hero-sign{margin-top:18px;font-size:13.5px}
+    .hero-copy .btn,.sob .btn,.sobre-btns{width:fit-content;margin-inline:auto}
+    .sobre-btns{justify-content:center}
+    .hero-paineis{height:320px;gap:8px}
+    .hero-paineis figure:nth-child(1){margin-top:24px}
+    .hero-paineis figure:nth-child(2){margin-bottom:24px}
+    .hero-paineis figure:nth-child(3){margin-top:48px;margin-bottom:0}
+    .creds{margin-top:-64px}
+    .creds-grid{grid-template-columns:1fr;gap:12px}
+    .creds-grid .cred:last-child{grid-column:auto}
+    .cred{padding:18px 18px}
+    .projetos,.servicos,.pedras,.processo,.sobre{padding-block:64px}
+    .galeria{grid-template-columns:1fr 1fr;grid-auto-rows:180px;gap:10px}
+    .galeria figcaption{font-size:13.5px;padding:30px 12px 10px}
+    .galeria figcaption .tag-num{display:none}
+    .sob{grid-template-columns:minmax(0,1fr);min-height:0}
+    .sob-media{order:-1;min-height:300px}
+    .sob-media.clip::before{transform-origin:50% 100%}
+    .sob-media.clip.in::before{transform:scaleY(0)}
+    .sob-copy{padding:44px var(--gutter) 56px}
+    .sob h2{max-width:none}
+    .etapas li{grid-template-columns:34px 1fr}
+    .servicos-grid,.proc-grid{grid-template-columns:minmax(0,1fr)}
+    .pedra-lista{gap:72px}
+    .pedra{grid-template-columns:minmax(0,1fr);gap:30px}
+    .pedra:nth-child(2n) .pedra-media{order:0}
+    .pedra-media{max-width:none;padding-right:14px}
+    .pedra-media .clip{aspect-ratio:16/11}
+    .outras{margin-top:72px;grid-template-columns:1fr;gap:20px;padding:26px 22px}
+    .sobre-grid{margin-top:44px}
+    .final{padding-block:90px}
+    .final p{font-size:16px}
+    .rodape-grid{grid-template-columns:minmax(0,1fr);gap:36px}
+    .btn{padding:14px 22px;letter-spacing:.12em}
   }
-
-  /* DESKTOP E TABLET (641px+): cabeçalho claro acima da foto, texto à esquerda, faixa de números abaixo.
-     Fica no fim do arquivo para vencer as regras antigas; o celular (até 640px) não é tocado. */
-  @media (min-width:641px){
-    header{position:relative;inset:auto;background:var(--bg);color:var(--ink)}
-    header .wrap{max-width:1264px;height:80px}
-    .logo{gap:14px;font-size:clamp(15px,1.35vw,19px)}
-    .logo small{font-size:.7em;opacity:.6}
-    .logo .logo-cor{display:none}
-    .logo .logo-escuro{display:block;height:44px;width:auto}
-    nav ul{gap:clamp(24px,3vw,44px)}
-    header .btn{background:var(--dark);color:#fff;border-color:var(--dark);border-radius:2px;padding:12px 22px;font-size:13px}
-    .menu-btn{color:var(--ink)}
-
-    .hero{min-height:clamp(540px,43vw,680px);justify-content:center;background-image:linear-gradient(90deg,rgba(30,20,12,.7),rgba(30,20,12,.3) 48%,rgba(30,20,12,0) 76%),url("img/hero-cozinha-ilha.webp");background-position:center 55%}
-    .hero .hero-content{width:100%;max-width:none;margin:0;padding:0 clamp(24px,6.5vw,120px)}
-    .hero .m-only{display:revert}
-    .hero br.m-only{display:none}
-    .hero .eyebrow{display:block;color:rgba(255,255,255,.92);font-size:12px;letter-spacing:.2em;margin-bottom:22px}
-    .hero h1{font-size:clamp(36px,3.8vw,56px);line-height:1.04;max-width:10.4em;margin-bottom:26px}
-    .hero-sub{font-size:17px;line-height:1.5;max-width:335px;color:rgba(255,255,255,.88);margin-bottom:34px}
-    .hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:18px 28px}
-    .hero .btn{background:#fff;border-color:#fff;border-radius:0;padding:14px 26px 14px 22px;font-size:14px;gap:14px}
-    .hero .btn .l{display:none}
-    .hero .btn .s{display:inline}
-    .hero .btn svg{width:22px;height:22px;order:-1}
-    .hero .btn::after{display:none}
-    .hero .link{display:inline-flex;margin:0;color:#fff;font-size:14px;padding-bottom:3px}
-
-    /* três cards sobrepostos ao limite da hero: metade na foto, metade no fundo da seção seguinte.
-       O degradê duro a 56px pinta o fundo claro só da metade de baixo, sem empurrar a seção sobre a foto. */
-    .stats{display:grid;position:relative;z-index:2;margin-top:-56px;grid-template-columns:repeat(3,1fr);gap:20px;padding:0 max(32px,calc((100% - 1240px)/2)) 64px;background:linear-gradient(to bottom,transparent 56px,#F8F7F3 56px)}
-    .stat{display:flex;align-items:center;gap:20px;min-height:112px;padding:24px;background:#FAF9F6;border:1px solid #E3DED6;border-radius:6px;box-shadow:0 10px 30px rgba(48,47,43,.08)}
-    .stat-ico{flex:none;width:34px;height:34px;color:#918575}
-    .stat strong{display:block;font-size:16px;font-weight:500;line-height:1.3;color:#302F2B}
-    .stat span{display:block;margin-top:2px;font-size:14px;line-height:1.4;color:#77736D}
-
-    /* MATERIAIS: mesmo container de 1240px dos cards, setas junto ao cabeçalho */
-    .materiais{margin-top:0;border-radius:0;padding-top:0;background:#F8F7F3}
-    .materiais .wrap{max-width:1304px}
-    .materiais .sec-head{align-items:flex-end;margin-bottom:32px}
-    .materiais .sec-head .right{display:grid;grid-template-columns:minmax(0,420px) auto;column-gap:40px;align-items:end;max-width:none}
-    .materiais .right .lead{grid-column:1}
-    .materiais .right .link{grid-column:1;justify-self:start}
-    .materiais .right .carousel-nav{grid-column:2;grid-row:1/3;align-self:end;margin:0}
-  }
-
-  @media (min-width:641px) and (max-width:960px){
-    .stats{grid-template-columns:1fr;gap:14px}
-    .materiais .sec-head{align-items:flex-start}
-    .materiais .sec-head .right{display:block;max-width:420px}
-    .materiais .right .carousel-nav{margin-top:22px}
-  }
-
-  /* LOCALIZAÇÃO (641px+): bloco centralizado em 1240px, texto à esquerda e mapa em cartão à direita.
-     No celular continua a faixa antiga, com o mapa em cima e o painel bege embaixo. */
-  @media (min-width:641px){
-    .regiao{background:#F4F4F2;padding:110px max(32px,calc((100% - 1240px)/2));row-gap:36px}
-    .regiao .text{order:1;padding:0}
-    .regiao .img{order:2;border:1px solid #E3DED6;border-radius:6px}
-    .regiao .mapa iframe{filter:grayscale(1) contrast(.9) brightness(1.06)}
-    .regiao .eyebrow{color:#918575;letter-spacing:.22em;margin-bottom:22px}
-    .regiao h2{font-size:clamp(32px,3.3vw,48px);font-weight:300;line-height:1.08;margin-bottom:22px}
-    .regiao .lead{font-size:17px;line-height:1.7;color:#77736D;max-width:440px;margin:0}
-    .regiao-end{font-size:15.5px;color:#302F2B;margin-bottom:34px}
-    .regiao .btn{align-self:flex-start;background:#2f2f2f;border-color:#2f2f2f;border-radius:2px;padding:16px 34px;font-size:15px;gap:14px}
-  }
-  @media (min-width:961px){
-    .regiao{grid-template-columns:minmax(380px,430px) 1fr;column-gap:48px;align-items:center}
-    .regiao .img{min-height:500px}
-  }
-
-  /* COMO TRABALHAMOS no celular: números grandes, divisórias finas só entre os itens,
-     subtítulo logo abaixo do título e botão escuro. Só vale até 640px; o desktop não é tocado. */
-  @media (max-width:640px){
-    #processo .eyebrow{color:#918575;letter-spacing:.22em}
-    #processo h2{font-size:clamp(32px,9.6vw,40px);margin-bottom:14px}
-    .proc-sub{display:block;font-size:16px;line-height:1.55;color:#77736D;margin:0 0 34px;max-width:30em}
-    #processo .steps{grid-template-columns:1fr;border:0}
-    #processo .step{padding:26px 0 28px;min-height:0;border:0}
-    #processo .step+.step{border-top:1px solid #E3DED6}
-    #processo .step:first-child{padding-top:6px}
-    #processo .step small{display:block;font-size:38px;font-weight:300;line-height:1;letter-spacing:-.02em;color:#85796a}
-    #processo .step h3{font-size:21px;font-weight:400;letter-spacing:-.02em;margin:16px 0 8px;color:var(--ink)}
-    #processo .step p{font-size:16px;line-height:1.6;color:#77736D}
-    #processo .link{display:none}
-    .proc-cta{display:inline-flex;margin-top:34px;padding:16px 26px;font-size:15px;gap:14px;border-radius:2px;background:#2f2f2f;border-color:#2f2f2f}
-  }
-
-  /* CABEÇALHO no celular: barra clara e sólida acima da hero, como no desktop (antes era logo branco por cima da foto).
-     A hero não muda: ela só começa abaixo da barra. */
-  @media (max-width:640px){
-    header{position:relative;inset:auto;background:var(--bg);color:var(--ink)}
-    header .wrap{height:64px}
-    header .logo{gap:12px;font-size:15px}
-    header .logo .logo-branco{display:none}
-    header .logo .logo-escuro{display:block;height:34px;width:auto}
-    header .logo small{font-size:11.5px;opacity:.6}
-    .menu-btn{color:var(--ink)}
-    header.open nav{top:68px}
-  }
-
-  /* RODAPÉ amarelo (--amarelo): fundo na cor nova, e texto, ícones e botão passam para o escuro.
-     --brand e --footer só eram usados aqui, então redefinir dentro do rodapé não afeta o resto do site. */
-  footer{--footer:var(--amarelo);--brand:#1d1b19;background:var(--amarelo);color:#1d1b19}
-  .foot-brand p,.foot ul,.foot-bottom{color:rgba(29,27,25,.88)}
-  .foot-brand,.foot-atend,.foot-bottom{border-color:rgba(29,27,25,.2)}
-  .foot ul a:hover,.foot-ig:hover{color:#1d1b19;text-decoration:underline;text-underline-offset:4px}
-  .foot-cta{background:#1d1b19;color:var(--amarelo)}
-  .foot-cta:hover{background:#000}
-  @media (max-width:640px){
-    .foot-contact .pin svg{color:#1d1b19}
-  }
-
-
-  /* ESCOLHA COM CONFIANÇA: fundo branco */
-  .escolha{background:#fff}
-
-  /* CABEÇALHO: logo e nome em preto */
-  header .logo{color:#000}
-
-  /* RODAPÉ: mesma logo do cabeçalho (M e nome em preto), no lugar do selo redondo amarelo */
-  .foot .logo{gap:16px;font-size:26px;color:#000}
-  .foot .logo .logo-escuro{display:block;height:64px;width:auto}
-  .foot .logo small{font-size:15px;opacity:.7}
-
-  /* AMARELO DA MARCA distribuído pela página (só cores): botões principais, ícones dos cards,
-     números das etapas, indicador do carrossel e sublinhado da navegação. Texto sempre em grafite. */
-  header .btn,.hero .btn,.escolha .btn,.regiao .btn{background:var(--amarelo);color:var(--grafite);border-color:var(--amarelo)}
-  header .btn:hover,.hero .btn:hover,.escolha .btn:hover,.regiao .btn:hover,
-  header .btn:focus-visible,.hero .btn:focus-visible,.escolha .btn:focus-visible,.regiao .btn:focus-visible{background:var(--amarelo-hover);color:var(--grafite);border-color:var(--amarelo-hover)}
-  .stat-ico{color:var(--amarelo)}
-  .step small,#processo .step small{color:var(--amarelo)}
-  .port-dots button.on{background:var(--amarelo)}
-  nav a:hover,nav a:focus-visible,nav a.active,nav a[aria-current]{text-decoration-color:var(--amarelo)}
-
-  /* COMO TRABALHAMOS no celular: linha do tempo. Bolinha amarela com o número, linha fina ligando as etapas,
-     título e frase curta ao lado, botão amarelo em largura total. O desktop não é tocado. */
-  .p-m{display:none}
-  @media (max-width:640px){
-    #processo{background:#fff}
-    #processo .eyebrow{color:var(--amarelo);font-weight:600}
-    #processo h2{max-width:8.2em;font-weight:400}
-    .p-d{display:none}
-    .p-m{display:inline}
-    #processo .steps{display:block}
-    #processo .step,#processo .step+.step,#processo .step:first-child{position:relative;display:grid;grid-template-columns:34px 1fr;column-gap:20px;align-content:start;padding:0 0 30px;border:0}
-    #processo .step:last-child{padding-bottom:0}
-    #processo .step:not(:last-child)::before{content:"";position:absolute;left:16px;top:34px;bottom:0;width:1px;background:#E3DED6}
-    #processo .step small{grid-row:1/3;display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--amarelo);color:var(--grafite);font-size:13px;font-weight:600;letter-spacing:0;line-height:1}
-    #processo .step h3{grid-column:2;margin:6px 0 6px;font-size:19px;font-weight:500;line-height:1.2;color:var(--grafite)}
-    #processo .step p{grid-column:2;font-size:15.5px;line-height:1.5;color:#68645D}
-    .proc-cta{display:flex;width:100%;justify-content:center;margin-top:40px;padding:17px 20px;border-radius:4px;font-size:16px;font-weight:500;gap:14px;background:var(--amarelo);color:var(--grafite);border-color:var(--amarelo)}
-    .proc-cta::after{content:"→";font-size:18px}
-    .proc-cta:hover,.proc-cta:focus-visible{background:var(--amarelo-hover);color:var(--grafite);border-color:var(--amarelo-hover)}
+  @media (prefers-reduced-motion:reduce){
+    *,::before,::after{animation:none!important;transition:none!important}
+    html{scroll-behavior:auto}
+    [data-reveal]{opacity:1;transform:none}
+    .clip::before{display:none}
+    .clip img,.servico img{transform:none}
+    .etapas li{color:#f4f1ea}
+    .frase .pal{opacity:1}
+    .final h2{background:none;color:var(--amarelo)}
   }
 </style>
 </head>
 <body>
+<div class="progresso" aria-hidden="true"></div>
 
-<header id="topo">
-  <div class="wrap">
-    <a href="#" class="logo" aria-label="Marmoraria Matos Stone">
-      <img src="img/logo-simbolo.svg" alt="Logo Marmoraria Matos Stone" class="logo-cor">
-      <img src="img/logo-m-branco.svg" alt="" class="logo-branco">
-      <img src="img/logo-m-escuro.svg" alt="" class="logo-escuro">
-      <span>Matos Stone<small>Mármores e Granitos</small></span>
-    </a>
-    <nav>
-      <ul>
-        <li><a href="#">Início</a></li>
-        <li><a href="#processo">Como trabalhamos</a></li>
-        <li><a href="#materiais">Materiais</a></li>
-        <li><a href="#portfolio">Portfólio</a></li>
-        <li><a href="#compat">Para arquitetos</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
-    <a href="https://wa.me/5531972661393" class="btn arrow" target="_blank" rel="noopener">Solicitar orçamento</a>
-    <button class="menu-btn" aria-label="Abrir menu" onclick="this.closest('header').classList.toggle('open')">☰</button>
-  </div>
-</header>
-
+<main id="topo">
 <section class="hero">
-  <div class="wrap hero-content">
-    <p class="eyebrow m-only">Marmoraria em Contagem e região</p>
-    <h1>Transformamos<br class="m-only"> pedras em projetos<br class="m-only"> que impressionam<span class="m-only">.</span></h1>
-    <p class="hero-sub m-only">Bancadas, ilhas e revestimentos sob medida, da escolha à instalação.</p>
-    <div class="hero-actions">
-    <a href="https://wa.me/5531972661393" class="btn arrow" target="_blank" rel="noopener"><span class="l">Solicite seu orçamento pelo WhatsApp</span><span class="s">Solicitar orçamento</span><svg class="m-only" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1 1 8 19.4z"/><path d="M9 8.3c.2-.5.6-.6.9-.6h.5c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .5-.1.6l-.5.6c-.1.2-.1.4 0 .6.6 1 1.4 1.8 2.4 2.4.2.1.4.1.6 0l.6-.5c.2-.1.4-.2.6-.1l1.7.7c.3.1.4.3.4.5v.5c0 .3-.1.7-.6.9-.6.3-1.6.5-3.1-.2a9.7 9.7 0 0 1-4.5-4.5c-.7-1.5-.5-2.5.2-3.1z"/></svg></a>
-    <a href="#portfolio" class="link">Conheça nossos projetos</a>
+  <div class="wrap hero-top">
+    <a class="marca" href="#topo" aria-label="Marmoraria Matos Stone, página inicial">
+      <img src="img/logo-simbolo.svg" alt="">
+      <span><strong>Matos Stone</strong><small>Mármores e Granitos</small></span>
+    </a>
+    <a class="btn" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicitar orçamento</a>
+  </div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1>Transformamos <em>pedras</em><br class="m-br"> em projetos<br> que impressionam.</h1>
+      <p class="hero-hint">Bancadas, ilhas e revestimentos em quartzo, quartzito, granito e mármore, sob medida, da escolha à instalação.</p>
+      <a class="btn btn--pulso" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1 1 8 19.4z"/><path d="M9 8.3c.2-.5.6-.6.9-.6h.5c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .5-.1.6l-.5.6c-.1.2-.1.4 0 .6.6 1 1.4 1.8 2.4 2.4.2.1.4.1.6 0l.6-.5c.2-.1.4-.2.6-.1l1.7.7c.3.1.4.3.4.5v.5c0 .3-.1.7-.6.9-.6.3-1.6.5-3.1-.2a9.7 9.7 0 0 1-4.5-4.5c-.7-1.5-.5-2.5.2-3.1z"/></svg>Solicite um orçamento</a>
+      <p class="hero-sign">Marmoraria em Contagem<br class="m-br"> e região</p>
+    </div>
+    <div class="hero-paineis" aria-hidden="true">
+      <figure data-par="0.05"><div><img src="img/hero-mobile-bancada.webp" alt="" fetchpriority="high"></div></figure>
+      <figure data-par="-0.06"><div><img src="img/bancada-quartzito-vaticano-m.webp" alt="" fetchpriority="high" style="object-position:center 30%"></div></figure>
+      <figure data-par="0.04"><div><img src="img/cozinha-taj-mahal-pia-m.webp" alt="" fetchpriority="high"></div></figure>
     </div>
   </div>
 </section>
 
-<div class="stats">
-  <div class="stat">
-    <svg class="stat-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 1 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
-    <div class="stat-txt"><strong>Contagem/MG e região</strong><span>Atendimento local</span></div>
-  </div>
-  <div class="stat">
-    <svg class="stat-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 17.5 17.5 3.5l3 3-14 14z"/><path d="M7.7 13.3l1.6 1.6M10.5 10.5l1.6 1.6M13.3 7.7l1.6 1.6"/></svg>
-    <div class="stat-txt"><strong>Da medição à instalação</strong><span>Uma equipe para o seu projeto</span></div>
-  </div>
-  <div class="stat">
-    <svg class="stat-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3 7.5 12 12l9-4.5z"/><path d="M3 12l9 4.5 9-4.5"/><path d="M3 16.5 12 21l9-4.5"/></svg>
-    <div class="stat-txt"><strong>Do convencional ao alto padrão</strong><span>Pedras e superfícies sob medida</span></div>
+<div class="creds">
+  <div class="wrap creds-grid">
+    <div class="cred" data-reveal>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 1 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+      <div><strong>Contagem/MG e região</strong><p>Atendimento local, com visita e <b>medição no seu endereço</b>.</p></div>
+    </div>
+    <div class="cred" data-reveal style="--d:.1s">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 17.5 17.5 3.5l3 3-14 14z"/><path d="M7.7 13.3l1.6 1.6M10.5 10.5l1.6 1.6M13.3 7.7l1.6 1.6"/></svg>
+      <div><strong>Da medição à instalação</strong><p>Uma equipe acompanhando <b>todas as etapas</b> do seu projeto.</p></div>
+    </div>
+    <div class="cred" data-reveal style="--d:.2s">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3 7.5 12 12l9-4.5z"/><path d="M3 12l9 4.5 9-4.5"/><path d="M3 16.5 12 21l9-4.5"/></svg>
+      <div><strong>Do convencional ao alto padrão</strong><p>Quartzos, quartzitos, granitos, mármores, porcelanatos e <b>lâminas</b>.</p></div>
+    </div>
   </div>
 </div>
 
-<section class="materiais" id="materiais">
+<section class="projetos" id="projetos">
   <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <p class="eyebrow">Nossos materiais</p>
-        <h2>Materiais perfeitos<br>para cada ambiente</h2>
+    <div class="projetos-head">
+      <div data-reveal>
+        <span class="eyebrow">Projetos em destaque</span>
+        <h2>Superfícies que participam da arquitetura</h2>
       </div>
-      <div class="right">
-        <p class="lead">Trabalhamos com quartzos, quartzitos, granitos, mármores, porcelanatos e lâminas: desde rochas convencionais até opções de alto padrão, para bancadas, ilhas, lavatórios e revestimentos sob medida.</p>
-        <a href="https://www.instagram.com/matrix_marmores/" class="link" target="_blank" rel="noopener">Veja mais no Instagram</a>
-        <div class="carousel-nav">
-          <span id="mat-count">01 / 04</span>
-          <button id="prev" aria-label="Anterior">←</button>
-          <button id="next" aria-label="Próximo">→</button>
+      <p data-reveal style="--d:.1s">Cada projeto merece uma pedra escolhida de acordo com o <b>estilo</b>, a <b>funcionalidade</b> e a proposta do ambiente. Confira algumas obras finalizadas pela equipe da Matos Stone, do recorte da cuba à <b>instalação final</b>.</p>
+    </div>
+    <div class="galeria">
+      <figure class="clip" data-reveal><img src="img/cozinha-taj-mahal-ambiente-m.webp" srcset="img/cozinha-taj-mahal-ambiente-m.webp 800w, img/cozinha-taj-mahal-ambiente.webp 1600w" sizes="(max-width:860px) 50vw, 33vw" loading="lazy" alt="Cozinha com ilha e bancada em quartzito Taj Mahal" style="object-position:center 60%"><figcaption>Ilha e bancada em Taj Mahal <span class="tag-num">Cozinha</span></figcaption></figure>
+      <figure class="clip" data-reveal style="--d:.1s"><img src="img/cozinha-taj-mahal-bancada-m.webp" loading="lazy" alt="Bancada em quartzito Taj Mahal com banquetas de madeira"><figcaption>Bancada em Taj Mahal <span class="tag-num">Área gourmet</span></figcaption></figure>
+      <figure class="clip" data-reveal style="--d:.2s"><img src="img/lavabo-travertino-romano-m.webp" loading="lazy" alt="Lavabo com bancada em Travertino Romano"><figcaption>Travertino Romano <span class="tag-num">Lavabo</span></figcaption></figure>
+      <figure class="clip" data-reveal style="--d:.1s"><img src="img/bancada-preto-sao-gabriel-m.webp" loading="lazy" alt="Bancada com cuba em granito Preto São Gabriel"><figcaption>Preto São Gabriel <span class="tag-num">Cozinha</span></figcaption></figure>
+      <figure class="clip" data-reveal style="--d:.2s"><img src="img/cozinha-frontao-mobile.webp" loading="lazy" alt="Cozinha com bancada e frontão em pedra natural"><figcaption>Bancada e frontão <span class="tag-num">Cozinha</span></figcaption></figure>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn--pulso" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Vi%20os%20projetos%20no%20site%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Converse com um especialista</a>
+    </div>
+  </div>
+</section>
+
+<div class="faixa faixa--escura" aria-hidden="true">
+  <div class="faixa-linha">
+    <span>Medição técnica no local</span><span>Acabamento sob medida</span><span>Equipe da medição à instalação</span><span>Do convencional ao alto padrão</span>
+    <span>Medição técnica no local</span><span>Acabamento sob medida</span><span>Equipe da medição à instalação</span><span>Do convencional ao alto padrão</span>
+  </div>
+</div>
+
+<section class="sob escuro">
+  <div class="sob-copy">
+    <span class="eyebrow" data-reveal>Escolha com confiança</span>
+    <h2 data-reveal>Beleza que se vê. Qualidade que se vive.</h2>
+    <p class="sob-lead" data-reveal>A escolha da pedra começa pelo seu dia a dia. Ajudamos você a encontrar o equilíbrio entre estética, uso e manutenção.</p>
+    <ul class="etapas js-etapas">
+      <li><span class="tag-num">01</span><span><strong>Uso e resistência</strong>Consideramos a rotina do ambiente, o contato com água e calor e as necessidades do seu projeto.</span></li>
+      <li><span class="tag-num">02</span><span><strong>Acabamentos e detalhes</strong>Polido, levigado ou escovado, com bordas retas, meia-esquadria ou boleadas.</span></li>
+      <li><span class="tag-num">03</span><span><strong>Cubas e soluções sob medida</strong>A cuba esculpida é feita na própria pedra: esconde o ralo e elimina emendas.</span></li>
+      <li><span class="tag-num">04</span><span><strong>Cuidados e manutenção</strong>Orientamos a forma certa de limpar e proteger a sua pedra para ela durar muitos anos.</span></li>
+    </ul>
+    <a class="btn btn--pulso" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20ajuda%20para%20escolher%20o%20material%20ideal." target="_blank" rel="noopener">Encontre o material ideal</a>
+  </div>
+  <div class="sob-media clip" data-reveal><img src="img/hero-mobile.webp" loading="lazy" alt="Ilha em quartzito com torneira dourada"></div>
+</section>
+
+<section class="servicos" id="servicos">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">Serviços</span>
+      <h2>Pedra sob medida para cada ambiente</h2>
+      <p>Da cozinha ao lavabo, cada peça é desenhada a partir do seu espaço e do seu jeito de usar.</p>
+    </div>
+    <div class="servicos-grid">
+      <div data-reveal><article class="servico"><figure><img src="img/hero-cozinha-ilha.webp" loading="lazy" alt="Cozinha com ilha em cascata em quartzito claro"></figure><div class="servico-body"><h3>Cozinhas e ilhas</h3><p>Bancadas, ilhas em cascata e frontões que unem beleza e resistência no dia a dia.</p><ul class="tags"><li>Bancadas</li><li>Ilhas</li><li>Frontões</li><li>Nichos</li></ul></div></article></div>
+      <div data-reveal style="--d:.1s"><article class="servico"><figure><img src="img/hero-ilha-esculpida-m.webp" loading="lazy" alt="Cuba esculpida na pedra com torneira dourada" style="object-position:40% center"></figure><div class="servico-body"><h3>Banheiros e lavabos</h3><p>Cubas esculpidas na própria pedra e bancadas que deixam o ambiente leve e minimalista.</p><ul class="tags"><li>Cubas esculpidas</li><li>Bancadas</li><li>Revestimentos</li></ul></div></article></div>
+      <div data-reveal style="--d:.2s"><article class="servico"><figure><img src="img/cozinha-taj-mahal-ilha-m.webp" loading="lazy" alt="Ilha revestida em Taj Mahal em área gourmet"></figure><div class="servico-body"><h3>Áreas gourmet</h3><p>Ilhas, bares e bancadas para receber, com pedras que suportam calor e uso intenso.</p><ul class="tags"><li>Ilhas</li><li>Bancadas</li><li>Bares</li><li>Mesas</li></ul></div></article></div>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn--pulso" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20falar%20com%20um%20especialista." target="_blank" rel="noopener">Fale com um especialista</a>
+    </div>
+  </div>
+</section>
+
+<div class="faixa faixa--rev" aria-hidden="true">
+  <div class="faixa-linha">
+    <span><b>Quartzito</b></span><span>Granito</span><span><b>Mármore</b></span><span>Quartzo</span><span><b>Travertino</b></span><span>Porcelanato</span><span><b>Lâminas</b></span>
+    <span><b>Quartzito</b></span><span>Granito</span><span><b>Mármore</b></span><span>Quartzo</span><span><b>Travertino</b></span><span>Porcelanato</span><span><b>Lâminas</b></span>
+  </div>
+</div>
+
+<section class="pedras escuro" id="materiais">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">Nossos materiais</span>
+      <h2>Materiais perfeitos para cada ambiente</h2>
+      <p>Desde rochas convencionais até opções de alto padrão, escolhidas chapa a chapa.</p>
+    </div>
+    <div class="pedra-lista">
+      <article class="pedra">
+        <div data-reveal>
+          <span class="tag-num">Pedra natural</span>
+          <h3>Quartzito</h3>
+          <p>Resistente como o granito e com os veios marcantes de um mármore, o quartzito é a escolha certa para ilhas, bancadas e revestimentos que precisam de beleza e durabilidade ao mesmo tempo.</p>
+          <ul class="chips"><li>Taj Mahal</li><li>Quartzito Vaticano</li></ul>
+        </div>
+        <div class="pedra-media"><div class="clip" data-reveal><img src="img/material-taj-mahal.webp" loading="lazy" alt="Textura do quartzito Taj Mahal"></div></div>
+      </article>
+      <article class="pedra">
+        <div data-reveal>
+          <span class="tag-num">Pedra natural</span>
+          <h3>Granito</h3>
+          <p>Dureza alta, ótima resistência ao calor e fácil manutenção. Do preto profundo aos tons claros, o granito vai bem em cozinhas, áreas gourmet e bancadas de uso intenso.</p>
+          <ul class="chips"><li>Preto São Gabriel</li><li>Branco Dakar</li><li>Branco Paraná</li></ul>
+        </div>
+        <div class="pedra-media"><div class="clip" data-reveal><img src="img/material-preto-sao-gabriel.webp" loading="lazy" alt="Textura do granito Preto São Gabriel"></div></div>
+      </article>
+      <article class="pedra">
+        <div data-reveal>
+          <span class="tag-num">Pedra natural</span>
+          <h3>Travertino</h3>
+          <p>Tons claros e a textura natural de poros e linhas trazem aconchego e personalidade para lavabos, banheiros e paredes de destaque.</p>
+          <ul class="chips"><li>Travertino Romano</li></ul>
+        </div>
+        <div class="pedra-media"><div class="clip" data-reveal><img src="img/material-travertino-romano.webp" loading="lazy" alt="Textura do Travertino Romano"></div></div>
+      </article>
+    </div>
+    <div class="outras" data-reveal>
+      <div>
+        <span class="tag-num">Também trabalhamos com</span>
+        <h3>Quartzos, mármores, porcelanatos e lâminas</h3>
+      </div>
+      <ul class="chips"><li>Quartzo Cinza</li><li>Mármores</li><li>Porcelanatos</li><li>Lâminas</li></ul>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn--pulso" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20os%20materiais." target="_blank" rel="noopener">Solicitar orçamento</a>
+    </div>
+  </div>
+</section>
+
+<section class="processo" id="processo">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">Como trabalhamos</span>
+      <h2>Do projeto à instalação</h2>
+      <p>Um processo claro, do primeiro contato ao acabamento.</p>
+    </div>
+    <div class="proc-grid">
+      <article class="proc" data-reveal><span class="num">01</span><h3>Entendimento do projeto</h3><p>Conversamos sobre o projeto, o ambiente e o momento da obra para entender o que precisa ser feito.</p></article>
+      <article class="proc" data-reveal style="--d:.1s"><span class="num">02</span><h3>Orçamento e definição</h3><p>Apresentamos materiais, acabamentos e detalhes, com um orçamento claro para cada etapa.</p></article>
+      <article class="proc" data-reveal style="--d:.2s"><span class="num">03</span><h3>Medição técnica</h3><p>Conferimos medidas e encontros com marcenaria, louças e metais no ambiente.</p></article>
+      <article class="proc" data-reveal><span class="num">04</span><h3>Projeto executivo</h3><p>Detalhamos recortes, encaixes e acabamentos para aprovação antes do corte.</p></article>
+      <article class="proc" data-reveal style="--d:.1s"><span class="num">05</span><h3>Produção</h3><p>Cortamos e acabamos cada peça, com conferência de qualidade em cada etapa.</p></article>
+      <article class="proc" data-reveal style="--d:.2s"><span class="num">06</span><h3>Instalação e conferência</h3><p>Instalamos as peças e fazemos a conferência final com você, ambiente por ambiente.</p></article>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn--pulso" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20come%C3%A7ar%20meu%20projeto." target="_blank" rel="noopener">Começar meu projeto</a>
+    </div>
+  </div>
+</section>
+
+<section class="sobre" id="sobre">
+  <div class="wrap">
+    <span class="eyebrow">A Matos Stone</span>
+    <p class="frase js-frase">Cada projeto é único. Por isso, nosso trabalho começa entendendo o que você, seu arquiteto ou sua construtora precisam.</p>
+    <div class="sobre-grid">
+      <div class="sobre-img clip" data-reveal><img src="img/cozinha-taj-mahal-ilha-m.webp" loading="lazy" alt="Ilha em quartzito Taj Mahal com acabamento em meia-esquadria" style="object-position:30% center"></div>
+      <div data-reveal>
+        <h2>Conheça a Matos Stone Mármores e Granitos</h2>
+        <div class="sobre-copy">
+          <p>A Matos Stone, também conhecida como <b>Matrix Mármores &amp; Granitos</b>, atende Contagem e região transformando <b>pedras naturais e tecnológicas</b> em bancadas, ilhas, lavatórios e revestimentos sob medida.</p>
+          <p>Trabalhamos com quartzos, quartzitos, granitos, mármores, porcelanatos e lâminas, do convencional ao alto padrão, e orientamos você na escolha do material certo para cada ambiente.</p>
+          <p>Para <b>arquitetos e construtoras</b>, fazemos a compatibilização técnica: medição, detalhamento e instalação pensados para o projeto chegar bem à obra.</p>
+        </div>
+        <div class="sobre-btns">
+          <a class="btn btn--pulso" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida." target="_blank" rel="noopener">Tire suas dúvidas</a>
+          <a class="link" href="https://wa.me/5531975373851?text=Ol%C3%A1!%20Sou%20arquiteto%2Fconstrutora%20e%20quero%20ser%20parceiro." target="_blank" rel="noopener">Quero ser parceiro</a>
         </div>
       </div>
     </div>
-
-    <div class="track" id="track">
-      <article class="mat"><div class="img"><img src="img/material-taj-mahal.webp" alt="Textura do quartzito Taj Mahal" loading="lazy"></div><div class="mat-body"><h3>Taj Mahal</h3><p>Quartzito em tons claros e quentes</p><a href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Taj%20Mahal." class="btn btn-ghost" target="_blank" rel="noopener">Detalhar material</a></div></article>
-      <article class="mat"><div class="img"><img src="img/material-quartzito-vaticano.webp" alt="Textura do Quartzito Vaticano" loading="lazy"></div><div class="mat-body"><h3>Quartzito Vaticano</h3><p>Sofisticação, resistência e exclusividade</p><a href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Quartzito%20Vaticano." class="btn btn-ghost" target="_blank" rel="noopener">Detalhar material</a></div></article>
-      <article class="mat"><div class="img"><img src="img/material-travertino-romano.webp" alt="Textura do Travertino Romano" loading="lazy"></div><div class="mat-body"><h3>Travertino Romano</h3><p>Rocha natural de textura única</p><a href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Travertino%20Romano." class="btn btn-ghost" target="_blank" rel="noopener">Detalhar material</a></div></article>
-      <article class="mat"><div class="img"><img src="img/material-preto-sao-gabriel.webp" alt="Textura do granito Preto São Gabriel" loading="lazy"></div><div class="mat-body"><h3>Preto São Gabriel</h3><p>Granito preto, elegante e resistente</p><a href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Preto%20S%C3%A3o%20Gabriel." class="btn btn-ghost" target="_blank" rel="noopener">Detalhar material</a></div></article>
-    </div>
-    <p class="hint">Arraste para o lado e veja outros materiais</p>
   </div>
 </section>
 
-<section class="escolha">
+<section class="final escuro">
   <div class="wrap">
-    <picture class="img foto"><source media="(max-width:640px)" srcset="img/cozinha-frontao-mobile.webp"><img src="img/cozinha-frontao.webp" srcset="img/cozinha-frontao-m.webp 900w, img/cozinha-frontao.webp 1800w" sizes="100vw" alt="Cozinha com bancada e frontão em pedra natural" loading="lazy"></picture>
-    <div class="escolha-grid">
+    <span class="eyebrow">Orçamento sem compromisso</span>
+    <h2 class="js-preenche">Vamos tirar seu projeto do papel?</h2>
+    <p>Fale agora com a equipe da Matos Stone pelo WhatsApp e receba a orientação certa para o seu ambiente.</p>
+    <a class="btn btn--pulso" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicite um orçamento</a>
+  </div>
+</section>
+</main>
+
+<footer class="rodape" id="contato">
+  <div class="wrap">
+    <div class="rodape-grid">
       <div>
-        <p class="eyebrow">Escolha com confiança</p>
-        <h2>Beleza que se vê.<br>Qualidade que<br>se vive.</h2>
-        <p class="lead">A escolha da pedra começa pelo seu dia a dia. Encontre o equilíbrio entre estética, uso e manutenção.</p>
-        <a href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20ajuda%20para%20escolher%20o%20material%20ideal." class="btn btn-dark arrow" target="_blank" rel="noopener">Encontre o material ideal</a>
+        <a class="marca" href="#topo" aria-label="Matos Stone, voltar ao topo"><img src="img/logo-simbolo.svg" alt=""><span><strong>Matos Stone</strong><small>Mármores e Granitos</small></span></a>
+        <p class="rodape-tag">Pedras naturais e tecnológicas, sob medida.</p>
       </div>
-      <div class="acc" id="acc">
-        <div class="acc-item open"><button><span class="n">01</span>Uso e resistência</button><div class="acc-panel"><p>Cada superfície tem características próprias. Consideramos a rotina do ambiente, o contato com água e calor e as necessidades do seu projeto.</p></div></div>
-        <div class="acc-item"><button><span class="n">02</span>Acabamentos e detalhes</button><div class="acc-panel"><p>Polido, levigado ou escovado, com bordas retas, meia-esquadria ou boleadas: mostramos o acabamento que combina com o uso e com o desenho do seu projeto.</p></div></div>
-        <div class="acc-item"><button><span class="n">03</span>Cubas e soluções sob medida</button><div class="acc-panel"><p>A cuba esculpida é feita na própria pedra: esconde o ralo, elimina emendas e traz um visual minimalista para lavabos, banheiros e cozinhas.</p></div></div>
-        <div class="acc-item"><button><span class="n">04</span>Cuidados e manutenção</button><div class="acc-panel"><p>Cada pedra pede cuidados específicos. Orientamos você sobre a forma certa de limpar e proteger a sua para ela durar muitos anos.</p></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="portfolio">
-  <div class="wrap">
-    <div class="sec-head">
       <div>
-        <p class="eyebrow">Projetos em destaque</p>
-        <h2>Superfícies que<br>participam da arquitetura.</h2>
+        <h3>Contato</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1 1 8 19.4z"/></svg><a href="https://wa.me/5531972661393" target="_blank" rel="noopener">Vendas: (31) 97266-1393</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><a href="https://wa.me/5531975373851" target="_blank" rel="noopener">Escritório: (31) 97537-3851</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 1 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg><span>Av. Nossa Senhora da Conceição, 486<br>Tijuca · Contagem/MG</span></li>
+          <li class="mapas">
+            <a class="mapa-btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Av.+Nossa+Senhora+da+Concei%C3%A7%C3%A3o,+486,+Tijuca,+Contagem+MG" target="_blank" rel="noopener">Google Maps</a>
+            <a class="mapa-btn" href="https://waze.com/ul?q=Av.%20Nossa%20Senhora%20da%20Concei%C3%A7%C3%A3o%2C%20486%2C%20Contagem&amp;navigate=yes" target="_blank" rel="noopener">Waze</a>
+          </li>
+        </ul>
       </div>
-      <div class="right">
-        <p class="lead">Cada projeto merece uma pedra escolhida de acordo com o estilo, a funcionalidade e a proposta do ambiente. Confira algumas obras finalizadas pela nossa equipe.</p>
-        <a href="https://www.instagram.com/matrix_marmores/" class="link" target="_blank" rel="noopener">Conheça nosso trabalho</a>
+      <div>
+        <h3>Redes</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".8" fill="currentColor"/></svg><a href="https://www.instagram.com/matrix_marmores/" target="_blank" rel="noopener">@matrix_marmores</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1 1 8 19.4z"/></svg><a href="https://wa.me/5531972661393" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
       </div>
+      <div class="rodape-mapa"><iframe src="https://www.google.com/maps?q=Av.+Nossa+Senhora+da+Concei%C3%A7%C3%A3o,+486,+Tijuca,+Contagem+-+MG&amp;z=15&amp;output=embed" title="Mapa: Matos Stone em Contagem" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
     </div>
-
-    <div class="grid-port">
-      <article class="port">
-        <div class="img"><img src="img/cozinha-taj-mahal-ambiente-m.webp" srcset="img/cozinha-taj-mahal-ambiente-m.webp 800w, img/cozinha-taj-mahal-ambiente.webp 1600w" sizes="(max-width:640px) 100vw, 50vw" alt="Cozinha com ilha em quartzito Taj Mahal" loading="lazy" style="object-position:center 60%"></div>
-        <p class="tag">Cozinha</p><h3>Ilha e bancada em Taj Mahal</h3><p>A elegância do quartzito Taj Mahal transformando cada detalhe da cozinha.</p>
-      </article>
-      <article class="port small right">
-        <div class="img"><img src="img/cozinha-taj-mahal-ilha-m.webp" srcset="img/cozinha-taj-mahal-ilha-m.webp 800w, img/cozinha-taj-mahal-ilha.webp 1600w" sizes="(max-width:640px) 100vw, 40vw" alt="Ilha revestida em Taj Mahal com acabamento em meia-esquadria" loading="lazy" style="object-position:center 55%"></div>
-        <p class="tag">Área gourmet</p><h3>Ilha revestida em Taj Mahal</h3><p>Volume em pedra contínua, com os veios acompanhando cada face da peça.</p>
-      </article>
-      <article class="port small">
-        <div class="img"><img src="img/lavabo-travertino-romano-m.webp" srcset="img/lavabo-travertino-romano-m.webp 800w, img/lavabo-travertino-romano.webp 1440w" sizes="(max-width:640px) 100vw, 40vw" alt="Lavabo com bancada em Travertino Romano" loading="lazy"></div>
-        <p class="tag">Lavabo</p><h3>Lavabo em Travertino Romano</h3><p>Um ambiente refinado, leve e cheio de personalidade.</p>
-      </article>
-      <article class="port small right">
-        <div class="img"><img src="img/bancada-quartzito-vaticano-m.webp" srcset="img/bancada-quartzito-vaticano-m.webp 800w, img/bancada-quartzito-vaticano.webp 1080w" sizes="(max-width:640px) 100vw, 40vw" alt="Bancada com cuba em Quartzito Vaticano" loading="lazy" style="object-position:center 25%"></div>
-        <p class="tag">Cozinha</p><h3>Bancada em Quartzito Vaticano</h3><p>Sofisticação, resistência e exclusividade em uma única peça.</p>
-      </article>
-    </div>
-    <div class="port-dots" id="port-dots"></div>
-    <a href="https://www.instagram.com/matrix_marmores/" class="link" target="_blank" rel="noopener">Ver mais projetos no Instagram</a>
-  </div>
-</section>
-
-<section class="split regiao" id="contato">
-  <div class="img mapa"><iframe src="https://www.google.com/maps?q=Av.+Nossa+Senhora+da+Concei%C3%A7%C3%A3o,+486,+Tijuca,+Contagem+-+MG&z=16&output=embed" title="Mapa: Marmoraria Matos Stone em Contagem" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-  <div class="text">
-    <p class="eyebrow">Conheça nosso espaço</p>
-    <h2>Seu projeto começa<br>com uma<br>boa escolha.</h2>
-    <p class="lead">Visite a Matos Stone em Contagem e conheça as opções de pedras e acabamentos para o seu projeto.</p>
-    <div class="regiao-rule"></div>
-    <p class="regiao-end">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 1 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
-      <span>Av. Nossa Senhora da Conceição, 486<br>Tijuca · Contagem/MG</span>
-    </p>
-    <a href="https://www.google.com/maps/dir/?api=1&destination=Av.+Nossa+Senhora+da+Concei%C3%A7%C3%A3o,+486,+Tijuca,+Contagem+MG" class="btn btn-dark arrow" target="_blank" rel="noopener">Como chegar</a>
-  </div>
-</section>
-
-<section id="processo">
-  <div class="wrap">
-    <p class="eyebrow">Como trabalhamos</p>
-    <h2>Do projeto à instalação.</h2>
-    <p class="proc-sub">Um processo claro, do primeiro contato ao acabamento.</p>
-    <div class="steps">
-      <div class="step"><small>01</small><h3>Entendimento do projeto</h3><p><span class="p-d">Conversamos sobre o projeto, o ambiente e o momento da obra para entender o que precisa ser feito.</span><span class="p-m">Entendemos seu ambiente e o momento da obra.</span></p></div>
-      <div class="step"><small>02</small><h3>Orçamento e definição</h3><p><span class="p-d">Apresentamos materiais, acabamentos e detalhes, com um orçamento claro para cada etapa.</span><span class="p-m">Definimos materiais e acabamentos, com orçamento claro.</span></p></div>
-      <div class="step"><small>03</small><h3>Medição técnica</h3><p><span class="p-d">Conferimos medidas e encontros com marcenaria, louças e metais no ambiente.</span><span class="p-m">Conferimos medidas, marcenaria, louças e metais.</span></p></div>
-      <div class="step"><small>04</small><h3>Projeto executivo</h3><p><span class="p-d">Detalhamos recortes, encaixes e acabamentos para aprovação antes do corte.</span><span class="p-m">Detalhamos recortes e encaixes antes do corte.</span></p></div>
-      <div class="step"><small>05</small><h3>Produção</h3><p><span class="p-d">Cortamos e acabamos cada peça, com conferência de qualidade em cada etapa.</span><span class="p-m">Produzimos cada peça com conferência de qualidade.</span></p></div>
-      <div class="step"><small>06</small><h3>Instalação e conferência</h3><p><span class="p-d">Instalamos as peças e fazemos a conferência final com você, ambiente por ambiente.</span><span class="p-m">Instalamos e conferimos tudo com você.</span></p></div>
-    </div>
-    <a href="https://wa.me/5531972661393" class="link" target="_blank" rel="noopener">Começar meu projeto</a>
-    <a href="https://wa.me/5531972661393" class="btn btn-dark arrow proc-cta" target="_blank" rel="noopener">Começar meu projeto</a>
-  </div>
-</section>
-
-<section class="compat" id="compat">
-  <div class="wrap">
-    <p class="eyebrow">Para arquitetos e construtoras</p>
-    <div class="sec-head">
-      <h2>Compatibilização técnica para o projeto chegar bem à obra.</h2>
-      <div class="right">
-        <p class="lead">O segredo de um projeto bem executado não está só na pedra escolhida, mas em como ela é medida, detalhada e instalada. Seja nosso parceiro.</p>
-        <a href="https://wa.me/5531975373851?text=Ol%C3%A1!%20Sou%20arquiteto%2Fconstrutora%20e%20quero%20ser%20parceiro." class="link" target="_blank" rel="noopener">Quero ser parceiro</a>
-      </div>
+    <div class="rodape-bottom">
+      <span>© 2026 Marmoraria Matos Stone | Matrix Mármores &amp; Granitos</span>
+      <a href="#topo">Voltar ao topo ↑</a>
     </div>
   </div>
-</section>
+</footer>
 
+<a class="wa-float" href="https://wa.me/5531972661393" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1 1 8 19.4z"/><path d="M9 8.3c.2-.5.6-.6.9-.6h.5c.2 0 .4.1.5.4l.7 1.7c.1.2 0 .5-.1.6l-.5.6c-.1.2-.1.4 0 .6.6 1 1.4 1.8 2.4 2.4.2.1.4.1.6 0l.6-.5c.2-.1.4-.2.6-.1l1.7.7c.3.1.4.3.4.5v.5c0 .3-.1.7-.6.9-.6.3-1.6.5-3.1-.2a9.7 9.7 0 0 1-4.5-4.5c-.7-1.5-.5-2.5.2-3.1z"/></svg></a>
 
 <script>
+  const calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // carrossel de materiais
-  const track = document.getElementById('track');
-  const count = document.getElementById('mat-count');
-  const cards = track.children;
-  const step = () => cards[0].getBoundingClientRect().width + 6;
-  document.getElementById('next').onclick = () => track.scrollBy({left: step(), behavior: 'smooth'});
-  document.getElementById('prev').onclick = () => track.scrollBy({left: -step(), behavior: 'smooth'});
-  track.addEventListener('scroll', () => {
-    const i = Math.round(track.scrollLeft / step()) + 1;
-    count.textContent = String(Math.min(i, cards.length)).padStart(2, '0') + ' / ' + String(cards.length).padStart(2, '0');
-  });
+  // entradas ao rolar (texto, cards e fotos com cortina)
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {rootMargin: '0px 0px -12% 0px'});
+  document.querySelectorAll('[data-reveal]').forEach(el => calmo ? el.classList.add('in') : io.observe(el));
 
-  // carrossel do portfólio (só no mobile; no desktop os pontos ficam ocultos)
-  const portGrid = document.querySelector('.grid-port');
-  const ports = [...portGrid.children];
-  const dots = ports.map((p, i) => {
-    const b = document.createElement('button');
-    b.setAttribute('aria-label', 'Ver projeto ' + (i + 1));
-    b.onclick = () => portGrid.scrollTo({left: p.offsetLeft - ports[0].offsetLeft, behavior: 'smooth'});
-    document.getElementById('port-dots').appendChild(b);
-    return b;
-  });
-  const marcaPonto = () => {
-    const passo = ports[1].offsetLeft - ports[0].offsetLeft;
-    const atual = Math.min(Math.round(portGrid.scrollLeft / passo), ports.length - 1);
-    dots.forEach((d, i) => d.classList.toggle('on', i === atual));
+  // frase do "Sobre" acende palavra por palavra
+  const frase = document.querySelector('.js-frase');
+  frase.innerHTML = frase.textContent.trim().split(/\s+/).map(p => '<span class="pal">' + p + '</span>').join(' ');
+  const palavras = [...frase.querySelectorAll('.pal')];
+  const etapas = [...document.querySelectorAll('.js-etapas li')];
+  const preenche = document.querySelector('.js-preenche');
+  const barra = document.querySelector('.progresso');
+  const paineis = [...document.querySelectorAll('.hero-paineis figure')];
+
+  // quanto do elemento já passou pela tela (0 a 1)
+  const avanco = (el, ini = .85, fim = .35) => {
+    const r = el.getBoundingClientRect(), h = innerHeight;
+    return Math.min(1, Math.max(0, (h * ini - r.top) / (h * (ini - fim) + r.height)));
   };
-  portGrid.addEventListener('scroll', marcaPonto);
-  marcaPonto();
 
-  // acordeão
-  document.querySelectorAll('#acc .acc-item button').forEach(btn => {
-    btn.onclick = () => {
-      const item = btn.parentElement;
-      const wasOpen = item.classList.contains('open');
-      document.querySelectorAll('#acc .acc-item').forEach(i => i.classList.remove('open'));
-      if (!wasOpen) item.classList.add('open');
-    };
-  });
-
-  // fecha o menu mobile ao clicar num link
-  document.querySelectorAll('nav a').forEach(a => a.onclick = () => document.getElementById('topo').classList.remove('open'));
+  const aoRolar = () => {
+    const doc = document.documentElement;
+    barra.style.transform = 'scaleX(' + (scrollY / (doc.scrollHeight - innerHeight) || 0) + ')';
+    if (calmo) return;
+    paineis.forEach(f => f.style.setProperty('--py', (scrollY * parseFloat(f.dataset.par) * -1) + 'px'));
+    const n = Math.round(avanco(frase) * palavras.length);
+    palavras.forEach((p, i) => p.classList.toggle('on', i < n));
+    const k = Math.floor(avanco(etapas[0].parentElement, .8, .4) * etapas.length);
+    etapas.forEach((li, i) => li.classList.toggle('on', i <= Math.min(k, etapas.length - 1)));
+    preenche.style.setProperty('--f', avanco(preenche, .9, .45).toFixed(3));
+  };
+  addEventListener('scroll', aoRolar, {passive: true});
+  addEventListener('resize', aoRolar);
+  aoRolar();
 </script>
 </body>
 </html>
