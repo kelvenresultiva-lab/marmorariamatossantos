@@ -268,7 +268,7 @@
   @media (min-width:861px){
     /* foto em toda a hero, ilha e banquetas à direita; degradê escuro só à esquerda */
     .hero{background:var(--grafite) url("img/hero-cozinha-ilha.webp") 0% 58%/cover no-repeat}
-    .hero::before{background:linear-gradient(90deg,rgba(31,30,27,.92) 0%,rgba(31,30,27,.78) 24%,rgba(31,30,27,.42) 44%,rgba(31,30,27,.08) 62%,rgba(31,30,27,0) 75%),linear-gradient(180deg,rgba(31,30,27,.28) 0,rgba(31,30,27,0) 18%,rgba(31,30,27,0) 78%,rgba(31,30,27,.45) 100%)}
+    .hero::before{background:linear-gradient(90deg,rgba(31,30,27,.74) 0%,rgba(31,30,27,.6) 22%,rgba(31,30,27,.3) 40%,rgba(31,30,27,.06) 54%,rgba(31,30,27,0) 62%),linear-gradient(180deg,rgba(31,30,27,.28) 0,rgba(31,30,27,0) 18%,rgba(31,30,27,0) 78%,rgba(31,30,27,.45) 100%)}
     .hero-grid{grid-template-columns:minmax(0,1fr);align-items:center;padding-top:0}
     .hero-copy{align-self:center;padding-top:0;max-width:min(640px,40vw)}
     .hero-eyebrow{display:block;margin-bottom:clamp(20px,2.2vw,30px);font-size:clamp(12px,.9vw,15px);font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.88);animation:sobe .9s ease both}
@@ -281,6 +281,8 @@
     .hero-link{display:inline-flex;gap:8px;color:#fff;font-size:clamp(15px,1.05vw,18px);padding-bottom:3px;border-bottom:1px solid transparent;transition:border-color .2s;animation:sobe .9s 1s ease both}
     .hero-link:hover{border-bottom-color:#fff}
     .hero-sign{display:none}
+    .hero-copy{text-shadow:0 2px 18px rgba(20,19,17,.55)}
+    .hero-copy .btn{text-shadow:none}
     .hero-paineis{display:none}
     /* cabeçalho no modelo: mais alto, linha fina embaixo, links maiores */
     .topo{padding:22px 0;background:rgba(31,30,27,.97);border-bottom:1px solid rgba(255,255,255,.14)}
