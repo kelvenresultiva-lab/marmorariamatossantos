@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
 <style>
   /* Paleta Matos Stone: grafite (fundos escuros), amarelo da marca (destaques e botões), branco e cinza claro */
   :root{
@@ -58,13 +59,13 @@
   .progresso{position:fixed;inset:0 0 auto 0;height:3px;z-index:90;background:var(--amarelo);transform-origin:0 50%;transform:scaleX(0);pointer-events:none}
 
   /* entradas ao rolar */
-  [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
-  [data-reveal].in{opacity:1;transform:none}
+  .js [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+  .js [data-reveal].in{opacity:1;transform:none}
   .clip{position:relative;overflow:hidden}
-  .clip::before{content:"";position:absolute;inset:-1px;z-index:2;background:var(--cobre,var(--branco));transform-origin:50% 100%;transition:transform 1.2s cubic-bezier(.7,0,.2,1);transition-delay:var(--d,0s);pointer-events:none}
-  .clip img{transform:scale(1.15);transition:transform 1.8s var(--ease);transition-delay:var(--d,0s)}
-  .clip.in::before{transform:scaleY(0)}
-  .clip.in img{transform:scale(1)}
+  .js .clip::before{content:"";position:absolute;inset:-1px;z-index:2;background:var(--cobre,var(--branco));transform-origin:50% 100%;transition:transform 1.2s cubic-bezier(.7,0,.2,1);transition-delay:var(--d,0s);pointer-events:none}
+  .js .clip img{transform:scale(1.15);transition:transform 1.8s var(--ease);transition-delay:var(--d,0s)}
+  .js .clip.in::before{transform:scaleY(0)}
+  .js .clip.in img{transform:scale(1)}
 
   /* MARCA */
   .marca{display:inline-flex;align-items:center;gap:12px;color:#fff;line-height:1.15}
@@ -76,8 +77,23 @@
   .hero{position:relative;min-height:100vh;min-height:100svh;background:var(--grafite);color:#f4f1ea;overflow:hidden;display:flex;flex-direction:column;padding-bottom:110px}
   .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 0 0,rgba(64,61,54,.85),transparent 60%),radial-gradient(60% 60% at 100% 100%,rgba(244,201,40,.12),transparent 70%);pointer-events:none}
   .hero>.wrap{position:relative;width:100%}
-  .hero-top{display:flex;align-items:center;justify-content:space-between;padding-top:30px}
-  .hero-top .btn{padding:11px 18px;font-size:11.5px}
+  /* MENU FIXO: transparente sobre a hero, fica grafite ao rolar. No celular vira menu de abrir. */
+  html{scroll-padding-top:76px}
+  .topo{position:fixed;inset:0 0 auto 0;z-index:80;padding:18px 0;color:#f4f1ea;transition:background .35s,box-shadow .35s,padding .35s}
+  .topo.solido,.topo.aberto{background:rgba(31,30,27,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 12px 30px -22px rgba(0,0,0,.7);padding:10px 0}
+  .topo-in{display:flex;align-items:center;gap:32px}
+  .nav{display:flex;gap:26px;margin-left:auto;font-size:14px}
+  .nav a{position:relative;padding:6px 0;color:#e9e6df;transition:color .2s}
+  .nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--amarelo);transform:scaleX(0);transform-origin:0 50%;transition:transform .3s var(--ease)}
+  .nav a:hover,.nav a.ativo{color:#fff}
+  .nav a:hover::after,.nav a.ativo::after{transform:scaleX(1)}
+  .topo .btn{padding:11px 18px;font-size:11.5px}
+  .menu-btn{display:none;width:44px;height:44px;margin-left:auto;background:none;border:0;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+  .menu-btn span{display:block;width:24px;height:2px;background:#f4f1ea;transition:transform .3s,opacity .3s}
+  .topo.aberto .menu-btn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .topo.aberto .menu-btn span:nth-child(2){opacity:0}
+  .topo.aberto .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .hero{padding-top:84px}
   .hero-grid{flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:56px;align-items:center;padding-top:40px}
   .hero-copy{align-self:start;padding-top:clamp(8px,3vh,36px)}
   .hero h1{font-size:clamp(32px,3.6vw,50px);animation:sobe 1s .1s var(--ease) both}
@@ -145,6 +161,8 @@
   .etapas li .tag-num{color:rgba(244,201,40,.4);padding-top:5px;transition:color .6s}
   .etapas li.on{color:#f4f1ea;border-top-color:rgba(244,201,40,.6)}
   .etapas li.on .tag-num{color:var(--amarelo)}
+  html:not(.js) .etapas li{color:#f4f1ea}
+  html:not(.js) .etapas li .tag-num{color:var(--amarelo)}
   .etapas strong{display:block;font-weight:500;font-size:17px}
   .etapas li span:last-child{font-size:15.5px;line-height:1.5}
   .sob .btn{margin-top:32px;align-self:flex-start}
@@ -163,9 +181,10 @@
   .servico{flex:1;background:#fff;border-radius:3px;overflow:hidden;display:flex;flex-direction:column;transition:transform .6s var(--ease),box-shadow .6s}
   .servico:hover{transform:translateY(-6px);box-shadow:0 30px 60px -36px rgba(20,19,16,.55)}
   .servico figure{aspect-ratio:16/10;overflow:hidden}
-  .servico img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 1.8s var(--ease)}
-  .in .servico img{transform:scale(1)}
-  .servico:hover img{transform:scale(1.05)}
+  .servico img{width:100%;height:100%;object-fit:cover;transition:transform 1.8s var(--ease)}
+  .js .servico img{transform:scale(1.12)}
+  .js .in .servico img{transform:scale(1)}
+  .servico:hover img,.js .in .servico:hover img{transform:scale(1.05)}
   .servico-body{padding:26px 26px 28px;display:grid;gap:10px;align-content:start;flex:1;border-top:3px solid var(--amarelo)}
   .servico h3{font-size:23px;font-weight:400;color:var(--grafite-2)}
   .servico p{color:var(--muted);font-size:15px}
@@ -215,17 +234,31 @@
   .link{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;color:var(--grafite-2);padding-bottom:4px;border-bottom:2px solid var(--amarelo)}
   .link::after{content:"↗"}
 
+  /* VISITE NOSSO ESPAÇO */
+  .visite{background:#fff;padding-block:96px}
+  .visite-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:64px;align-items:center}
+  .visite h2{font-size:clamp(30px,3.4vw,46px);color:var(--grafite-2);margin-top:16px}
+  .visite-lead{margin-top:16px;color:var(--muted);max-width:44ch}
+  .visite-end{display:flex;gap:14px;align-items:flex-start;margin-top:26px;padding-top:24px;border-top:1px solid var(--cinza-2);font-size:16px;color:var(--grafite-2)}
+  .visite-end svg{width:24px;height:24px;color:var(--amarelo);flex:none}
+  .visite-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .btn-linha{background:transparent;border-color:var(--grafite-2);color:var(--grafite-2)}
+  .btn-linha:hover{background:var(--grafite-2);border-color:var(--grafite-2);color:#fff}
+  .visite-mapa{height:460px;border-radius:3px;overflow:hidden;border:1px solid var(--cinza-2);background:var(--cinza)}
+  .visite-mapa iframe{width:100%;height:100%;border:0;filter:grayscale(1) contrast(.95) brightness(1.03)}
+
   /* CHAMADA FINAL */
   .final{position:relative;background:var(--grafite);color:var(--claro);padding-block:120px;text-align:center;overflow:hidden}
   .final::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 50% 120%,rgba(244,201,40,.2),transparent 70%);pointer-events:none}
   .final .wrap{position:relative}
   .final h2{font-size:clamp(36px,6vw,82px);max-width:15ch;margin:22px auto 0;background:linear-gradient(90deg,var(--amarelo) 0,var(--amarelo) calc(var(--f,0)*100%),rgba(244,241,234,.25) calc(var(--f,0)*100%),rgba(244,241,234,.25) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  html:not(.js) .final h2{background:none;color:var(--amarelo)}
   .final p{margin:22px auto 0;max-width:44ch;color:#cdc9bf;font-weight:300;font-size:18px}
   .final .btn{margin-top:40px;padding:18px 36px;font-size:14px}
 
   /* RODAPÉ */
   .rodape{background:var(--grafite);color:#cdc9bf;padding-block:64px 28px;border-top:1px solid rgba(244,201,40,.25)}
-  .rodape-grid{display:grid;grid-template-columns:1fr 1.3fr .7fr 1.1fr;gap:44px;align-items:start}
+  .rodape-grid{display:grid;grid-template-columns:1.2fr 1.3fr 1fr;gap:44px;align-items:start}
   .rodape-tag{margin-top:22px;font-weight:300;font-size:19px;line-height:1.45;color:var(--amarelo-claro);max-width:24ch}
   .rodape h3{margin-bottom:16px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--amarelo);font-weight:700}
   .rodape ul{display:grid;gap:12px}
@@ -235,8 +268,6 @@
   .rodape li.mapas{flex-wrap:wrap;gap:10px;padding-left:30px}
   .mapa-btn{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid rgba(244,201,40,.55);border-radius:2px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--claro)}
   .rodape .mapa-btn:hover{background:var(--amarelo);color:var(--grafite)}
-  .rodape-mapa{height:200px;border-radius:3px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
-  .rodape-mapa iframe{width:100%;height:100%;border:0;filter:grayscale(1) invert(.9) contrast(.85)}
   .rodape-bottom{margin-top:44px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:#8f8b82}
 
   /* WHATSAPP FLUTUANTE */
@@ -253,8 +284,15 @@
   }
   @media (max-width:860px){
     .hero{padding-bottom:100px}
-    .hero-top{justify-content:center;padding-top:26px}
-    .hero-top .btn{display:none}
+    .topo{padding:12px 0}
+    .topo .btn{display:none}
+    .menu-btn{display:flex}
+    .nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;margin:0;padding:6px var(--gutter) 22px;background:rgba(31,30,27,.98);font-size:17px}
+    .topo.aberto .nav{display:flex}
+    .nav a{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav a::after{display:none}
+    .nav a.ativo{color:var(--amarelo)}
+    .hero{padding-top:72px}
     .m-br{display:inline}
     .d-br{display:none}
     .hero-grid{grid-template-columns:minmax(0,1fr);gap:32px;padding-top:26px;align-items:start}
@@ -291,6 +329,10 @@
     .pedra-media .clip{aspect-ratio:16/11}
     .outras{margin-top:72px;grid-template-columns:1fr;gap:20px;padding:26px 22px}
     .sobre-grid{margin-top:44px}
+    .visite{padding-block:64px}
+    .visite-grid{grid-template-columns:minmax(0,1fr);gap:32px}
+    .visite-mapa{height:320px}
+    .visite-btns{flex-direction:column}
     .final{padding-block:90px}
     .final p{font-size:16px}
     .rodape-grid{grid-template-columns:minmax(0,1fr);gap:36px}
@@ -311,15 +353,27 @@
 <body>
 <div class="progresso" aria-hidden="true"></div>
 
-<main id="topo">
-<section class="hero">
-  <div class="wrap hero-top">
+<header class="topo" id="menu">
+  <div class="wrap topo-in">
     <a class="marca" href="#topo" aria-label="Marmoraria Matos Stone, página inicial">
       <img src="img/logo-simbolo.svg" alt="">
       <span><strong>Matos Stone</strong><small>Mármores e Granitos</small></span>
     </a>
+    <nav class="nav" id="nav" aria-label="Menu principal">
+      <a href="#projetos">Projetos</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#materiais">Materiais</a>
+      <a href="#processo">Como trabalhamos</a>
+      <a href="#visite">Onde estamos</a>
+      <a href="#contato">Contato</a>
+    </nav>
     <a class="btn" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Solicitar orçamento</a>
+    <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
   </div>
+</header>
+
+<main id="topo">
+<section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <h1>Transformamos <em>pedras</em><br class="m-br"> em projetos<br> que impressionam.</h1>
@@ -330,7 +384,7 @@
     <div class="hero-paineis" aria-hidden="true">
       <figure data-par="0.05"><div><img src="img/hero-mobile-bancada.webp" alt="" fetchpriority="high"></div></figure>
       <figure data-par="-0.06"><div><img src="img/bancada-quartzito-vaticano-m.webp" alt="" fetchpriority="high" style="object-position:center 30%"></div></figure>
-      <figure data-par="0.04"><div><img src="img/cozinha-taj-mahal-pia-m.webp" alt="" fetchpriority="high"></div></figure>
+      <figure data-par="0.04"><div><img src="img/cozinha-taj-mahal-ilha-m.webp" alt="" fetchpriority="high"></div></figure>
     </div>
   </div>
 </section>
@@ -366,10 +420,10 @@
       <figure class="clip" data-reveal style="--d:.1s"><img src="img/cozinha-taj-mahal-bancada-m.webp" loading="lazy" alt="Bancada em quartzito Taj Mahal com banquetas de madeira"><figcaption>Bancada em Taj Mahal <span class="tag-num">Área gourmet</span></figcaption></figure>
       <figure class="clip" data-reveal style="--d:.2s"><img src="img/lavabo-travertino-romano-m.webp" loading="lazy" alt="Lavabo com bancada em Travertino Romano"><figcaption>Travertino Romano <span class="tag-num">Lavabo</span></figcaption></figure>
       <figure class="clip" data-reveal style="--d:.1s"><img src="img/bancada-preto-sao-gabriel-m.webp" loading="lazy" alt="Bancada com cuba em granito Preto São Gabriel"><figcaption>Preto São Gabriel <span class="tag-num">Cozinha</span></figcaption></figure>
-      <figure class="clip" data-reveal style="--d:.2s"><img src="img/cozinha-frontao-mobile.webp" loading="lazy" alt="Cozinha com bancada e frontão em pedra natural"><figcaption>Bancada e frontão <span class="tag-num">Cozinha</span></figcaption></figure>
+      <figure class="clip" data-reveal style="--d:.2s"><img src="img/cozinha-taj-mahal-pia-m.webp" loading="lazy" alt="Bancada com cuba e frontão em quartzito Taj Mahal"><figcaption>Bancada com cuba em Taj Mahal <span class="tag-num">Cozinha</span></figcaption></figure>
     </div>
     <div class="cta-row">
-      <a class="btn btn--pulso" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Vi%20os%20projetos%20no%20site%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Converse com um especialista</a>
+      <a class="btn" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Vi%20os%20projetos%20no%20site%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">Converse com um especialista</a>
     </div>
   </div>
 </section>
@@ -392,7 +446,7 @@
       <li><span class="tag-num">03</span><span><strong>Cubas e soluções sob medida</strong>A cuba esculpida é feita na própria pedra: esconde o ralo e elimina emendas.</span></li>
       <li><span class="tag-num">04</span><span><strong>Cuidados e manutenção</strong>Orientamos a forma certa de limpar e proteger a sua pedra para ela durar muitos anos.</span></li>
     </ul>
-    <a class="btn btn--pulso" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20ajuda%20para%20escolher%20o%20material%20ideal." target="_blank" rel="noopener">Encontre o material ideal</a>
+    <a class="btn" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20ajuda%20para%20escolher%20o%20material%20ideal." target="_blank" rel="noopener">Encontre o material ideal</a>
   </div>
   <div class="sob-media clip" data-reveal><img src="img/hero-mobile.webp" loading="lazy" alt="Ilha em quartzito com torneira dourada"></div>
 </section>
@@ -407,10 +461,10 @@
     <div class="servicos-grid">
       <div data-reveal><article class="servico"><figure><img src="img/hero-cozinha-ilha.webp" loading="lazy" alt="Cozinha com ilha em cascata em quartzito claro"></figure><div class="servico-body"><h3>Cozinhas e ilhas</h3><p>Bancadas, ilhas em cascata e frontões que unem beleza e resistência no dia a dia.</p><ul class="tags"><li>Bancadas</li><li>Ilhas</li><li>Frontões</li><li>Nichos</li></ul></div></article></div>
       <div data-reveal style="--d:.1s"><article class="servico"><figure><img src="img/hero-ilha-esculpida-m.webp" loading="lazy" alt="Cuba esculpida na pedra com torneira dourada" style="object-position:40% center"></figure><div class="servico-body"><h3>Banheiros e lavabos</h3><p>Cubas esculpidas na própria pedra e bancadas que deixam o ambiente leve e minimalista.</p><ul class="tags"><li>Cubas esculpidas</li><li>Bancadas</li><li>Revestimentos</li></ul></div></article></div>
-      <div data-reveal style="--d:.2s"><article class="servico"><figure><img src="img/cozinha-taj-mahal-ilha-m.webp" loading="lazy" alt="Ilha revestida em Taj Mahal em área gourmet"></figure><div class="servico-body"><h3>Áreas gourmet</h3><p>Ilhas, bares e bancadas para receber, com pedras que suportam calor e uso intenso.</p><ul class="tags"><li>Ilhas</li><li>Bancadas</li><li>Bares</li><li>Mesas</li></ul></div></article></div>
+      <div data-reveal style="--d:.2s"><article class="servico"><figure><img src="img/cozinha-frontao-mobile.webp" loading="lazy" alt="Bancada e frontão em pedra natural"></figure><div class="servico-body"><h3>Bancadas e áreas gourmet</h3><p>Bancadas, frontões e ilhas para receber, com pedras que suportam calor e uso intenso.</p><ul class="tags"><li>Bancadas</li><li>Frontões</li><li>Bares</li><li>Mesas</li></ul></div></article></div>
     </div>
     <div class="cta-row">
-      <a class="btn btn--pulso" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20falar%20com%20um%20especialista." target="_blank" rel="noopener">Fale com um especialista</a>
+      <a class="btn" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20falar%20com%20um%20especialista." target="_blank" rel="noopener">Fale com um especialista</a>
     </div>
   </div>
 </section>
@@ -466,7 +520,7 @@
       <ul class="chips"><li>Quartzo Cinza</li><li>Mármores</li><li>Porcelanatos</li><li>Lâminas</li></ul>
     </div>
     <div class="cta-row">
-      <a class="btn btn--pulso" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20os%20materiais." target="_blank" rel="noopener">Solicitar orçamento</a>
+      <a class="btn" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20os%20materiais." target="_blank" rel="noopener">Solicitar orçamento</a>
     </div>
   </div>
 </section>
@@ -487,7 +541,7 @@
       <article class="proc" data-reveal style="--d:.2s"><span class="num">06</span><h3>Instalação e conferência</h3><p>Instalamos as peças e fazemos a conferência final com você, ambiente por ambiente.</p></article>
     </div>
     <div class="cta-row">
-      <a class="btn btn--pulso" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20come%C3%A7ar%20meu%20projeto." target="_blank" rel="noopener">Começar meu projeto</a>
+      <a class="btn" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Quero%20come%C3%A7ar%20meu%20projeto." target="_blank" rel="noopener">Começar meu projeto</a>
     </div>
   </div>
 </section>
@@ -497,7 +551,7 @@
     <span class="eyebrow">A Matos Stone</span>
     <p class="frase js-frase">Cada projeto é único. Por isso, nosso trabalho começa entendendo o que você, seu arquiteto ou sua construtora precisam.</p>
     <div class="sobre-grid">
-      <div class="sobre-img clip" data-reveal><img src="img/cozinha-taj-mahal-ilha-m.webp" loading="lazy" alt="Ilha em quartzito Taj Mahal com acabamento em meia-esquadria" style="object-position:30% center"></div>
+      <div class="sobre-img clip" data-reveal><img src="img/material-quartzito-vaticano.webp" loading="lazy" alt="Textura do Quartzito Vaticano"></div>
       <div data-reveal>
         <h2>Conheça a Matos Stone Mármores e Granitos</h2>
         <div class="sobre-copy">
@@ -506,11 +560,27 @@
           <p>Para <b>arquitetos e construtoras</b>, fazemos a compatibilização técnica: medição, detalhamento e instalação pensados para o projeto chegar bem à obra.</p>
         </div>
         <div class="sobre-btns">
-          <a class="btn btn--pulso" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida." target="_blank" rel="noopener">Tire suas dúvidas</a>
+          <a class="btn" href="https://wa.me/5531972661393?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida." target="_blank" rel="noopener">Tire suas dúvidas</a>
           <a class="link" href="https://wa.me/5531975373851?text=Ol%C3%A1!%20Sou%20arquiteto%2Fconstrutora%20e%20quero%20ser%20parceiro." target="_blank" rel="noopener">Quero ser parceiro</a>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="visite" id="visite">
+  <div class="wrap visite-grid">
+    <div data-reveal>
+      <span class="eyebrow">Conheça nosso espaço</span>
+      <h2>Seu projeto começa com uma boa escolha</h2>
+      <p class="visite-lead">Visite a Matos Stone em Contagem e conheça de perto as pedras e os acabamentos para o seu projeto.</p>
+      <p class="visite-end"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 1 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg><span>Av. Nossa Senhora da Conceição, 486<br>Tijuca · Contagem/MG</span></p>
+      <div class="visite-btns">
+        <a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Av.+Nossa+Senhora+da+Concei%C3%A7%C3%A3o,+486,+Tijuca,+Contagem+MG" target="_blank" rel="noopener">Como chegar</a>
+        <a class="btn btn-linha" href="https://waze.com/ul?q=Av.%20Nossa%20Senhora%20da%20Concei%C3%A7%C3%A3o%2C%20486%2C%20Contagem&amp;navigate=yes" target="_blank" rel="noopener">Abrir no Waze</a>
+      </div>
+    </div>
+    <div class="visite-mapa" data-reveal style="--d:.1s"><iframe src="https://www.google.com/maps?q=Av.+Nossa+Senhora+da+Concei%C3%A7%C3%A3o,+486,+Tijuca,+Contagem+-+MG&amp;z=16&amp;output=embed" title="Mapa: Matos Stone em Contagem" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
   </div>
 </section>
 
@@ -550,7 +620,6 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.6 8.6 0 1 1 8 19.4z"/></svg><a href="https://wa.me/5531972661393" target="_blank" rel="noopener">WhatsApp</a></li>
         </ul>
       </div>
-      <div class="rodape-mapa"><iframe src="https://www.google.com/maps?q=Av.+Nossa+Senhora+da+Concei%C3%A7%C3%A3o,+486,+Tijuca,+Contagem+-+MG&amp;z=15&amp;output=embed" title="Mapa: Matos Stone em Contagem" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
     </div>
     <div class="rodape-bottom">
       <span>© 2026 Marmoraria Matos Stone | Matrix Mármores &amp; Granitos</span>
@@ -595,6 +664,29 @@
     preenche.style.setProperty('--f', avanco(preenche, .9, .45).toFixed(3));
   };
   addEventListener('scroll', aoRolar, {passive: true});
+
+  // menu: fica sólido ao rolar, abre e fecha no celular, marca a seção atual
+  const topo = document.querySelector('.topo');
+  const menuBtn = topo.querySelector('.menu-btn');
+  const links = [...topo.querySelectorAll('.nav a')];
+  const solido = () => {
+    topo.classList.toggle('solido', scrollY > 40);
+    if (scrollY < innerHeight * .5) links.forEach(l => l.classList.remove('ativo'));
+  };
+  addEventListener('scroll', solido, {passive: true});
+  solido();
+  const fecha = () => { topo.classList.remove('aberto'); menuBtn.setAttribute('aria-expanded', 'false'); menuBtn.setAttribute('aria-label', 'Abrir menu'); };
+  menuBtn.onclick = () => {
+    const abrir = !topo.classList.contains('aberto');
+    topo.classList.toggle('aberto', abrir);
+    menuBtn.setAttribute('aria-expanded', String(abrir));
+    menuBtn.setAttribute('aria-label', abrir ? 'Fechar menu' : 'Abrir menu');
+  };
+  links.forEach(a => a.addEventListener('click', fecha));
+  const ioMenu = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) links.forEach(a => a.classList.toggle('ativo', a.getAttribute('href') === '#' + e.target.id));
+  }), {rootMargin: '-45% 0px -50% 0px'});
+  links.forEach(a => { const alvo = document.querySelector(a.getAttribute('href')); if (alvo) ioMenu.observe(alvo); });
   addEventListener('resize', aoRolar);
   aoRolar();
 </script>
